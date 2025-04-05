@@ -19,6 +19,11 @@ package shared_pkg;
         RD_DATA = 2'b11
       } control_e;
 
+      typedef enum bit {
+        SLAVE_SELECTED,
+        SLAVE_NOT_SELECTED
+      } SS_n_e;
+
       typedef enum logic {
         NOT_VALID,
         VALID

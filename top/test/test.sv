@@ -52,8 +52,8 @@ package SPI_test_pkg;
             // Set the slave as an active agent (drives transactions)
             spi_slave_cnfg.is_active =UVM_ACTIVE;
             // Set the ram as a passive agent (only monitors transactions)
-            // spi_ram_cnfg.is_active =UVM_PASSIVE;
-            spi_ram_cnfg.is_active =UVM_ACTIVE;
+            spi_ram_cnfg.is_active =UVM_PASSIVE;
+            // spi_ram_cnfg.is_active =UVM_ACTIVE;
 
             // Store the SPI slave and ram configuration objects in the UVM configuration database
             uvm_config_db # (SPI_config)::set(this , "*" , "CFG",spi_slave_cnfg);
@@ -67,12 +67,14 @@ package SPI_test_pkg;
             // Reset sequence
             `uvm_info("run_phase","stimulus Generation started",UVM_LOW)
             spi_slave_reset_seq.start(spi_env.spi_slave_agent.spi_slave_seqr);
-            spi_ram_reset_seq.start(spi_env.spi_ram_agent.spi_ram_seqr);
+            if(spi_ram_cnfg.is_active==UVM_ACTIVE)
+                spi_ram_reset_seq.start(spi_env.spi_ram_agent.spi_ram_seqr);
             `uvm_info("run_phase","Reset Deasserted",UVM_LOW)
             // Main Sequence
             `uvm_info("run_phase", "Stimulus Generation Started",UVM_LOW)
-            spi_ram_main_seq.start(spi_env.spi_ram_agent.spi_ram_seqr);
-            // spi_slave_main_seq.start(spi_env.spi_slave_agent.spi_slave_seqr);
+            if(spi_ram_cnfg.is_active==UVM_ACTIVE)
+                spi_ram_main_seq.start(spi_env.spi_ram_agent.spi_ram_seqr);
+            spi_slave_main_seq.start(spi_env.spi_slave_agent.spi_slave_seqr);
             `uvm_info("run_phase", "Stimulus Generation Ended",UVM_LOW) 
 
             phase.drop_objection(this); // Drop the objection to allow the test to complete

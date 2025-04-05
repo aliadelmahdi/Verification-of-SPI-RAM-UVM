@@ -42,8 +42,6 @@ module RAM_Sync_Single_port(din,rx_valid,clk,rst_n,tx_valid,dout);
       end else begin
          tx_valid<=0; // Fixed this line for the designer #verfication team
       end
-      
     end 
-    
   end
 endmodule

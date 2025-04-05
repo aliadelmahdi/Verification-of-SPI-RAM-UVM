@@ -25,7 +25,7 @@ module SPI_slave(clk,rst_n,SS_n,MOSI,MISO,tx_valid,tx_data,rx_data,rx_valid);
 
   //State Memory
   always@(posedge clk)begin
-    if(rst_n==0)begin
+    if(!rst_n)begin
       cs<=IDLE;
     end
     else

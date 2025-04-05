@@ -19,6 +19,7 @@ module SPI_slave_sva(cs,MOSI,SS_n,clk,rst_n,tx_data,tx_valid,MISO,rx_data,rx_val
 	input logic MISO,rx_valid;
 	input logic [MEM_WIDTH+1:0] rx_data;
     input logic [2:0] cs;
+    
     //** 1: Reset Verification **\\
 
     // 1.2: Reset Current State
@@ -99,57 +100,125 @@ module SPI_slave_sva(cs,MOSI,SS_n,clk,rst_n,tx_data,tx_valid,MISO,rx_data,rx_val
     // // 3.3.1: Transition from READ_ADD to READ_ADD
     // property check_read_add_to_read_add;
     //     @(posedge clk) disable iff(!rst_n)
-    //             (cs==READ_ADD && SS_n==SLAVE_SELECTED) |=> (cs == IDLE);
+    //             (cs==READ_ADD && SS_n==SLAVE_SELECTED) |=> (cs == READ_ADD);
     // endproperty
 
     // assert_read_add_to_read_add: assert property (check_read_add_to_read_add)
     //     else $error("Failed to stay at READ_ADD state when ");
 
-         
-    
-  
+     // 3.4: Transition from READ_DATA to IDLE
+    property check_read_add_to_read_add;
+        @(posedge clk) disable iff(!rst_n)
+                (cs==READ_DATA && SS_n==SLAVE_NOT_SELECTED) |=> (cs == IDLE);
+    endproperty
 
-
-
-
-    // property idle_to_CHK_CMD;
-    // @(posedge clk) disable iff(!rst_n)
-    //         (cs==IDLE && SS_n==0) |=> (cs == CHK_CMD); 
+    assert_read_add_to_read_add: assert property (check_read_add_to_read_add)
+        else $error("Failed to move to IDLE state from READ_DATA state when the slave is not selected");
+       
+    //   // 3.4.1: Transition from READ_DATA to READ_DATA
+    // property check_read_add_to_read_add;
+    //     @(posedge clk) disable iff(!rst_n)
+    //             (cs==READ_DATA && SS_n==SLAVE_SELECTED) |=> (cs == READ_DATA);
     // endproperty
 
-    // assert_idle_to_CHK_CMD: assert property ( idle_to_CHK_CMD)
+    // assert_read_add_to_read_add: assert property (check_read_add_to_read_add)
+    //     else $error("Failed to stay at READ_ADD state when ");
 
-    //     else $error("Failed to assert idle_to_CHK_CMD transition");
+    // 3.5: Transition from WRITE to IDLE
+    property check_write_to_idle;
+        @(posedge clk) disable iff(!rst_n)
+                (cs==WRITE && SS_n==SLAVE_NOT_SELECTED) |=> (cs == IDLE);
+    endproperty
 
-    // property CHK_CMD_to_idle;
-    // @(posedge clk) disable iff(!rst_n)
-    //         (cs==CHK_CMD && SS_n==1) |=> (cs == IDLE); 
-    // endproperty
+    assert_write_to_idle: assert property (check_write_to_idle)
+        else $error("Failed to move to WRITE state from IDLE state when the slave is not selected");
 
-    // assert_CHK_CMD_to_idle: assert property ( CHK_CMD_to_idle)
+    //    // 3.5.1: Transition from WRITE to WRITE
+    //     property check_write_to_write;
+    //         @(posedge clk) disable iff(!rst_n)
+    //                 (cs==WRITE && SS_n==SLAVE_NOT_SELECTED) |=> (cs == WRITE);
+    //     endproperty
 
-    //     else $error("Failed to assert CHK_CMD_to_idle transition");
+    //     assert_write_to_write: assert property (check_write_to_write)
+    //         else $error("Failed to stay at WRITE state when ");
 
-    // property CHK_CMD_to_write;
-    // @(posedge clk) disable iff(!rst_n)
-    //         (cs==CHK_CMD && (!SS_n && !MOSI) )|=> (cs == WRITE); 
-    // endproperty
+    //** 4: Signals at the FSM states **\\
 
-    // assert_CHK_CMD_to_write: assert property ( CHK_CMD_to_write)
+        //aserted => slave not selected
 
-    //     else $error("Failed to assert CHK_CMD_to_write transition");      
-    
-    // property CHK_CMD_to_read_data;
-    // @(posedge clk) disable iff(!rst_n)
-    //         (cs==CHK_CMD && (!SS_n && MOSI) )|=> (cs == READ_DATA); 
-    // endproperty
+        // // 4.1: Signals at IDLE state
+        // property check_idle;
+        //     @(posedge clk) disable iff(!rst_n)
+        //             (cs==IDLE) |=> (MISO );
+        // endproperty
 
-    // assert_CHK_CMD_to_read_data: assert property (@(posedge clk) CHK_CMD_to_read_data)
+        // assert_idle: assert property (check_idle)
+        //     else $error("Mismatch in signals at IDLE state");
 
-    //     else $error("Failed to assert CHK_CMD_to_read_data transition"); 
+        // // 4.2: Signals at CHK_CMD state
+        // property check_chk_cmd;
+        //     @(posedge clk) disable iff(!rst_n)
+        //             (cs==CHK_CMD) |=> (MISO );
+        // endproperty
 
-    // property CHK_CMD_to_read_add;
-    // @(posedge clk) disable iff(!rst_n)
-    //         (cs==CHK_CMD && (!SS_n && MOSI) )|=> (cs == READ_DATA); 
-    // endproperty
+        // assert_chk_cmd: assert property (check_chk_cmd)
+        //     else $error("Mismatch in signals at CHK_CMD state");
+
+        // // 4.3: Signals at WRITE state
+        // property check_write;
+        //     @(posedge clk) disable iff(!rst_n)
+        //             (cs==WRITE) |=> (MISO );
+        // endproperty
+
+        // assert_write: assert property (check_write)
+        //     else $error("Mismatch in signals at WRITE state");
+
+        // // 4.4: Signals at READ_DATA state
+        // property check_read_data;
+        //     @(posedge clk) disable iff(!rst_n)
+        //             (cs==READ_DATA) |=> (MISO );
+        // endproperty
+
+        // assert_read_data: assert property (check_read_data)
+        //     else $error("Mismatch in signals at READ_DATA state");
+
+        // // 4.5: Signals at READ_ADD state
+        // property check_read_add;
+        //     @(posedge clk) disable iff(!rst_n)
+        //             (cs==READ_ADD) |=> (MISO );
+        // endproperty
+
+        // assert_read_add: assert property (check_read_add)
+        //     else $error("Mismatch in signals at READ_ADD state");
+
+        // //** 5: SPI Slave **\\
+
+        // //aserted => slave not selected
+
+        // // 5.1: Serial to Parallel
+        // property check_serial_to_parallel;
+        //     @(posedge clk) disable iff(!rst_n)
+        //             (cs==READ_ADD) |=> (MISO );
+        // endproperty
+
+        // assert_serial_to_parallel: assert property (check_serial_to_parallel)
+        //     else $error("");
+
+        // // 5.2: Data is ready
+        // property check_rx_valid;
+        //     @(posedge clk) disable iff(!rst_n)
+        //             (cs==READ_ADD) |=> (MISO );
+        // endproperty
+
+        // assert_rx_valid: assert property (check_rx_valid)
+        //     else $error("");
+
+        // // 5.3: Parallel to Serial
+        // property check_miso;
+        //     @(posedge clk) disable iff(!rst_n)
+        //             (cs==READ_ADD) |=> (MISO );
+        // endproperty
+
+        // assert_miso: assert property (check_miso)
+        //     else $error("");
 endmodule

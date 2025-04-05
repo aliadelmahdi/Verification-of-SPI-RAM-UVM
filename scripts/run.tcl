@@ -1,5 +1,5 @@
 # Compile the C++ DPI-C file (Golden Model) into a shared library
-exec g++ -shared -fPIC -o "design/SPI_design/Golden Models/dpi_memory.dll" "design/SPI_design/Golden Models/dpi_memory.cpp"
+# exec g++ -shared -fPIC -o "design/SPI_design/Golden Models/dpi_memory.dll" "design/SPI_design/Golden Models/dpi_memory.cpp"
 vlib work
 vlog +incdir+./interface -f "scripts/list.list" -mfcu +cover -covercells
 # Enable the transcript (even in the compile version of questa sim)

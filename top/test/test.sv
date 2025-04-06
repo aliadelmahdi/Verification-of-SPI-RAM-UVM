@@ -19,7 +19,7 @@ package SPI_test_pkg;
         SPI_config spi_slave_cnfg; // Slave configuration
         SPI_config spi_ram_cnfg; // Ram configuration
         virtual SPI_if spi_if; // Virtual interface handle
-        SPI_slave_main_sequence spi_slave_main_seq; // Slave main test sequence
+        SPI_slave_write_addr_sequence spi_slave_write_addr_seq; // Slave Write address sequence
         SPI_ram_main_sequence spi_ram_main_seq; // Ram main test sequence
         SPI_slave_reset_sequence spi_slave_reset_seq; // Slave reset test sequence
         SPI_ram_reset_sequence spi_ram_reset_seq; // Ram reset test sequence
@@ -37,7 +37,7 @@ package SPI_test_pkg;
             spi_env = SPI_env::type_id::create("env",this);
             spi_slave_cnfg = SPI_config::type_id::create("SPI_slave_config",this);
             spi_ram_cnfg = SPI_config::type_id::create("SPI_ram_config",this);
-            spi_slave_main_seq = SPI_slave_main_sequence::type_id::create("slave_main_seq",this);
+            spi_slave_write_addr_seq = SPI_slave_write_addr_sequence::type_id::create("slave_write_addr_seq",this);
             spi_ram_main_seq = SPI_ram_main_sequence::type_id::create("ram_main_seq",this);
             spi_slave_reset_seq = SPI_slave_reset_sequence::type_id::create("reset_seq",this);
             spi_ram_reset_seq = SPI_ram_reset_sequence::type_id::create("reset_seq",this);
@@ -64,17 +64,17 @@ package SPI_test_pkg;
         task run_phase(uvm_phase phase);
             super.run_phase(phase); // Call parent class's run phase
             phase.raise_objection(this); // Raise an objection to prevent the test from ending
-            // Reset sequence
+            // Reset sequences
             `uvm_info("run_phase","stimulus Generation started",UVM_LOW)
             spi_slave_reset_seq.start(spi_env.spi_slave_agent.spi_slave_seqr);
             if(spi_ram_cnfg.is_active==UVM_ACTIVE)
                 spi_ram_reset_seq.start(spi_env.spi_ram_agent.spi_ram_seqr);
             `uvm_info("run_phase","Reset Deasserted",UVM_LOW)
-            // Main Sequence
+            // Main Sequences
             `uvm_info("run_phase", "Stimulus Generation Started",UVM_LOW)
             if(spi_ram_cnfg.is_active==UVM_ACTIVE)
                 spi_ram_main_seq.start(spi_env.spi_ram_agent.spi_ram_seqr);
-            spi_slave_main_seq.start(spi_env.spi_slave_agent.spi_slave_seqr);
+            spi_slave_write_addr_seq.start(spi_env.spi_slave_agent.spi_slave_seqr);
             `uvm_info("run_phase", "Stimulus Generation Ended",UVM_LOW) 
 
             phase.drop_objection(this); // Drop the objection to allow the test to complete

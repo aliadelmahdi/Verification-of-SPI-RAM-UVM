@@ -51,9 +51,9 @@ module SPI_slave(clk,rst_n,SS_n,MOSI,MISO,tx_valid,tx_data,rx_data,rx_valid);
               counter<=counter+1;
               MISO<=0;
               if(counter==10)begin
-              rx_valid<=1;
-              counter<=0;
-              read_address_received<=1;
+                rx_valid<=1;
+                counter<=0;
+                read_address_received<=1;
               end
               end
       READ_DATA:if(done_receiving==0)begin
@@ -97,16 +97,16 @@ module SPI_slave(clk,rst_n,SS_n,MOSI,MISO,tx_valid,tx_data,rx_data,rx_valid);
           else// Fixed this line for the designer #verfication team
           ns=IDLE;// Fixed this line for the designer #verfication team
 
-      CHK_CMD:if((SS_n==0 && MOSI==1)&&(read_address_received==0))begin
-              ns=READ_ADD;
-              //read_address_received=1;
-              end
-              else if((SS_n==0 && MOSI==1)&&(read_address_received==1))begin
-              ns=READ_DATA;
-              //read_address_received=0;
-              end
-              else if(SS_n==0 && MOSI==0)
-              ns=WRITE;
+      CHK_CMD: if(SS_n==0 && MOSI==0)
+                  ns=WRITE;
+              // else if((SS_n==0 && MOSI==1)&&(read_address_received==0))begin
+              //     ns=READ_ADD;
+              // //read_address_received=1;
+              // end
+              // else if((SS_n==0 && MOSI==1)&&(read_address_received==1))begin
+              //       ns=READ_DATA;
+              // //read_address_received=0;
+              //       end
               else 
               ns=IDLE;
       READ_ADD:if(SS_n==0 && counter<10)

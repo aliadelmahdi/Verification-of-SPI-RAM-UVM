@@ -1,15 +1,15 @@
 [*]
 [*] GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
-[*] Fri Apr 04 20:36:42 2025
+[*] Sun Apr 06 11:02:22 2025
 [*]
 [dumpfile] "e:\Shared Folders\Uni\courses\Digital circuit\digital github codes\Done\spi\Verification-of-SPI-Slave-with-Single-Port-RAM\waves\waves.vcd"
-[dumpfile_mtime] "Fri Apr 04 20:35:22 2025"
-[dumpfile_size] 160172
+[dumpfile_mtime] "Sun Apr 06 11:01:05 2025"
+[dumpfile_size] 343356
 [savefile] "e:\Shared Folders\Uni\courses\Digital circuit\digital github codes\Done\spi\Verification-of-SPI-Slave-with-Single-Port-RAM\waves\GTK_settings.gtkw"
 [timestart] 0
 [size] 1920 1009
 [pos] -1 -1
-*-5.000000 124 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*-5.000000 45 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] tb_top.
 [treeopen] tb_top.RAM.
 [treeopen] tb_top.slave.
@@ -17,22 +17,71 @@
 [signals_width] 280
 [sst_expanded] 1
 [sst_vpaned_height] 297
-@28
-tb_top.RAM.RAM_sva_inst.clk
-tb_top.RAM.RAM_sva_inst.rst_n
 @200
 -RAM
+@28
+tb_top.RAM.clk
+tb_top.RAM.rst_n
+@200
+-
 @22
-#{tb_top.RAM.RAM_sva_inst.din[9:0]} tb_top.RAM.RAM_sva_inst.din[9] tb_top.RAM.RAM_sva_inst.din[8] tb_top.RAM.RAM_sva_inst.din[7] tb_top.RAM.RAM_sva_inst.din[6] tb_top.RAM.RAM_sva_inst.din[5] tb_top.RAM.RAM_sva_inst.din[4] tb_top.RAM.RAM_sva_inst.din[3] tb_top.RAM.RAM_sva_inst.din[2] tb_top.RAM.RAM_sva_inst.din[1] tb_top.RAM.RAM_sva_inst.din[0]
-#{tb_top.RAM.RAM_sva_inst.dout[7:0]} tb_top.RAM.RAM_sva_inst.dout[7] tb_top.RAM.RAM_sva_inst.dout[6] tb_top.RAM.RAM_sva_inst.dout[5] tb_top.RAM.RAM_sva_inst.dout[4] tb_top.RAM.RAM_sva_inst.dout[3] tb_top.RAM.RAM_sva_inst.dout[2] tb_top.RAM.RAM_sva_inst.dout[1] tb_top.RAM.RAM_sva_inst.dout[0]
 tb_top.RAM.addr_rd[7:0]
 tb_top.RAM.addr_wr[7:0]
+#{tb_top.RAM.din[9:0]} tb_top.RAM.din[9] tb_top.RAM.din[8] tb_top.RAM.din[7] tb_top.RAM.din[6] tb_top.RAM.din[5] tb_top.RAM.din[4] tb_top.RAM.din[3] tb_top.RAM.din[2] tb_top.RAM.din[1] tb_top.RAM.din[0]
+tb_top.RAM.dout[7:0]
 @28
-tb_top.RAM.rx_data
 tb_top.RAM.rx_valid
-tb_top.RAM.tx_data
-tb_top.RAM.RAM_sva_inst.tx_valid
+tb_top.RAM.tx_valid
 @200
+-
+-
+-SLAVE
+-
+@28
+tb_top.slave.MISO
+@29
+tb_top.slave.MOSI
+@28
+tb_top.slave.SS_n
+@2028
+^1 E:\Shared Folders\Uni\courses\Digital circuit\digital github codes\Done\spi\Verification-of-SPI-Slave-with-Single-Port-RAM\waves\enums.gtkw
+tb_top.slave.cs[2:0]
+@28
+tb_top.slave.done_receiving
+tb_top.slave.read_address_received
+tb_top.slave.rx_data[9:0]
+tb_top.slave.rx_valid
+@22
+#{tb_top.slave.tx_data[7:0]} tb_top.slave.tx_data[7] tb_top.slave.tx_data[6] tb_top.slave.tx_data[5] tb_top.slave.tx_data[4] tb_top.slave.tx_data[3] tb_top.slave.tx_data[2] tb_top.slave.tx_data[1] tb_top.slave.tx_data[0]
+@28
+tb_top.slave.tx_valid
+@200
+-
+-
+@24
+tb_top.slave.counter[3:0]
+@200
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-SLAVE GLD
 -
 -RAM GLD
 @22
@@ -45,35 +94,8 @@ tb_top.RAM_GLD.rx_valid
 tb_top.RAM_GLD.tx_valid
 @22
 tb_top.RAM_GLD.wr_addr[7:0]
-@2025
+@2024
 ^1 E:\Shared Folders\Uni\courses\Digital circuit\digital github codes\Done\spi\Verification-of-SPI-Slave-with-Single-Port-RAM\waves\enums.gtkw
 tb_top.RAM_GLD.control_bits[1:0]
-@200
--
--
--SLAVE
-@28
-tb_top.slave.SS_n
-@22
-tb_top.slave.counter[3:0]
-@2028
-^1 E:\Shared Folders\Uni\courses\Digital circuit\digital github codes\Done\spi\Verification-of-SPI-Slave-with-Single-Port-RAM\waves\enums.gtkw
-tb_top.slave.cs[2:0]
-@28
-tb_top.slave.done_receiving
-tb_top.slave.dout
-tb_top.slave.read_address_received
-@22
-tb_top.slave.rx_data[9:0]
-@28
-tb_top.slave.rx_valid
-@22
-#{tb_top.slave.tx_data[7:0]} tb_top.slave.tx_data[7] tb_top.slave.tx_data[6] tb_top.slave.tx_data[5] tb_top.slave.tx_data[4] tb_top.slave.tx_data[3] tb_top.slave.tx_data[2] tb_top.slave.tx_data[1] tb_top.slave.tx_data[0]
-@28
-tb_top.slave.tx_valid
-@200
--
--
--SLAVE GLD
 [pattern_trace] 1
 [pattern_trace] 0

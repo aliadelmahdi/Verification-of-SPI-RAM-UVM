@@ -14,7 +14,7 @@ log -r /*
 add wave /tb_top/RAM/*
 add wave /tb_top/slave/*
 # Code Coverage
-coverage save top.ucdb -onexit -du work.RAM_Sync_Single_port
+coverage save top.ucdb -onexit -du work.RAM_Sync_Single_port -du work.SPI_slave
 
 vcd file waves/waves.vcd
 vcd add -r /* 

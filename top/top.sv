@@ -62,7 +62,7 @@ module tb_top;
         .MISO(MISO),
         .rx_data(rx_data),
         .rx_valid(rx_valid),
-        .tx_data(dout),
+        .tx_data(tx_data),
         .tx_valid(tx_valid),
         .cs(slave.cs)
     );
@@ -86,5 +86,11 @@ module tb_top;
         uvm_config_db#(virtual SPI_if)::set(null, "*", "spi_if", spi_if); // Set SPI interface globally
         run_test("SPI_test"); // Start the UVM test
         $stop; // Stop simulation after test execution
+    end
+
+    always @(posedge clk) begin
+        if(slave.counter>7) begin
+            $display("Slave counter: %d",slave.counter,,$time);
+        end
     end
 endmodule : tb_top

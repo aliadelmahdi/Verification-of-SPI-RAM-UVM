@@ -8,10 +8,10 @@ package SPI_slave_seq_item_pkg;
     class SPI_slave_seq_item extends uvm_sequence_item;
         // Input signals
         rand bit rst_n;
-        rand bit SS_n;
-        rand bit tx_valid;
+        bit SS_n;
+        bit tx_valid;
         rand bit MOSI;
-        rand bit [7:0]dout;
+        bit [7:0]dout;
 
         // RTL output signals
         logic rx_valid;
@@ -41,6 +41,27 @@ package SPI_slave_seq_item_pkg;
             `uvm_field_int(rx_data_ref, UVM_DEFAULT)
         `uvm_object_utils_end
 
+        constraint rst_n_dist_c{
+            rst_n dist{
+                `HIGH:= 97,
+                `LOW:= 3
+            };
+        }
+        constraint rst_n_inactive{
+            rst_n == {`HIGH};
+        }
+        // constraint ss_n_c{
+        //     SS_n dist{
+        //         SLAVE_NOT_SELECTED:= 50,
+        //         SLAVE_SELECTED:= 50
+        //     };
+        // }
+        constraint mosi_c{
+            MOSI dist{
+                `HIGH:= 50,
+                `LOW:= 50
+            };
+        }
     endclass : SPI_slave_seq_item
 
 endpackage : SPI_slave_seq_item_pkg

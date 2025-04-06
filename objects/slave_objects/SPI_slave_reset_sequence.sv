@@ -17,7 +17,7 @@ package SPI_slave_reset_sequence_pkg;
         task body;
             slave_seq_item = SPI_slave_seq_item::type_id::create("slave_seq_item");
             start_item(slave_seq_item);
-                slave_seq_item.rst_n = `HIGH;
+                slave_seq_item.rst_n = `LOW;
                 slave_seq_item.SS_n = `LOW;
                 slave_seq_item.tx_valid = `LOW;
             finish_item(slave_seq_item);

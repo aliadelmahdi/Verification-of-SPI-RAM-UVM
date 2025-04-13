@@ -1,0 +1,46 @@
+[*]
+[*] GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
+[*] Sun Apr 13 17:51:36 2025
+[*]
+[dumpfile] "e:\Shared Folders\Uni\courses\Digital circuit\digital github codes\Done\spi\Verification-of-SPI-Slave-with-Single-Port-RAM\waves\waves.vcd"
+[dumpfile_mtime] "Sun Apr 13 17:48:50 2025"
+[dumpfile_size] 5498667
+[savefile] "e:\Shared Folders\Uni\courses\Digital circuit\digital github codes\Done\spi\Verification-of-SPI-Slave-with-Single-Port-RAM\waves\GTK_settings.gtkw"
+[timestart] 260201
+[size] 1920 1009
+[pos] -1 -1
+*-5.000000 260353 260155 260165 260175 260185 260195 260205 260215 260225 260235 260245 260255 260265 260275 260285 260295 260305 260315 260325 260335 260345 260355 -1 -1 -1 260135 260145
+[treeopen] tb_top.
+[treeopen] tb_top.RAM.
+[treeopen] tb_top.slave.
+[sst_width] 197
+[signals_width] 390
+[sst_expanded] 1
+[sst_vpaned_height] 297
+@28
+tb_top.spi_if.clk
+tb_top.spi_if.rst_n
+tb_top.spi_if.SS_n
+tb_top.spi_if.MOSI
+@2028
+^1 E:\Shared Folders\Uni\courses\Digital circuit\digital github codes\Done\spi\Verification-of-SPI-Slave-with-Single-Port-RAM\waves\enums.gtkw
+tb_top.slave.CS[2:0]
+@28
+tb_top.spi_if.MISO
+@22
+tb_top.spi_if.rx_data[9:0]
+@28
+tb_top.spi_if.rx_data[9:0]
+tb_top.spi_if.rx_valid
+@22
+tb_top.tx_data[7:0]
+@23
+tb_top.slave.tx_counter[3:0]
+@28
+tb_top.tx_data[7:0]
+tb_top.tx_valid
+@22
+tb_top.RAM.addr_internal[7:0]
+tb_top.spi_if.current_addr_data[7:0]
+[pattern_trace] 1
+[pattern_trace] 0

@@ -12,7 +12,7 @@ package SPI_ram_main_sequence_pkg;
 
         function new(string name = "SPI_ram_main_sequence");
             super.new(name);            
-        endfunction
+        endfunction : new
         
         task body;
 
@@ -23,7 +23,7 @@ package SPI_ram_main_sequence_pkg;
                 finish_item(ram_seq_item);
             end
 
-        endtask
+        endtask : body
         
     endclass : SPI_ram_main_sequence
 

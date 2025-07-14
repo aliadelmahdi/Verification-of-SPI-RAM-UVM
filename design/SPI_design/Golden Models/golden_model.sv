@@ -55,6 +55,8 @@ module ram_golden_model (SPI_if spi_if);
                         dout <= memory[rd_addr];
                         tx_valid<=1;
                     end
+                    else
+                    tx_valid<=0;
                 end
             endcase
         end

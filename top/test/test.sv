@@ -20,6 +20,7 @@ package SPI_test_pkg;
         SPI_config spi_ram_cnfg; // Ram configuration
         virtual SPI_if spi_if; // Virtual interface handle
         SPI_slave_write_data_sequence spi_slave_write_data_seq; // Slave Write data sequence
+        SPI_slave_mix_sequence SPI_slave_mix_seq; // Slave Mix sequence
         SPI_ram_main_sequence spi_ram_main_seq; // Ram main test sequence
         SPI_slave_reset_sequence spi_slave_reset_seq; // Slave reset test sequence
         SPI_ram_reset_sequence spi_ram_reset_seq; // Ram reset test sequence
@@ -27,7 +28,7 @@ package SPI_test_pkg;
         // Default constructor
         function new(string name = "SPI_test", uvm_component parent);
             super.new(name,parent);
-        endfunction
+        endfunction : new
 
         // Build Phase
         function void build_phase(uvm_phase phase);
@@ -42,7 +43,7 @@ package SPI_test_pkg;
             spi_ram_reset_seq = SPI_ram_reset_sequence::type_id::create("reset_seq",this);
             spi_slave_write_data_seq = SPI_slave_write_data_sequence::type_id::create("slave_write_data_seq",this);
             spi_slave_read_data_seq = SPI_slave_read_data_sequence::type_id::create("slave_read_data_seq",this);
-
+            SPI_slave_mix_seq =  SPI_slave_mix_sequence::type_id::create("slave_mix_seq",this);
             // Retrieve the virtual interface for SPI slave from the UVM configuration database
             if(!uvm_config_db #(virtual SPI_if)::get(this,"","spi_if",spi_slave_cnfg.spi_if))  
                 `uvm_fatal("build_phase" , " test - Unable to get the slave virtual interface of the SPI form the configuration database");
@@ -59,29 +60,33 @@ package SPI_test_pkg;
             // Store the SPI slave and ram configuration objects in the UVM configuration database
             uvm_config_db # (SPI_config)::set(this , "*" , "CFG",spi_slave_cnfg);
             uvm_config_db # (SPI_config)::set(this , "*" , "CFG",spi_ram_cnfg);
-        endfunction
+        endfunction : build_phase
 
         // Run Phase
         task run_phase(uvm_phase phase);
             super.run_phase(phase); // Call parent class's run phase
             phase.raise_objection(this); // Raise an objection to prevent the test from ending
-            // Reset sequences
+            //**************************** Reset sequences ****************************\\
             `uvm_info("run_phase","stimulus Generation started",UVM_LOW)
             spi_slave_reset_seq.start(spi_env.spi_slave_agent.spi_slave_seqr);
             if(spi_ram_cnfg.is_active==UVM_ACTIVE)
                 spi_ram_reset_seq.start(spi_env.spi_ram_agent.spi_ram_seqr);
             `uvm_info("run_phase","Reset Deasserted",UVM_LOW)
-            // Main Sequences
+
+            //**************************** Main Sequences ****************************\\
+
             `uvm_info("run_phase", "Stimulus Generation Started",UVM_LOW)
             if(spi_ram_cnfg.is_active==UVM_ACTIVE)
                 spi_ram_main_seq.start(spi_env.spi_ram_agent.spi_ram_seqr);
             spi_slave_write_data_seq.start(spi_env.spi_slave_agent.spi_slave_seqr);
 
             spi_slave_read_data_seq.start(spi_env.spi_slave_agent.spi_slave_seqr);
+
+            SPI_slave_mix_seq.start(spi_env.spi_slave_agent.spi_slave_seqr);
             `uvm_info("run_phase", "Stimulus Generation Ended",UVM_LOW) 
 
             phase.drop_objection(this); // Drop the objection to allow the test to complete
-        endtask
+        endtask : run_phase
 
     endclass : SPI_test
     

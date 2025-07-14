@@ -23,7 +23,7 @@ package SPI_scoreboard_pkg;
         // Default Constructor
         function new(string name = "SPI_scoreboard",uvm_component parent);
             super.new(name,parent);
-        endfunction
+        endfunction : new
 
         // Build Phase
         function void build_phase(uvm_phase phase);
@@ -32,14 +32,14 @@ package SPI_scoreboard_pkg;
             spi_slave_sb=new("spi_slave_sb",this);
             ram_sb_export = new("ram_sb_export",this);
             spi_ram_sb=new("spi_ram_sb",this);
-        endfunction
+        endfunction : build_phase
 
         // Connect Phase
         function void connect_phase(uvm_phase phase);
             super.connect_phase(phase);
             slave_sb_export.connect(spi_slave_sb.analysis_export);
             ram_sb_export.connect(spi_ram_sb.analysis_export);
-        endfunction
+        endfunction : connect_phase
 
         // Run Phase
         task run_phase(uvm_phase phase);
@@ -50,13 +50,13 @@ package SPI_scoreboard_pkg;
                 // check_ram_results(ram_seq_item_sb);
                 check_slave_results(slave_seq_item_sb);
             end
-        endtask
+        endtask : run_phase
 
         // Report Phase
         function void report_phase(uvm_phase phase);
             super.report_phase(phase);
             `uvm_info("report_phase",$sformatf("At time %0t: Simulation Ends and Error count= %0d, Correct count= %0d",$time,error_count,correct_count),UVM_MEDIUM);
-        endfunction
+        endfunction : report_phase
 
         function void check_slave_results(SPI_slave_seq_item seq_item_ch);
             if (0) begin
@@ -66,7 +66,7 @@ package SPI_scoreboard_pkg;
             end
             else
                 correct_count++;
-        endfunction
+        endfunction : check_slave_results
 
         function void check_ram_results(SPI_ram_seq_item seq_item_ch_ram);
             if (seq_item_ch_ram.tx_valid != seq_item_ch_ram.tx_valid_ref
@@ -86,7 +86,7 @@ package SPI_scoreboard_pkg;
             end
             else
                 correct_count++;
-        endfunction
+        endfunction : check_ram_results
 
     endclass : SPI_scoreboard
 

@@ -29,7 +29,7 @@ package SPI_env_pkg;
         // Default Constructor
         function new (string name = "SPI_env", uvm_component parent);
             super.new(name,parent);
-        endfunction
+        endfunction : new
 
         // Build Phase
         function void build_phase(uvm_phase phase );
@@ -38,7 +38,7 @@ package SPI_env_pkg;
             spi_slave_agent = SPI_slave_agent::type_id::create("spi_slave_agent",this);
             spi_sb= SPI_scoreboard::type_id::create("spi_sb",this);
             spi_cov= SPI_coverage::type_id::create("spi_cov",this);
-        endfunction
+        endfunction : build_phase
 
         // Connect Phase
         function void connect_phase (uvm_phase phase );
@@ -46,11 +46,12 @@ package SPI_env_pkg;
             spi_ram_agent.spi_ram_agent_ap.connect(spi_cov.ram_cov_export);
             spi_slave_agent.spi_slave_agent_ap.connect(spi_sb.slave_sb_export);
             spi_slave_agent.spi_slave_agent_ap.connect(spi_cov.slave_cov_export);
-        endfunction
+        endfunction : connect_phase
 
         // Run Phase
         task run_phase (uvm_phase phase);
             super.run_phase(phase);
-        endtask
+        endtask : run_phase
+        
     endclass : SPI_env
 endpackage : SPI_env_pkg

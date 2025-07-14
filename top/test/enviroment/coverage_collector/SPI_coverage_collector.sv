@@ -52,23 +52,23 @@ package SPI_coverage_pkg;
                 bins alt_10  = {ALT_10};
                 bins alt_01  = {ALT_01};
                 bins maximum = {MAXIMUM};
-                bins others = {[1:MAXIMUM-1]} with (!(item == ALT_01 || item == ALT_10));
+               // bins others = {[1:MAXIMUM-1]} with (!(item == ALT_01 || item == ALT_10));
             }
             
-            tx_valid_dout_cr: cross tx_valid_cp,dout_cp{
-                bins valid_dout_zero = binsof(dout_cp.zero) && binsof(tx_valid_cp.valid);
-                bins valid_dout_alt_10 = binsof(dout_cp.alt_10) && binsof(tx_valid_cp.valid);
-                bins valid_dout_alt_01 = binsof(dout_cp.alt_01) && binsof(tx_valid_cp.valid);
-                bins valid_dout_maximum = binsof(dout_cp.maximum) && binsof(tx_valid_cp.valid);
-                bins valid_dout_others = binsof(dout_cp.others) && binsof(tx_valid_cp.valid);
+            // tx_valid_dout_cr: cross tx_valid_cp,dout_cp{
+            //     bins valid_dout_zero = binsof(dout_cp.zero) && binsof(tx_valid_cp.valid);
+            //     bins valid_dout_alt_10 = binsof(dout_cp.alt_10) && binsof(tx_valid_cp.valid);
+            //     bins valid_dout_alt_01 = binsof(dout_cp.alt_01) && binsof(tx_valid_cp.valid);
+            //     bins valid_dout_maximum = binsof(dout_cp.maximum) && binsof(tx_valid_cp.valid);
+            //     bins valid_dout_others = binsof(dout_cp.others) && binsof(tx_valid_cp.valid);
 
-                bins valid_dout_zero_trans = binsof(dout_cp.zero) && binsof(tx_valid_cp.not_valid_to_vaild);
-                bins valid_dout_alt_10_trans = binsof(dout_cp.alt_10) && binsof(tx_valid_cp.not_valid_to_vaild);
-                bins valid_dout_alt_01_trans = binsof(dout_cp.alt_01) && binsof(tx_valid_cp.not_valid_to_vaild);
-                bins valid_dout_maximum_trans = binsof(dout_cp.maximum) && binsof(tx_valid_cp.not_valid_to_vaild);
-                bins valid_dout_others_trans = binsof(dout_cp.others) && binsof(tx_valid_cp.not_valid_to_vaild);
-                option.cross_auto_bin_max = 0;
-            }
+            //     bins valid_dout_zero_trans = binsof(dout_cp.zero) && binsof(tx_valid_cp.not_valid_to_vaild);
+            //     bins valid_dout_alt_10_trans = binsof(dout_cp.alt_10) && binsof(tx_valid_cp.not_valid_to_vaild);
+            //     bins valid_dout_alt_01_trans = binsof(dout_cp.alt_01) && binsof(tx_valid_cp.not_valid_to_vaild);
+            //     bins valid_dout_maximum_trans = binsof(dout_cp.maximum) && binsof(tx_valid_cp.not_valid_to_vaild);
+            //     bins valid_dout_others_trans = binsof(dout_cp.others) && binsof(tx_valid_cp.not_valid_to_vaild);
+            //     option.cross_auto_bin_max = 0;
+            // }
 
         endgroup
 

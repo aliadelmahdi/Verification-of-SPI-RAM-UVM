@@ -29,6 +29,7 @@ module RAM_Sync_Single_port #(
       dout <= 0;
       tx_valid <= 0;
     end else if(rx_valid) begin
+      tx_valid<=0; // Fixed
       case (din[9:8])
           2'b00 :
             /* Write operation - hold the write address */ 

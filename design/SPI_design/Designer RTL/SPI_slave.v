@@ -117,7 +117,7 @@ module SPI_slave (
         end
         WRITE:begin
             if(rx_counter<10)begin
-                rx_data[9-rx_counter] <= MOSI ;
+                rx_data[9-rx_counter] <= MOSI;
                 rx_counter <= rx_counter + 1;
                 rx_valid <= 0;
             end else begin
@@ -127,7 +127,7 @@ module SPI_slave (
         end
         READ_ADD:begin
             if(rx_counter<10)begin
-                rx_data[9-rx_counter] <= MOSI ;
+                rx_data[9-rx_counter] <= MOSI;
                 rx_counter <= rx_counter + 1;
             end else begin
                 rx_valid <= 1;
@@ -137,7 +137,7 @@ module SPI_slave (
         end
         READ_DATA:begin
             if(rx_counter<10)begin
-                rx_data[9-rx_counter] <= MOSI ;
+                rx_data[9-rx_counter] <= MOSI;
                 rx_counter <= rx_counter + 1;
             end else begin
                 rx_valid <= 1;

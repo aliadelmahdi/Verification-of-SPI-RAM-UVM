@@ -31,7 +31,7 @@ import shared_pkg::*; // For enums and parameters
         `uvm_object_utils_end
         function new(string name = "SPI_ram_seq_item");
             super.new(name);
-        endfunction
+        endfunction : new
      
         // constraint rst_n_dist_c{
         //     rst_n dist{

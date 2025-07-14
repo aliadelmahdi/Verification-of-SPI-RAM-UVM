@@ -21,7 +21,7 @@ package SPI_slave_agent_pkg;
         // Default Constructor
         function new(string name = "SPI_slave_agent", uvm_component parent);
             super.new(name,parent);
-        endfunction
+        endfunction : new
 
         // Build Phase
         function void build_phase(uvm_phase phase);
@@ -34,7 +34,7 @@ package SPI_slave_agent_pkg;
             spi_slave_seqr = SPI_slave_sequencer::type_id::create("spi_slave_seqr",this);
             spi_slave_mon = SPI_slave_monitor::type_id::create("spi_slave_mon",this);
             spi_slave_agent_ap = new("spi_slave_agent_ap",this);
-        endfunction
+        endfunction : build_phase
 
         // Connect Phase
         function void connect_phase(uvm_phase phase);
@@ -42,12 +42,13 @@ package SPI_slave_agent_pkg;
             spi_slave_mon.spi_if = spi_slave_cnfg.spi_if;
             spi_slave_drv.seq_item_port.connect(spi_slave_seqr.seq_item_export);
             spi_slave_mon.slave_monitor_ap.connect(spi_slave_agent_ap);
-        endfunction
+        endfunction : connect_phase
 
         // Run Phase
         task run_phase (uvm_phase phase);
             super.run_phase(phase);
-        endtask
+        endtask : run_phase
+        
     endclass : SPI_slave_agent
 
 endpackage : SPI_slave_agent_pkg

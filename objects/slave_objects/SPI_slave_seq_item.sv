@@ -25,7 +25,7 @@ package SPI_slave_seq_item_pkg;
         // Default Constructor
         function new(string name = "SPI_slave_seq_item");
             super.new(name);
-        endfunction
+        endfunction : new
 
         `uvm_object_utils_begin(SPI_slave_seq_item)
             `uvm_field_int(rst_n, UVM_DEFAULT)
@@ -43,8 +43,8 @@ package SPI_slave_seq_item_pkg;
 
         constraint rst_n_dist_c{
             rst_n dist{
-                `HIGH:= 97,
-                `LOW:= 0
+                `OFF_n:= 97,
+                `ON_n:= 3
             };
         }
       

@@ -15,18 +15,18 @@ package SPI_ram_monitor_pkg;
 
         function new(string name = "SPI_ram_monitor",uvm_component parent);
             super.new(name,parent);
-        endfunction
+        endfunction : new
 
         // Build Phase
         function void build_phase(uvm_phase phase);
             super.build_phase(phase);
             ram_monitor_ap = new ("ram_monitor_ap",this);
-        endfunction
+        endfunction : build_phase
 
         // Connect Phase
         function void connect_phase(uvm_phase phase);
 			super.connect_phase(phase);
-		endfunction
+		endfunction : connect_phase
 
         // Run Phase
         task run_phase (uvm_phase phase);
@@ -45,7 +45,7 @@ package SPI_ram_monitor_pkg;
                 `uvm_info("run_phase", ram_response_seq_item.sprint(), UVM_HIGH)
             end
 
-        endtask
+        endtask : run_phase
         
     endclass : SPI_ram_monitor
 

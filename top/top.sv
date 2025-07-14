@@ -53,40 +53,36 @@ module tb_top;
     );
 
     ram_golden_model RAM_GLD (spi_if);
-    // ram_c_plus_plus_golden_model RAM_GLD (spi_if);
 
-    // bind SPI_slave SPI_slave_sva SPI_slave_inst  (
-    //     .MOSI(MOSI),
-    //     .SS_n(SS_n),
-    //     .clk(clk),
-    //     .rst_n(rst_n),
-    //     .MISO(MISO),
-    //     .rx_data(rx_data),
-    //     .rx_valid(rx_valid),
-    //     .tx_data(tx_data),
-    //     .tx_valid(tx_valid),
-    //     .cs(slave.cs)
-    // );
-    // assign spi_if.current_addr_rd_data = RAM.mem[RAM.addr_rd];
+    bind SPI_slave SPI_slave_sva SPI_slave_inst  (
+        .MOSI(MOSI),
+        .SS_n(SS_n),
+        .clk(clk),
+        .rst_n(arst_n),
+        .MISO(MISO),
+        .rx_data(rx_data),
+        .rx_valid(rx_valid),
+        .tx_data(tx_data),
+        .tx_valid(tx_valid),
+        .cs(slave.CS)
+    );
     assign spi_if.current_addr_data = RAM.mem[RAM.addr_internal];
 
 
-    // bind RAM_Sync_Single_port SPI_ram_sva RAM_sva_inst (
-    //     .din(din),
-    //     .rx_valid(rx_valid),
-    //     .clk(clk),
-    //     .rst_n(rst_n),
-    //     .dout(dout),
-    //     .tx_valid(tx_valid),
-    //     .addr_rd(RAM.addr_rd),
-    //     .addr_wr(RAM.addr_wr),
-    //     .current_addr_wr_data(spi_if.current_addr_rd_data),
-    //     .current_addr_rd_data(spi_if.current_addr_wr_data)
-    // );
+    bind RAM_Sync_Single_port SPI_ram_sva RAM_sva_inst (
+        .din(din),
+        .rx_valid(rx_valid),
+        .clk(clk),
+        .rst_n(arst_n),
+        .dout(dout),
+        .tx_valid(tx_valid),
+        .addr_internal(RAM.addr_internal),
+        .current_addr_data(spi_if.current_addr_data)
+    );
     
     initial begin
         uvm_top.set_report_verbosity_level(UVM_MEDIUM); // Set verbosity level
-        uvm_top.finish_on_completion = `DISABLE_FINISH; // Prevent UVM from calling $finish
+        // uvm_top.finish_on_completion = `DISABLE_FINISH; // Prevent UVM from calling $finish
         uvm_config_db#(virtual SPI_if)::set(null, "*", "spi_if", spi_if); // Set SPI interface globally
         run_test("SPI_test"); // Start the UVM test
         $stop; // Stop simulation after test execution

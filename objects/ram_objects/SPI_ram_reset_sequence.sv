@@ -12,7 +12,7 @@ package SPI_ram_reset_sequence_pkg;
 
         function new (string name = "SPI_ram_reset_sequence");
             super.new(name);
-        endfunction
+        endfunction : new
 
         task body;
             ram_seq_item = SPI_ram_seq_item::type_id::create("ram_seq_item");
@@ -21,7 +21,7 @@ package SPI_ram_reset_sequence_pkg;
                 ram_seq_item.rx_valid = NOT_VALID;
                 ram_seq_item.rx_data = `LOW;
             finish_item(ram_seq_item);
-        endtask
+        endtask : body
         
     endclass : SPI_ram_reset_sequence
 

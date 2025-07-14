@@ -9,8 +9,6 @@
 import shared_pkg::*; // For enums and parameters
 `timescale `TIME_UNIT / `TIME_PRECISION
 
-
-
 module SPI_slave_sva(cs,MOSI,SS_n,clk,rst_n,tx_data,tx_valid,MISO,rx_data,rx_valid);
     
     input MOSI,clk,rst_n,SS_n,tx_valid;
@@ -19,7 +17,7 @@ module SPI_slave_sva(cs,MOSI,SS_n,clk,rst_n,tx_data,tx_valid,MISO,rx_data,rx_val
 	input logic MISO,rx_valid;
 	input logic [MEM_WIDTH+1:0] rx_data;
     input logic [2:0] cs;
-    
+
     //** 1: Reset Verification **\\
 
     // 1.2: Reset Current State
@@ -68,25 +66,25 @@ module SPI_slave_sva(cs,MOSI,SS_n,clk,rst_n,tx_data,tx_valid,MISO,rx_data,rx_val
     endproperty
 
     assert_chk_cmd_to_write: assert property (check_chk_cmd_to_write)
-        else $error("Failed to move to WRITE state when slave is selected and MOSU is deasserted at CHK_CMD state");
+        else $error("Failed to move to WRITE state when slave is selected and MOSI is deasserted at CHK_CMD state");
 
-    // // 3.2.2: Transition from CHK_CMD to READ_DATA
-    // property check_chk_cmd_to_write;
-    //     @(posedge clk) disable iff(!rst_n)
-    //             (cs==CHK_CMD && SS_n==SLAVE_NOT_SELECTED) |=> (cs == READ_DATA);
-    // endproperty
+    // 3.2.2: Transition from CHK_CMD to READ_DATA
+    property check_chk_cmd_to_read_data;
+        @(posedge clk) disable iff(!rst_n)
+                (cs==CHK_CMD && SS_n==SLAVE_NOT_SELECTED) |=> (cs == READ_DATA);
+    endproperty
 
-    // assert_chk_cmd_to_write: assert property (check_chk_cmd_to_write)
-    //     else $error("Failed to move to READ_DATA state when slave is not selected at CHK_CMD state");
+    assert_chk_cmd_to_read_data: assert property (check_chk_cmd_to_read_data)
+        else $error("Failed to move to READ_DATA state when slave is not selected at CHK_CMD state");
 
-    // // 3.2.3: Transition from CHK_CMD to READ_ADD
-    // property check_chk_cmd_to_write;
-    //     @(posedge clk) disable iff(!rst_n)
-    //             (cs==CHK_CMD && SS_n==SLAVE_NOT_SELECTED) |=> (cs == READ_ADD);
-    // endproperty
+    // 3.2.3: Transition from CHK_CMD to READ_ADD
+    property check_chk_cmd_to_read_add;
+        @(posedge clk) disable iff(!rst_n)
+                (cs==CHK_CMD && SS_n==SLAVE_NOT_SELECTED) |=> (cs == READ_ADD);
+    endproperty
 
-    // assert_chk_cmd_to_write: assert property (check_chk_cmd_to_write)
-    //     else $error("Failed to move to READ_ADD state when slave is not selected at CHK_CMD state");
+    assert_chk_cmd_to_read_add: assert property (check_chk_cmd_to_read_add)
+        else $error("Failed to move to READ_ADD state when slave is not selected at CHK_CMD state");
 
     // 3.3: Transition from READ_ADD to IDLE
     property check_read_add_to_idle;
@@ -97,32 +95,32 @@ module SPI_slave_sva(cs,MOSI,SS_n,clk,rst_n,tx_data,tx_valid,MISO,rx_data,rx_val
     assert_read_add_to_idle: assert property (check_read_add_to_idle)
         else $error("Failed to move to IDLE state when slave isn't selected at READ_ADD state");
 
-    // // 3.3.1: Transition from READ_ADD to READ_ADD
-    // property check_read_add_to_read_add;
-    //     @(posedge clk) disable iff(!rst_n)
-    //             (cs==READ_ADD && SS_n==SLAVE_SELECTED) |=> (cs == READ_ADD);
-    // endproperty
+    // 3.3.1: Transition from READ_ADD to READ_ADD
+    property check_read_add_to_read_add;
+        @(posedge clk) disable iff(!rst_n)
+                (cs==READ_ADD && SS_n==SLAVE_SELECTED) |=> (cs == READ_ADD);
+    endproperty
 
-    // assert_read_add_to_read_add: assert property (check_read_add_to_read_add)
-    //     else $error("Failed to stay at READ_ADD state when ");
+    assert_read_add_to_read_add: assert property (check_read_add_to_read_add)
+        else $error("Failed to stay at READ_ADD state when slave is selected at READ_ADD state");
 
      // 3.4: Transition from READ_DATA to IDLE
-    property check_read_add_to_read_add;
+    property check_read_data_to_idle;
         @(posedge clk) disable iff(!rst_n)
                 (cs==READ_DATA && SS_n==SLAVE_NOT_SELECTED) |=> (cs == IDLE);
     endproperty
 
-    assert_read_add_to_read_add: assert property (check_read_add_to_read_add)
+    assert_read_data_to_idle: assert property (check_read_data_to_idle)
         else $error("Failed to move to IDLE state from READ_DATA state when the slave is not selected");
        
-    //   // 3.4.1: Transition from READ_DATA to READ_DATA
-    // property check_read_add_to_read_add;
-    //     @(posedge clk) disable iff(!rst_n)
-    //             (cs==READ_DATA && SS_n==SLAVE_SELECTED) |=> (cs == READ_DATA);
-    // endproperty
+      // 3.4.1: Transition from READ_DATA to READ_DATA
+    property check_read_data_to_read_data;
+        @(posedge clk) disable iff(!rst_n)
+                (cs==READ_DATA && SS_n==SLAVE_SELECTED) |=> (cs == READ_DATA);
+    endproperty
 
-    // assert_read_add_to_read_add: assert property (check_read_add_to_read_add)
-    //     else $error("Failed to stay at READ_ADD state when ");
+    assert_read_data_to_read_data: assert property (check_read_data_to_read_data)
+        else $error("Failed to stay at READ_DATA state when slave is selected at READ_DATA state");
 
     // 3.5: Transition from WRITE to IDLE
     property check_write_to_idle;
@@ -131,34 +129,34 @@ module SPI_slave_sva(cs,MOSI,SS_n,clk,rst_n,tx_data,tx_valid,MISO,rx_data,rx_val
     endproperty
 
     assert_write_to_idle: assert property (check_write_to_idle)
-        else $error("Failed to move to WRITE state from IDLE state when the slave is not selected");
+        else $error("Failed to move to IDLE state from WRITE state when the slave is not selected");
 
-    //    // 3.5.1: Transition from WRITE to WRITE
-    //     property check_write_to_write;
-    //         @(posedge clk) disable iff(!rst_n)
-    //                 (cs==WRITE && SS_n==SLAVE_NOT_SELECTED) |=> (cs == WRITE);
-    //     endproperty
+    // 3.5.1: Transition from WRITE to WRITE
+    property check_write_to_write;
+        @(posedge clk) disable iff(!rst_n)
+                (cs==WRITE && SS_n==SLAVE_SELECTED) |=> (cs == WRITE);
+    endproperty
 
-    //     assert_write_to_write: assert property (check_write_to_write)
-    //         else $error("Failed to stay at WRITE state when ");
+    assert_write_to_write: assert property (check_write_to_write)
+        else $error("Failed to stay at WRITE state when slave isn't selected at WRITE state");
 
     //** 4: Signals at the FSM states **\\
 
-        //aserted => slave not selected
+        //asserted => slave not selected
 
-        // // 4.1: Signals at IDLE state
-        // property check_idle;
-        //     @(posedge clk) disable iff(!rst_n)
-        //             (cs==IDLE) |=> (MISO );
-        // endproperty
+        // 4.1: Signals at IDLE state
+        property check_idle;
+            @(posedge clk) disable iff(!rst_n)
+                    (cs==IDLE) |=> (!MISO);
+        endproperty
 
-        // assert_idle: assert property (check_idle)
-        //     else $error("Mismatch in signals at IDLE state");
+        assert_idle: assert property (check_idle)
+            else $error("Mismatch in signals at IDLE state");
 
         // // 4.2: Signals at CHK_CMD state
         // property check_chk_cmd;
         //     @(posedge clk) disable iff(!rst_n)
-        //             (cs==CHK_CMD) |=> (MISO );
+        //             (cs==CHK_CMD) |=> (!MISO);
         // endproperty
 
         // assert_chk_cmd: assert property (check_chk_cmd)
@@ -167,7 +165,7 @@ module SPI_slave_sva(cs,MOSI,SS_n,clk,rst_n,tx_data,tx_valid,MISO,rx_data,rx_val
         // // 4.3: Signals at WRITE state
         // property check_write;
         //     @(posedge clk) disable iff(!rst_n)
-        //             (cs==WRITE) |=> (MISO );
+        //             (cs==WRITE) |=> (MISO);
         // endproperty
 
         // assert_write: assert property (check_write)

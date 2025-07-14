@@ -21,7 +21,7 @@ package SPI_ram_agent_pkg;
         // Default Constructor
         function new(string name = "SPI_ram_agent", uvm_component parent);
             super.new(name,parent);
-        endfunction
+        endfunction : new
 
         // Build Phase
         function void build_phase(uvm_phase phase);
@@ -36,7 +36,7 @@ package SPI_ram_agent_pkg;
             end
             spi_ram_mon = SPI_ram_monitor::type_id::create("spi_ram_mon",this);
             spi_ram_agent_ap = new("spi_ram_agent_ap",this);
-        endfunction
+        endfunction : build_phase
 
         // Connect Phase
         function void connect_phase(uvm_phase phase);
@@ -46,12 +46,12 @@ package SPI_ram_agent_pkg;
             end
             spi_ram_mon.ram_monitor_ap.connect(spi_ram_agent_ap);
             spi_ram_mon.spi_if = spi_ram_cnfg.spi_if;
-        endfunction
+        endfunction : connect_phase
 
         // Run Phase
         task run_phase (uvm_phase phase);
             super.run_phase(phase);
-        endtask
+        endtask : run_phase
         
     endclass : SPI_ram_agent
 

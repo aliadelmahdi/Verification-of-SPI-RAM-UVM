@@ -1,5 +1,3 @@
 @echo off
-cd /d "%~dp0\.."
-echo Current directory is: %CD%
+REM cd /d "%~dp0\.."
 vsim -c -do "scripts/run.tcl"
-cmd /k

@@ -12,7 +12,7 @@ package SPI_config_pkg;
         // Default Constructor
         function new(string name = "SPI_config");
             super.new(name);
-        endfunction
+        endfunction : new
         
     endclass : SPI_config
 

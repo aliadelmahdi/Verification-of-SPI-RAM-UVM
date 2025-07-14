@@ -15,17 +15,17 @@ package SPI_ram_driver_pkg;
         // Default Constructor
         function new(string name = "SPI_ram_driver", uvm_component parent);
             super.new(name,parent);
-        endfunction
+        endfunction : new
 
         // Build Phase
         function void build_phase(uvm_phase phase);
             super.build_phase(phase);
-        endfunction
+        endfunction : build_phase
 
         // Connect Phase
         function void connect_phase(uvm_phase phase);
 			super.connect_phase(phase);
-		endfunction
+		endfunction : connect_phase
 
         // Run Phase
         task run_phase(uvm_phase phase);
@@ -40,7 +40,7 @@ package SPI_ram_driver_pkg;
                 seq_item_port.item_done();
                 `uvm_info("run_phase",stimulus_seq_item.sprint(),UVM_HIGH)
             end
-        endtask
+        endtask : run_phase
         
     endclass : SPI_ram_driver
 

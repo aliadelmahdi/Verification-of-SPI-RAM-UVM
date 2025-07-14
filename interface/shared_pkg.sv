@@ -52,5 +52,5 @@ package shared_pkg;
 
 
     
-endpackage
+endpackage : shared_pkg
     

@@ -19,7 +19,7 @@ Name                 File(Line)                   Failure      Pass
                                                         0          1
 /\tb_top#slave /SPI_slave_inst/assert_idle_to_idle
                      design/SPI_Assertions/SPI_slave_sva.sv(52)
-                                                        0          1
+                                                        0          0
 /\tb_top#slave /SPI_slave_inst/assert_chk_cmd_to_idle
                      design/SPI_Assertions/SPI_slave_sva.sv(61)
                                                         0          0
@@ -34,665 +34,37 @@ Name                 File(Line)                   Failure      Pass
                                                         0          1
 /\tb_top#slave /SPI_slave_inst/assert_write_to_idle
                      design/SPI_Assertions/SPI_slave_sva.sv(133)
-                                                        0          0
-Toggle Coverage:
-    Enabled Coverage              Bins      Hits    Misses  Coverage
-    ----------------              ----      ----    ------  --------
-    Toggles                         56        54         2    96.42%
-
-================================Toggle Details================================
-
-Toggle Coverage for instance /\tb_top#slave /SPI_slave_inst --
-
-                                              Node      1H->0L      0L->1H                          "Coverage"
-                                              ---------------------------------------------------------------
-                                              MISO           0           0                                0.00 
-                                              MOSI           1           1                              100.00 
-                                              SS_n           1           1                              100.00 
-                                               clk           1           1                              100.00 
-                                           cs[2-0]           1           1                              100.00 
-                                             rst_n           1           1                              100.00 
-                                      rx_data[9-0]           1           1                              100.00 
-                                          rx_valid           1           1                              100.00 
-                                      tx_data[0-7]           1           1                              100.00 
-                                          tx_valid           1           1                              100.00 
-
-Total Node Count     =         28 
-Toggled Node Count   =         27 
-Untoggled Node Count =          1 
-
-Toggle Coverage      =      96.42% (54 of 56 bins)
+                                                        0          1
 
 =================================================================================
-=== Instance: /\tb_top#slave 
-=== Design Unit: work.SPI_slave
+=== Instance: /\tb_top#RAM /RAM_sva_inst
+=== Design Unit: work.SPI_ram_sva
 =================================================================================
-Branch Coverage:
-    Enabled Coverage              Bins      Hits    Misses  Coverage
-    ----------------              ----      ----    ------  --------
-    Branches                        39        35         4    89.74%
 
-================================Branch Details================================
-
-Branch Coverage for instance /\tb_top#slave 
-NOTE: The modification timestamp for source file 'design/SPI_design/Designer RTL/SPI_slave.v' has been altered since compilation.
-
-    Line         Item                      Count     Source 
-    ----         ----                      -----     ------ 
-  File design/SPI_design/Designer RTL/SPI_slave.v
-------------------------------------IF Branch------------------------------------
-    27                                      1802     Count coming in to IF
-    27              1                          2         reg rd_addr_hold;       /* Hold read address */
-    30              1                       1800         if(~arst_n)begin
-Branch totals: 2 hits of 2 branches = 100.00%
-
-------------------------------------CASE Branch------------------------------------
-    36                                      4949     Count coming in to CASE
-    37              1                        601         case (CS)
-    44              1                        400             CHK_CMD : begin
-    49              1                         10                         NS = WRITE;
-    59              1                       2137                 end
-    81              1                       1800             end
-                                               1     All False Count
-Branch totals: 6 hits of 6 branches = 100.00%
-
-------------------------------------IF Branch------------------------------------
-    53                                        10     Count coming in to IF
-    53              1                          1                         if(rd_addr_hold)
-                                               9     All False Count
-Branch totals: 2 hits of 2 branches = 100.00%
-
-------------------------------------IF Branch------------------------------------
-    59                                      2137     Count coming in to IF
-    59              2                       1791                 end
-    69              1                        346                 /* the master ends the communication to the slave */
-Branch totals: 2 hits of 2 branches = 100.00%
-
-------------------------------------IF Branch------------------------------------
-    63                                      1791     Count coming in to IF
-    63              1                        199             end
-                                            1592     All False Count
-Branch totals: 2 hits of 2 branches = 100.00%
-
-------------------------------------IF Branch------------------------------------
-    70                                       346     Count coming in to IF
-    70              1                    ***0***                 else  
-                                             346     All False Count
-Branch totals: 1 hit of 2 branches = 50.00%
-
-------------------------------------IF Branch------------------------------------
-    73                                   ***0***     Count coming in to IF
-    73              1                    ***0***             READ_ADD : begin
-                                         ***0***     All False Count
-Branch totals: 0 hits of 2 branches = 0.00%
-
-------------------------------------IF Branch------------------------------------
-    86                                      1800     Count coming in to IF
-    86              1                        200                 /* the master ends the communication to the slave */
-                                            1600     All False Count
-Branch totals: 2 hits of 2 branches = 100.00%
-
-------------------------------------CASE Branch------------------------------------
-    96                                      7415     Count coming in to CASE
-    97              1                       1002             rx_data          <= 0;
-    104             1                        593             IDLE :begin
-    116             1                         16                 tx_counter  <= 0;
-    122             1                       3130                     rx_valid <= 0;
-    128             1                       2673             READ_ADD:begin
-                                               1     All False Count
-Branch totals: 6 hits of 6 branches = 100.00%
-
-------------------------------------IF Branch------------------------------------
-    97                                      1002     Count coming in to IF
-    97              2                        400             rx_data          <= 0;
-    99              1                        602             rd_addr_hold     <= 0;
-    101             1                    ***0***             tx_counter       <= 0;
-Branch totals: 2 hits of 3 branches = 66.66%
-
-------------------------------------IF Branch------------------------------------
-    104                                      593     Count coming in to IF
-    104             2                        305             IDLE :begin
-    106             1                         88                 rx_data  <= 0;
-    110             1                        199             end 
-    114             1                          1                 rx_valid <= 0;
-Branch totals: 4 hits of 4 branches = 100.00%
-
-------------------------------------IF Branch------------------------------------
-    116                                       16     Count coming in to IF
-    116             2                         15                 tx_counter  <= 0;
-    118             1                          1             WRITE:begin
-Branch totals: 2 hits of 2 branches = 100.00%
-
-------------------------------------IF Branch------------------------------------
-    122                                     3130     Count coming in to IF
-    122             2                       2931                     rx_valid <= 0;
-    124             1                        199                     rx_valid <= 1;
-Branch totals: 2 hits of 2 branches = 100.00%
-
-------------------------------------IF Branch------------------------------------
-    128                                     2673     Count coming in to IF
-    128             2                       2378             READ_ADD:begin
-    130             1                        295                     rx_data[9-rx_counter] <= MOSI ;
-Branch totals: 2 hits of 2 branches = 100.00%
-
-
-Condition Coverage:
-    Enabled Coverage              Bins   Covered    Misses  Coverage
-    ----------------              ----      ----    ------  --------
-    Conditions                      18         8        10    44.44%
-
-================================Condition Details================================
-
-Condition Coverage for instance /\tb_top#slave  --
-NOTE: The modification timestamp for source file 'design/SPI_design/Designer RTL/SPI_slave.v' has been altered since compilation.
-
-  File design/SPI_design/Designer RTL/SPI_slave.v
-----------------Focused Condition View-------------------
-Line       53 Item    1  ((8 - counter) == 0)
-Condition totals: 1 of 1 input term covered = 100.00%
-
-            Input Term   Covered  Reason for no coverage   Hint
-           -----------  --------  -----------------------  --------------
-  ((8 - counter) == 0)         Y
-
-     Rows:       Hits  FEC Target              Non-masking condition(s)      
- ---------  ---------  --------------------    -------------------------     
-  Row   1:          1  ((8 - counter) == 0)_0  -                             
-  Row   2:          1  ((8 - counter) == 0)_1  -                             
-
-----------------Focused Condition View-------------------
-Line       63 Item    1  ((8 - counter) == 0)
-Condition totals: 1 of 1 input term covered = 100.00%
-
-            Input Term   Covered  Reason for no coverage   Hint
-           -----------  --------  -----------------------  --------------
-  ((8 - counter) == 0)         Y
-
-     Rows:       Hits  FEC Target              Non-masking condition(s)      
- ---------  ---------  --------------------    -------------------------     
-  Row   1:          1  ((8 - counter) == 0)_0  -                             
-  Row   2:          1  ((8 - counter) == 0)_1  -                             
-
-----------------Focused Condition View-------------------
-Line       73 Item    1  ((9 - counter) == 0)
-Condition totals: 0 of 1 input term covered = 0.00%
-
-            Input Term   Covered  Reason for no coverage   Hint
-           -----------  --------  -----------------------  --------------
-  ((9 - counter) == 0)         N  No hits                  Hit '_0' and '_1'
-
-     Rows:       Hits  FEC Target              Non-masking condition(s)      
- ---------  ---------  --------------------    -------------------------     
-  Row   1:    ***0***  ((9 - counter) == 0)_0  -                             
-  Row   2:    ***0***  ((9 - counter) == 0)_1  -                             
-
-----------------Focused Condition View-------------------
-Line       86 Item    1  ((8 - counter) == 0)
-Condition totals: 1 of 1 input term covered = 100.00%
-
-            Input Term   Covered  Reason for no coverage   Hint
-           -----------  --------  -----------------------  --------------
-  ((8 - counter) == 0)         Y
-
-     Rows:       Hits  FEC Target              Non-masking condition(s)      
- ---------  ---------  --------------------    -------------------------     
-  Row   1:          1  ((8 - counter) == 0)_0  -                             
-  Row   2:          1  ((8 - counter) == 0)_1  -                             
-
-----------------Focused Condition View-------------------
-Line       104 Item    1  (SS_n ~| MOSI)
-Condition totals: 1 of 2 input terms covered = 50.00%
-
-  Input Term   Covered  Reason for no coverage   Hint
- -----------  --------  -----------------------  --------------
-        SS_n         N  '_1' not hit             Hit '_1'
-        MOSI         Y
-
-     Rows:       Hits  FEC Target            Non-masking condition(s)      
- ---------  ---------  --------------------  -------------------------     
-  Row   1:          1  SS_n_0                ~MOSI                         
-  Row   2:    ***0***  SS_n_1                ~MOSI                         
-  Row   3:          1  MOSI_0                ~SS_n                         
-  Row   4:          1  MOSI_1                ~SS_n                         
-
-----------------Focused Condition View-------------------
-Line       106 Item    1  ((~SS_n && MOSI) && ~read_address_received)
-Condition totals: 1 of 3 input terms covered = 33.33%
-
-             Input Term   Covered  Reason for no coverage   Hint
-            -----------  --------  -----------------------  --------------
-                   SS_n         N  '_1' not hit             Hit '_1'
-                   MOSI         N  '_0' not hit             Hit '_0'
-  read_address_received         Y
-
-     Rows:       Hits  FEC Target               Non-masking condition(s)      
- ---------  ---------  --------------------     -------------------------     
-  Row   1:          1  SS_n_0                   (~read_address_received && MOSI)
-  Row   2:    ***0***  SS_n_1                   -                             
-  Row   3:    ***0***  MOSI_0                   ~SS_n                         
-  Row   4:          1  MOSI_1                   (~read_address_received && ~SS_n)
-  Row   5:          1  read_address_received_0  (~SS_n && MOSI)               
-  Row   6:          1  read_address_received_1  (~SS_n && MOSI)               
-
-----------------Focused Condition View-------------------
-Line       110 Item    1  ((~SS_n && MOSI) && read_address_received)
-Condition totals: 0 of 3 input terms covered = 0.00%
-
-             Input Term   Covered  Reason for no coverage   Hint
-            -----------  --------  -----------------------  --------------
-                   SS_n         N  '_1' not hit             Hit '_1'
-                   MOSI         N  '_0' not hit             Hit '_0'
-  read_address_received         N  '_0' not hit             Hit '_0'
-
-     Rows:       Hits  FEC Target               Non-masking condition(s)      
- ---------  ---------  --------------------     -------------------------     
-  Row   1:          1  SS_n_0                   (read_address_received && MOSI)
-  Row   2:    ***0***  SS_n_1                   -                             
-  Row   3:    ***0***  MOSI_0                   ~SS_n                         
-  Row   4:          1  MOSI_1                   (read_address_received && ~SS_n)
-  Row   5:    ***0***  read_address_received_0  (~SS_n && MOSI)               
-  Row   6:          1  read_address_received_1  (~SS_n && MOSI)               
-
-----------------Focused Condition View-------------------
-Line       116 Item    1  (~SS_n && (counter < 10))
-Condition totals: 1 of 2 input terms covered = 50.00%
-
-      Input Term   Covered  Reason for no coverage   Hint
-     -----------  --------  -----------------------  --------------
-            SS_n         Y
-  (counter < 10)         N  '_0' not hit             Hit '_0'
-
-     Rows:       Hits  FEC Target            Non-masking condition(s)      
- ---------  ---------  --------------------  -------------------------     
-  Row   1:          1  SS_n_0                (counter < 10)                
-  Row   2:          1  SS_n_1                -                             
-  Row   3:    ***0***  (counter < 10)_0      ~SS_n                         
-  Row   4:          1  (counter < 10)_1      ~SS_n                         
-
-----------------Focused Condition View-------------------
-Line       122 Item    1  (~SS_n && read_address_received)
-Condition totals: 1 of 2 input terms covered = 50.00%
-
-             Input Term   Covered  Reason for no coverage   Hint
-            -----------  --------  -----------------------  --------------
-                   SS_n         Y
-  read_address_received         N  '_0' not hit             Hit '_0'
-
-     Rows:       Hits  FEC Target               Non-masking condition(s)      
- ---------  ---------  --------------------     -------------------------     
-  Row   1:          1  SS_n_0                   read_address_received         
-  Row   2:          1  SS_n_1                   -                             
-  Row   3:    ***0***  read_address_received_0  ~SS_n                         
-  Row   4:          1  read_address_received_1  ~SS_n                         
-
-----------------Focused Condition View-------------------
-Line       128 Item    1  (~SS_n && ((8 - counter) >= 1))
-Condition totals: 1 of 2 input terms covered = 50.00%
-
-            Input Term   Covered  Reason for no coverage   Hint
-           -----------  --------  -----------------------  --------------
-                  SS_n         N  '_1' not hit             Hit '_1'
-  ((8 - counter) >= 1)         Y
-
-     Rows:       Hits  FEC Target              Non-masking condition(s)      
- ---------  ---------  --------------------    -------------------------     
-  Row   1:          1  SS_n_0                  ((8 - counter) >= 1)          
-  Row   2:    ***0***  SS_n_1                  -                             
-  Row   3:          1  ((8 - counter) >= 1)_0  ~SS_n                         
-  Row   4:          1  ((8 - counter) >= 1)_1  ~SS_n                         
-
-
-FSM Coverage:
-    Enabled Coverage              Bins      Hits    Misses  Coverage
-    ----------------              ----      ----    ------  --------
-    FSM States                       5         5         0   100.00%
-    FSM Transitions                  8         7         1    87.50%
-
-================================FSM Details================================
-
-FSM Coverage for instance /\tb_top#slave  --
-
-FSM_ID: cs
-    Current State Object : cs
-    ----------------------
-    State Value MapInfo :
-    ---------------------
-Line          State Name               Value
-----          ----------               -----
-  97                IDLE                   0
- 104             CHK_CMD                   1
- 122           READ_DATA                   3
- 116            READ_ADD                   2
- 128               WRITE                   4
-    Covered States :
-    ----------------
-                   State           Hit_count
-                   -----           ---------
-                    IDLE                 602          
-                 CHK_CMD                 400          
-               READ_DATA                 398          
-                READ_ADD                   2          
-                   WRITE                 400          
-    Covered Transitions :
-    ---------------------
-Line            Trans_ID           Hit_count          Transition          
-----            --------           ---------          ----------          
- 100                   0                 400          IDLE -> CHK_CMD               
- 111                   2                 199          CHK_CMD -> READ_DATA          
- 107                   3                   1          CHK_CMD -> READ_ADD           
- 105                   4                 200          CHK_CMD -> WRITE              
- 125                   5                 199          READ_DATA -> IDLE             
- 119                   6                   1          READ_ADD -> IDLE              
- 131                   7                 200          WRITE -> IDLE                 
-    Uncovered Transitions :
-    -----------------------
-Line            Trans_ID          Transition          
-----            --------          ----------          
- 115                   1          CHK_CMD -> IDLE     
-
-
-    Summary                       Bins      Hits    Misses  Coverage
-    -------                       ----      ----    ------  --------
-        FSM States                   5         5         0   100.00%
-        FSM Transitions              8         7         1    87.50%
-Statement Coverage:
-    Enabled Coverage              Bins      Hits    Misses  Coverage
-    ----------------              ----      ----    ------  --------
-    Statements                      48        42         6    87.50%
-
-================================Statement Details================================
-
-Statement Coverage for instance /\tb_top#slave  --
-NOTE: The modification timestamp for source file 'design/SPI_design/Designer RTL/SPI_slave.v' has been altered since compilation.
-
-    Line         Item                      Count     Source 
-    ----         ----                      -----     ------ 
-  File design/SPI_design/Designer RTL/SPI_slave.v
-    1                                                module SPI_slave (
-    2                                                  /*--------------Inputs--------------*/
-    3                                                    input  MOSI,        /* the serial date sent from the master */
-    4                                                    input  SS_n,        /* start and end communication from master side */
-    5                                                    input  [7:0]tx_data,/* the data to write in the memory */
-    6                                                    input  tx_valid,    /* the signal dedicate that tx_data is ready to covert from parallel to serial by slave*/
-    7                                                    input  clk,         /*  clock signal input */
-    8                                                    input  arst_n,      /*  active low synchronous reset */
-    9                                                  /*--------------outputs-------------*/
-    10                                                   output reg MISO,         /* the serial data sent to the master */
-    11                                                   output reg [9:0]rx_data, /* the data which is read from the memory */
-    12                                                   output reg rx_valid      /* the signal dedicates that rx_data coverted to parallel by slave and ready for memory */ 
-    13                                               );  
-    14                                                 /*------FSM States Declaration------*/ 
-    15                                                   parameter IDLE       = 3'b000;
-    16                                                   parameter CHK_CMD    = 3'b001;
-    17                                                   parameter WRITE      = 3'b010;
-    18                                                   parameter READ_ADD   = 3'b011;
-    19                                                   parameter READ_DATA  = 3'b100;
-    20                                                   
-    21                                                 /* Xilinx Vivado's Attribute FSM Encoding Method (Gray, One_Hot, Sequential) */
-    22                                                   (* fsm_encoding = "sequential" *)    /* after analysis, Sequential has the best slag time after implementation */
-    23                                                 /*--------internal signals----------*/ 
-    24                                                   reg [2:0]CS,NS;         /* Current and Next States */
-    25                                                   reg [3:0]rx_counter;    /* to access the rx_data bus (8-bit) during converting from serial to parallel */  
-    26              1                       1802         reg [3:0]tx_counter;    /* to access the tx_data bus (8-bit) during converting from serial to parallel */  
-    27                                                   reg rd_addr_hold;       /* Hold read address */
-    28              1                          2       /*------------State memory----------*/ 
-    29                                                 always @(posedge clk ) begin
-    30                                                   if(~arst_n)begin
-    31              1                       1800             CS <= IDLE;
-    32                                                   end else
-    33                                                       CS <= NS;
-    34                                                 end
-    35              1                       4949       /*----------Next State Logic--------*/
-    36                                                 always @(*) begin
-    37                                                   case (CS)
-    38              1                        601             IDLE :begin
-    39              1                        601                 if(SS_n)
-    40              1                        601                     NS = IDLE;
-    41              1                        601                 else
-    42              1                        601                     NS = CHK_CMD;
-    43                                                       end 
-    44                                                       CHK_CMD : begin
-    45              1                        400                 /* the master opens the communication to the slave */
-    46              1                        400                 if(~SS_n) begin
-    47              1                        400                     /* if MOSI is low, operation will be write */ 
-    48                                                               if(~MOSI)
-    49                                                                   NS = WRITE;
-    50              1                         10                     /* if MOSI is high, operation will be read */ 
-    51              1                         10                     else begin
-    52              1                         10                         /* if the read addr is held, the next is read the data */
-    53                                                                   if(rd_addr_hold)
-    54              1                          1                             NS = READ_DATA;
-    55              1                          1                         /* if the read addr isn't held, the next is read address */
-    56              1                          1                         else
-    57                                                                       NS = READ_ADD;
-    58                                                               end 
-    59                                                           end
-    60              1                       1791                 /* the master ends the communication to the slave */
-    61              1                       1791                 else  
-    62              1                       1791                     NS = IDLE;
-    63                                                       end
-    64                                                       WRITE : begin
-    65              1                        199                 /* the master opens the communication to the slave */
-    66              1                        199                 if(~SS_n) begin
-    67                                                               NS = WRITE;
-    68                                                           end
-    69                                                           /* the master ends the communication to the slave */
-    70                                                           else  
-    71              1                    ***0***                     NS = IDLE;
-    72              1                    ***0***             end
-    73                                                       READ_ADD : begin
-    74              1                    ***0***                 /* the master opens the communication to the slave */
-    75              1                    ***0***                 if(~SS_n) begin
-    76              1                    ***0***                     NS = READ_ADD;
-    77                                                           end
-    78                                                           /* the master ends the communication to the slave */
-    79                                                           else  
-    80                                                               NS = IDLE;
-    81                                                       end
-    82              1                       1800             READ_DATA : begin
-    83              1                       1800                 /* the master opens the communication to the slave */
-    84              1                       1800                 if(~SS_n) 
-    85              1                       1800                     NS = READ_DATA;
-    86                                                           /* the master ends the communication to the slave */
-    87              1                        200                 else  
-    88              1                        200                     NS = IDLE;
-    89                                                       end
-    90                                                       default:  NS = IDLE;
-    91                                                   endcase
-    92                                                 end
-    93                                                 /*----------Output logic----------*/ 
-    94                                                 always @(posedge clk ) begin
-    95              1                       7415         if(~arst_n)begin
-    96                                                       MISO             <= 0;
-    97                                                       rx_data          <= 0;
-    98              1                        400             rx_valid         <= 0;
-    99                                                       rd_addr_hold     <= 0;
-    100             1                        602             rx_counter       <= 0;
-    101                                                      tx_counter       <= 0;
-    102             1                    ***0***         end
-    103                                                  case (CS)
-    104                                                      IDLE :begin
-    105             1                        305                 MISO     <= 0;
-    106                                                          rx_data  <= 0;
-    107             1                         88                 rx_valid <= 0;
-    108                                                          rx_counter  <= 0;
-    109                                                          tx_counter  <= 0;
-    110                                                      end 
-    111             1                        199             CHK_CMD:begin
-    112                                                          MISO     <= 0;
-    113                                                          rx_data  <= 0;
-    114                                                          rx_valid <= 0;
-    115             1                          1                 rx_counter  <= 0;
-    116                                                          tx_counter  <= 0;
-    117             1                         15             end
-    118                                                      WRITE:begin
-    119             1                          1                 if(rx_counter<10)begin
-    120                                                              rx_data[9-rx_counter] <= MOSI ;
-    121                                                              rx_counter <= rx_counter + 1;
-    122                                                              rx_valid <= 0;
-    123             1                       2931                 end else begin
-    124                                                              rx_valid <= 1;
-    125             1                        199                     rx_counter <= 0;
-    126                                                          end
-    127                                                      end
-    128                                                      READ_ADD:begin
-    129             1                       2378                 if(rx_counter<10)begin
-    130                                                              rx_data[9-rx_counter] <= MOSI ;
-    131             1                        295                     rx_counter <= rx_counter + 1;
-
-Toggle Coverage:
-    Enabled Coverage              Bins      Hits    Misses  Coverage
-    ----------------              ----      ----    ------  --------
-    Toggles                         74        71         3    95.94%
-
-================================Toggle Details================================
-
-Toggle Coverage for instance /\tb_top#slave  --
-
-                                              Node      1H->0L      0L->1H                          "Coverage"
-                                              ---------------------------------------------------------------
-                                              MISO           0           0                                0.00 
-                                              MOSI           1           1                              100.00 
-                                              SS_n           1           1                              100.00 
-                                               clk           1           1                              100.00 
-                                      counter[3-0]           1           1                              100.00 
-                                           cs[2-0]           1           1                              100.00 
-                                    done_receiving           1           1                              100.00 
-                                           ns[2-0]           1           1                              100.00 
-                             read_address_received           0           1                               50.00 
-                                             rst_n           1           1                              100.00 
-                                      rx_data[9-0]           1           1                              100.00 
-                                          rx_valid           1           1                              100.00 
-                                      tx_data[0-7]           1           1                              100.00 
-                                          tx_valid           1           1                              100.00 
-
-Total Node Count     =         37 
-Toggled Node Count   =         35 
-Untoggled Node Count =          2 
-
-Toggle Coverage      =      95.94% (71 of 74 bins)
-
-=================================================================================
-=== Instance: /\tb_top#RAM 
-=== Design Unit: work.RAM_Sync_Single_port
-=================================================================================
-Branch Coverage:
-    Enabled Coverage              Bins      Hits    Misses  Coverage
-    ----------------              ----      ----    ------  --------
-    Branches                         9         8         1    88.88%
-
-================================Branch Details================================
-
-Branch Coverage for instance /\tb_top#RAM 
-NOTE: The modification timestamp for source file 'design/SPI_design/Designer RTL/SPI_ram.v' has been altered since compilation.
-
-    Line         Item                      Count     Source 
-    ----         ----                      -----     ------ 
-  File design/SPI_design/Designer RTL/SPI_ram.v
-------------------------------------IF Branch------------------------------------
-    16                                      2782     Count coming in to IF
-    16              1                          2       /*--------------outputs-------------*/
-    22              1                       2780     
-Branch totals: 2 hits of 2 branches = 100.00%
-
-------------------------------------IF Branch------------------------------------
-    23                                      2780     Count coming in to IF
-    23              1                        600       /* memory declaration */
-    42              1                       2180               2'b11 : begin
-Branch totals: 2 hits of 2 branches = 100.00%
-
-------------------------------------CASE Branch------------------------------------
-    24                                       600     Count coming in to CASE
-    25              1                        100     
-    29              1                        100           dout <= 0;
-    33              1                        200               2'b00 :
-    37              1                        200                 /* Write operation - write data to memory in the internal address held previously  */ 
-                                         ***0***     All False Count
-Branch totals: 4 hits of 5 branches = 80.00%
-
-
-Statement Coverage:
-    Enabled Coverage              Bins      Hits    Misses  Coverage
-    ----------------              ----      ----    ------  --------
-    Statements                      14        14         0   100.00%
-
-================================Statement Details================================
-
-Statement Coverage for instance /\tb_top#RAM  --
-NOTE: The modification timestamp for source file 'design/SPI_design/Designer RTL/SPI_ram.v' has been altered since compilation.
-
-    Line         Item                      Count     Source 
-    ----         ----                      -----     ------ 
-  File design/SPI_design/Designer RTL/SPI_ram.v
-    1                                                module RAM_Sync_Single_port #(
-    2                                                  /*------------Parameters------------*/
-    3                                                    parameter MEM_DEPTH = 256,         /*  Memory depth */
-    4                                                    parameter ADD_SIZE = 8            /* Address size based upon the memory depth */
-    5                                                )(
-    6                                                  /*--------------Inputs--------------*/
-    7                                                  input  [9:0]din,    /* Data input, din[9] detemines write or read, 0 => Write, 1 => read
-    8                                                                       * din[9:8] = 00 => Write, Hold din[7:0] internally as write address
-    9                                                                       * din[9:8] = 01 => Write, write din[7:0] in the memory with wr address held previously
-    10                                                                      * din[9:8] = 10 => Read, Hold din[7:0] internally as Read address
-    11                                                                      * din[9:8] = 01 => Read the memory with rd address held previously,tx_valid = HIGH,
-    12                                                                      *                  dout holds the word read from the memory, ignore din[7:0]     */
-    13                                                 input  clk,         /*  clock signal input */
-    14                                                 input  arst_n,      /*  active low asynchronous reset */
-    15              1                       2782       input  rx_valid,    /*  if HIGH: accept din[7:0] to save the wr/rd address internally or write a memory word */
-    16                                                 /*--------------outputs-------------*/
-    17              1                          2       output reg [7:0]dout,            /* data out of Ram */
-    18              1                          2       output reg tx_valid              /*  Whenever the command is memory read, the tx_valid should be HIGH */
-    19              1                          2     );
-    20              1                          2       /* internal bus to hold the address internally */
-    21                                                 reg [ADD_SIZE-1:0]addr_internal;
-    22                                               
-    23                                                 /* memory declaration */
-    24                                                 (* ram_style = "block" *)reg [7:0]mem[MEM_DEPTH-1:0];
-    25                                               
-    26              1                        100     
-    27              1                        100       always @(posedge clk) begin
-    28                                                   if(~arst_n)begin
-    29                                                     dout <= 0;
-    30              1                        100           tx_valid <= 0;
-    31              1                        100         end else if(rx_valid) begin
-    32                                                     case (din[9:8])
-    33                                                         2'b00 :
-    34              1                        200                 /* Write operation - hold the write address */ 
-    35              1                        200                 addr_internal <= din[7:0];
-    36                                                         2'b01 : 
-    37                                                           /* Write operation - write data to memory in the internal address held previously  */ 
-    38              1                        200                 mem[addr_internal] <= din[7:0];
-    39              1                        200               2'b10 : 
-    40                                                           /* Read operation - hold the read address */ 
-    41                                                           addr_internal <= din[7:0];
-    42                                                         2'b11 : begin
-    43              1                       2180                 /* Read operation - read data from memory mem[addr_internal]  */ 
-
-Toggle Coverage:
-    Enabled Coverage              Bins      Hits    Misses  Coverage
-    ----------------              ----      ----    ------  --------
-    Toggles                         76        76         0   100.00%
-
-================================Toggle Details================================
-
-Toggle Coverage for instance /\tb_top#RAM  --
-
-                                              Node      1H->0L      0L->1H                          "Coverage"
-                                              ---------------------------------------------------------------
-                                      addr_rd[7-0]           1           1                              100.00 
-                                      addr_wr[7-0]           1           1                              100.00 
-                                               clk           1           1                              100.00 
-                                          din[0-9]           1           1                              100.00 
-                                         dout[7-0]           1           1                              100.00 
-                                             rst_n           1           1                              100.00 
-                                          rx_valid           1           1                              100.00 
-                                          tx_valid           1           1                              100.00 
-
-Total Node Count     =         38 
-Toggled Node Count   =         38 
-Untoggled Node Count =          0 
-
-Toggle Coverage      =     100.00% (76 of 76 bins)
+Assertion Coverage:
+    Assertions                       6         6         0   100.00%
+--------------------------------------------------------------------
+Name                 File(Line)                   Failure      Pass 
+                                                  Count        Count
+--------------------------------------------------------------------
+/\tb_top#RAM /RAM_sva_inst/assert_check_reset
+                     design/SPI_Assertions/SPI_ram_sva.sv(28)
+                                                        0          1
+/\tb_top#RAM /RAM_sva_inst/assert_wr_addr_ram
+                     design/SPI_Assertions/SPI_ram_sva.sv(39)
+                                                        0          1
+/\tb_top#RAM /RAM_sva_inst/assert_wr_data_ram
+                     design/SPI_Assertions/SPI_ram_sva.sv(50)
+                                                        0          1
+/\tb_top#RAM /RAM_sva_inst/assert_rd_addr_ram
+                     design/SPI_Assertions/SPI_ram_sva.sv(61)
+                                                        0          1
+/\tb_top#RAM /RAM_sva_inst/assert_rd_data_ram
+                     design/SPI_Assertions/SPI_ram_sva.sv(70)
+                                                        0          1
+/\tb_top#RAM /RAM_sva_inst/assert_tx_valid
+                     design/SPI_Assertions/SPI_ram_sva.sv(81)
+                                                        0          1
 
 
 ASSERTION RESULTS:
@@ -708,7 +80,7 @@ Name                 File(Line)                   Failure      Pass
                                                         0          1
 /\tb_top#slave /SPI_slave_inst/assert_idle_to_idle
                      design/SPI_Assertions/SPI_slave_sva.sv(52)
-                                                        0          1
+                                                        0          0
 /\tb_top#slave /SPI_slave_inst/assert_chk_cmd_to_idle
                      design/SPI_Assertions/SPI_slave_sva.sv(61)
                                                         0          0
@@ -723,7 +95,25 @@ Name                 File(Line)                   Failure      Pass
                                                         0          1
 /\tb_top#slave /SPI_slave_inst/assert_write_to_idle
                      design/SPI_Assertions/SPI_slave_sva.sv(133)
-                                                        0          0
+                                                        0          1
+/\tb_top#RAM /RAM_sva_inst/assert_check_reset
+                     design/SPI_Assertions/SPI_ram_sva.sv(28)
+                                                        0          1
+/\tb_top#RAM /RAM_sva_inst/assert_wr_addr_ram
+                     design/SPI_Assertions/SPI_ram_sva.sv(39)
+                                                        0          1
+/\tb_top#RAM /RAM_sva_inst/assert_wr_data_ram
+                     design/SPI_Assertions/SPI_ram_sva.sv(50)
+                                                        0          1
+/\tb_top#RAM /RAM_sva_inst/assert_rd_addr_ram
+                     design/SPI_Assertions/SPI_ram_sva.sv(61)
+                                                        0          1
+/\tb_top#RAM /RAM_sva_inst/assert_rd_data_ram
+                     design/SPI_Assertions/SPI_ram_sva.sv(70)
+                                                        0          1
+/\tb_top#RAM /RAM_sva_inst/assert_tx_valid
+                     design/SPI_Assertions/SPI_ram_sva.sv(81)
+                                                        0          1
 
-Total Coverage By Instance (filtered view): 83.43%
+Total Coverage By Instance (filtered view): 85.71%
 

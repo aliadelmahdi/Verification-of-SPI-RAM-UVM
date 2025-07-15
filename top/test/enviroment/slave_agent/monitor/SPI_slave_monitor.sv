@@ -6,7 +6,7 @@ package SPI_slave_monitor_pkg;
 
     class SPI_slave_monitor extends uvm_monitor;
         `uvm_component_utils (SPI_slave_monitor)
-        virtual SPI_if spi_if;
+        virtual SPI_if.monitor spi_if;
         SPI_slave_seq_item slave_response_seq_item;
         uvm_analysis_port #(SPI_slave_seq_item) slave_monitor_ap;
 

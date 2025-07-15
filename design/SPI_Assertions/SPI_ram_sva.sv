@@ -81,5 +81,4 @@ module SPI_ram_sva(
     assert_tx_valid: assert property (check_tx_valid)
         else $error("Failed to ensure that the RAM deasserts tx valid");
 
-
 endmodule

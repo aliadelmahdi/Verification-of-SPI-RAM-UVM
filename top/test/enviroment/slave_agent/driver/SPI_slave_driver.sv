@@ -9,7 +9,7 @@ package SPI_slave_driver_pkg;
 
     class SPI_slave_driver extends uvm_driver #(SPI_slave_seq_item);
         `uvm_component_utils(SPI_slave_driver)
-        virtual SPI_if spi_if;
+        virtual SPI_if.slave_driver spi_if;
         SPI_slave_seq_item stimulus_seq_item;
 
         // Default Constructor

@@ -9,7 +9,7 @@ package SPI_ram_monitor_pkg;
     class SPI_ram_monitor extends uvm_monitor;
 
         `uvm_component_utils (SPI_ram_monitor)
-        virtual SPI_if spi_if;
+        virtual SPI_if.ram_monitor spi_if;
         SPI_ram_seq_item ram_response_seq_item;
         uvm_analysis_port #(SPI_ram_seq_item) ram_monitor_ap;
 

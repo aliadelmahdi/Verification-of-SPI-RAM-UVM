@@ -30,7 +30,8 @@
     `define TIME_UNIT 1ps
     `define TIME_PRECISION 1ps
 
-    `define display_separator $display("====================================================================================");
+    `define display_separator \
+            $display("====================================================================================");
 
     // Constraint Mode ON/OFF
     `define enable_constraint(constraint) \

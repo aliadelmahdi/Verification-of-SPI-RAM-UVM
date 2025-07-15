@@ -23,10 +23,21 @@ interface SPI_if(input bit clk);
 	logic tx_valid_ref;
 
 	logic [MEM_WIDTH-1:0] current_addr_data;
-	 // DUT modport
-    modport RAM_GLD (
+	// modports
+    modport ram_gld (
         input clk, rst_n, rx_valid, rx_data,
         output tx_valid_ref, dout_ref
     );
 	
+	modport slave_monitor (input rst_n, SS_n, MOSI, tx_valid, rx_valid, MISO, rx_data, dout, clk);
+	modport ram_monitor (input rst_n, rx_valid, rx_data, dout, tx_valid, tx_valid_ref, dout_ref, clk);
+	modport ram_driver (
+		input clk,
+		output rst_n, rx_valid, rx_data
+	);
+	modport slave_driver (
+    input clk,
+    output rst_n, SS_n, MOSI, dout, tx_valid
+	);
+
 endinterface : SPI_if

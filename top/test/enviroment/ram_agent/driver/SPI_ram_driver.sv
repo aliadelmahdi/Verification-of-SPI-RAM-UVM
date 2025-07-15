@@ -9,7 +9,7 @@ package SPI_ram_driver_pkg;
 
     class SPI_ram_driver extends uvm_driver #(SPI_ram_seq_item);
         `uvm_component_utils(SPI_ram_driver)
-        virtual SPI_if spi_if;
+        virtual SPI_if.ram_driver spi_if;
         SPI_ram_seq_item stimulus_seq_item;
 
         // Default Constructor

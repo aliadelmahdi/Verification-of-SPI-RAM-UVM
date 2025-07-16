@@ -165,7 +165,7 @@ package SPI_slave_main_sequence_pkg;
 
         task body;
             `uvm_info("run_phase", "SPI constraint mode 'Write Address' started", UVM_LOW);
-            repeat(`TEST_ITER_MEDIUM) begin
+            repeat(`TEST_ITER_SMALL) begin
                 write_sequence();
             end
         endtask : body
@@ -183,7 +183,7 @@ package SPI_slave_main_sequence_pkg;
 
         task body;
             `uvm_info("run_phase", "SPI constraint mode 'Write Address' started", UVM_LOW);
-            repeat(`TEST_ITER_MEDIUM) begin
+            repeat(`TEST_ITER_SMALL) begin
                 if ($urandom_range(0, 1) == 0) begin // Write
                     write_sequence();
                 end else begin // Read

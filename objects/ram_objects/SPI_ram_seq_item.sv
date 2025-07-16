@@ -57,10 +57,10 @@ import shared_pkg::*; // For enums and parameters
         
             rx_data_s.payload dist { 
                                       ZERO := 5,
-                                      ALT_10 := 10,
-                                      ALT_01 := 10, 
-                                      MAXIMUM := 15,
-                                      [1: MAXIMUM-1] :/ 60
+                                      ALT_10_RX_DATA := 10,
+                                      ALT_01_RX_DATA := 10, 
+                                      MAXIMUM_RX_DATA := 15,
+                                      [1: MAXIMUM_RX_DATA-1] :/ 60
                                     };
 
            

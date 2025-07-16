@@ -16,11 +16,11 @@ package SPI_slave_seq_item_pkg;
         // RTL output signals
         logic rx_valid;
         logic MISO;
-        logic rx_data;
+        logic [MEM_WIDTH+1:0]  rx_data;
 
         logic rx_valid_ref;
         logic MISO_ref;
-        logic rx_data_ref;
+        logic [MEM_WIDTH+1:0]  rx_data_ref;
 
         // Default Constructor
         function new(string name = "SPI_slave_seq_item");

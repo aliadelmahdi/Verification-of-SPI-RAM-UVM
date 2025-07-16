@@ -1,6 +1,8 @@
 vlib work
 vlog +incdir+./interface -f "scripts/list.list" -mfcu +cover -covercells
 vsim -sv_seed random -voptargs=+acc work.tb_top -cover -classdebug -uvmcontrol=all -fsmdebug
+# vsim -sv_seed 3 -voptargs=+acc work.tb_top -cover -classdebug -uvmcontrol=all -fsmdebug
+
 #*******************************************#
 # Code Coverage
 coverage save top.ucdb -onexit -du work.SPI_slave -du work.RAM_Sync_Single_port
@@ -10,10 +12,16 @@ vcd add -r /*
 run -all
 #*******************************************#
 # Functional Coverage Report
-coverage report -detail -cvg -directive  \
+coverage report -detail -cvg -directive \
     -output "reports/Functional Coverage Report.txt" \
-    /SPI_coverage_pkg/SPI_coverage/*
+    /SPI_coverage_pkg/SPI_coverage/spi_cov_grp
+
+coverage report -detail -cvg -directive \
+    -html -output "reports/Functional Coverage Report" \
+    /SPI_coverage_pkg/SPI_coverage/spi_cov_grp
+
 #*******************************************#
 quit -sim
 # Save Coverage Report
 vcover report top.ucdb -details -annotate -all -output "reports/Coverage Report - Code, Assertions, and Directives.txt"
+vcover report top.ucdb -details -annotate -html -output "reports/Coverage Report - Code, Assertions, and Directives"

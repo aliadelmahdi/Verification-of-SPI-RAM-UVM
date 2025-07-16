@@ -1,0 +1,2 @@
+var g_data = {"data":[{"n":"work.RAM_Sync_Single_port","id":3,"zf":1,"tc":89.72,"s":83.33,"b":87.50,"t":98.33},{"n":"work.SPI_ram_sva","id":4,"zf":1,"tc":99.58,"s":100.00,"t":98.75,"a":100.00},{"n":"work.SPI_slave","id":1,"zf":1,"tc":89.78,"s":88.33,"b":92.85,"fc":75.00,"fs":100.00,"ft":87.50,"t":95.00},{"n":"work.SPI_slave_sva","id":2,"zf":1,"tc":84.82,"t":98.21,"a":71.42}]};
+processDuData(g_data);

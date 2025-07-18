@@ -59,7 +59,7 @@ package SPI_scoreboard_pkg;
         endfunction : report_phase
 
         function void check_slave_results(SPI_slave_seq_item seq_item_ch);
-            if (0) begin
+            if (seq_item_ch.MISO != seq_item_ch.MISO_ref) begin
                 error_count++;
                 `uvm_error("run_phase","Comparison Error between the golden model and the DUT")
                 `uvm_info("SLAVE", $sformatf("Slave Transaction:\n%s", seq_item_ch.sprint()), UVM_MEDIUM)

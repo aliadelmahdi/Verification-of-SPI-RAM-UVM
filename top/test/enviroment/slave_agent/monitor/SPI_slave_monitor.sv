@@ -40,6 +40,7 @@ package SPI_slave_monitor_pkg;
                 slave_response_seq_item.MISO = spi_if.MISO;
                 slave_response_seq_item.rx_data = spi_if.rx_data;
                 slave_response_seq_item.dout = spi_if.dout;
+                slave_response_seq_item.MISO_ref = spi_if.MISO_ref;
                 slave_monitor_ap.write(slave_response_seq_item);
                 `uvm_info("run_phase", slave_response_seq_item.sprint(), UVM_HIGH)
             end

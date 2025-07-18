@@ -96,7 +96,8 @@ module tb_top;
         .rx_valid(rx_valid),
         .tx_data(tx_data),
         .tx_valid(tx_valid),
-        .cs(slave.CS)
+        .cs(slave.CS),
+        .rx_counter(rx_counter)
     );
     assign spi_if.current_addr_data = RAM.mem[RAM.addr_internal];
     assign spi_if.current_addr_data_ref = SYS_GLD.mem[SYS_GLD.addr_internal_ref];

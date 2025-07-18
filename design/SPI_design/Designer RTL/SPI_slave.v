@@ -102,11 +102,14 @@ module SPI_slave (
     end
     case (CS)
         IDLE :begin
-            MISO     <= 0;
             rx_data  <= 0;
             rx_valid <= 0;
             rx_counter  <= 0;
             tx_counter  <= 0;
+            if(tx_valid)
+                MISO <= tx_data[0]; // Fixed
+            else
+                MISO <= 0;
         end 
         CHK_CMD:begin
             MISO     <= 0;
@@ -146,8 +149,8 @@ module SPI_slave (
                     if(tx_counter<8)begin
                         MISO <= tx_data[7-tx_counter]; // Fixed
                         tx_counter <= tx_counter + 1;
-                        if(!(7-tx_counter))
-                          rd_addr_hold <= 0;
+                        if (tx_counter == 7)
+                            rd_addr_hold <= 0;
                     end else begin
                         MISO <= 0;
                         rx_counter   <= 0;
@@ -167,5 +170,4 @@ module SPI_slave (
         end 
     endcase
   end
-
 endmodule //SPI_Slave

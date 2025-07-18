@@ -1,7 +1,7 @@
 vlib work
 vlog +incdir+./interface -f "scripts/list.list" -mfcu +cover -covercells
-vsim -sv_seed random -voptargs=+acc work.tb_top -cover -classdebug -uvmcontrol=all -fsmdebug
-# vsim -sv_seed 3 -voptargs=+acc work.tb_top -cover -classdebug -uvmcontrol=all -fsmdebug
+# vsim -sv_seed random -voptargs=+acc work.tb_top -cover -classdebug -uvmcontrol=all -fsmdebug
+vsim -sv_seed 1509469653 -voptargs=+acc work.tb_top -cover -classdebug -uvmcontrol=all -fsmdebug
 
 #*******************************************#
 # Code Coverage

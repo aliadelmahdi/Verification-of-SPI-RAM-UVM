@@ -24,9 +24,6 @@ module spi_sys_golden_model #(
     assign MOSI = spi_if.MOSI;
     assign SS_n = spi_if.SS_n;
 
-    // Assign outputs
-    assign spi_if.MISO_ref = MISO_ref;
-
     // Memory to store data
     logic [7:0] mem [MEM_DEPTH-1:0];
     logic [9:0] shift_reg;
@@ -50,7 +47,6 @@ module spi_sys_golden_model #(
         else if (SS_n==SLAVE_SELECTED) begin
             if (!read_cmd_active) begin
                 shift_reg <= {shift_reg[8:0], MOSI};
-
                 if (bit_counter == 11) begin
                     case ({shift_reg[8:0], MOSI}[9:8])
                         WR_ADDR: addr_internal_ref <= {shift_reg[7:0], MOSI};
@@ -80,6 +76,17 @@ module spi_sys_golden_model #(
             MISO_ref <= 0;
         end
     end
+
+logic MISO_ref_d1; // Delayed version
+
+always_ff @(posedge clk or negedge rst_n) begin
+    if (!rst_n) begin
+        MISO_ref_d1 <= 0;
+    end else begin
+        MISO_ref_d1 <= MISO_ref;
+        spi_if.MISO_ref <= MISO_ref_d1;
+    end
+end
 
 
 endmodule

@@ -1,15 +1,15 @@
 [*]
 [*] GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
-[*] Wed Jul 16 03:44:09 2025
+[*] Thu Jul 17 23:33:28 2025
 [*]
 [dumpfile] "e:\Shared Folders\Uni\courses\Digital circuit\digital github codes\Done\spi\Verification-of-SPI-RAM-UVM\waves\waves.vcd"
-[dumpfile_mtime] "Wed Jul 16 03:44:04 2025"
-[dumpfile_size] 0
+[dumpfile_mtime] "Thu Jul 17 23:31:41 2025"
+[dumpfile_size] 2543245
 [savefile] "e:\Shared Folders\Uni\courses\Digital circuit\digital github codes\Done\spi\Verification-of-SPI-RAM-UVM\waves\GTK_settings.gtkw"
-[timestart] 714
+[timestart] 26085
 [size] 1920 1009
 [pos] -1 -1
-*-6.000000 775 260155 260165 260175 260185 260195 260205 260215 260225 260235 260245 260255 260265 260275 260285 260295 260305 260315 260325 260335 260345 260355 -1 -1 -1 260135 260145
+*-6.000000 26305 260155 260165 260175 260185 260195 260205 260215 260225 260235 260245 260255 260265 260275 260285 260295 260305 260315 260325 260335 260345 260355 -1 -1 -1 260135 260145
 [treeopen] tb_top.
 [treeopen] tb_top.RAM.
 [treeopen] tb_top.slave.
@@ -23,21 +23,33 @@ tb_top.spi_if.rst_n
 tb_top.spi_if.SS_n
 tb_top.spi_if.MOSI
 tb_top.slave.CS[2:0]
-tb_top.spi_if.rx_data[9:0]
 tb_top.spi_if.rx_valid
 @22
-tb_top.slave.tx_counter[3:0]
 tb_top.spi_if.rx_data[9:0]
+@28
+tb_top.spi_if.rx_data[9:0]
+@22
+tb_top.RAM.dout[7:0]
+@28
+tb_top.slave.tx_valid
+@22
+tb_top.slave.tx_counter[3:0]
+@28
+tb_top.spi_if.MISO
+#{tb_top.slave.tx_data[7:0]} tb_top.slave.tx_data[7] tb_top.slave.tx_data[6] tb_top.slave.tx_data[5] tb_top.slave.tx_data[4] tb_top.slave.tx_data[3] tb_top.slave.tx_data[2] tb_top.slave.tx_data[1] tb_top.slave.tx_data[0]
+@25
+tb_top.slave.rx_counter[3:0]
 @200
 -
 @28
-tb_top.spi_if.MISO
-@29
 tb_top.SYS_GLD.MISO_ref
 @22
 tb_top.RAM.addr_internal[7:0]
 tb_top.SYS_GLD.addr_internal_ref[7:0]
+#{tb_top.slave.tx_data[7:0]} tb_top.slave.tx_data[7] tb_top.slave.tx_data[6] tb_top.slave.tx_data[5] tb_top.slave.tx_data[4] tb_top.slave.tx_data[3] tb_top.slave.tx_data[2] tb_top.slave.tx_data[1] tb_top.slave.tx_data[0]
 tb_top.spi_if.current_addr_data[7:0]
+tb_top.spi_if.current_addr_data_ref[7:0]
+@28
 tb_top.spi_if.current_addr_data_ref[7:0]
 @200
 -

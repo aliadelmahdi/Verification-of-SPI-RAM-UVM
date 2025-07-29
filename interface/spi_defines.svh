@@ -38,6 +38,8 @@
             seq_item.constraint.constraint_mode(`ON);
     `define disable_constraints  \
             seq_item.constraint_mode(`OFF);
+    `define enable_constraints  \
+            seq_item.constraint_mode(`ON);
     `define disable_constraint(constraint) \
             seq_item.constraint.constraint_mode(`OFF);
 `endif

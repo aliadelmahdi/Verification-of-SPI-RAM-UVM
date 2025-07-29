@@ -6,7 +6,7 @@
     from the **Verification Plan** for traceability and clarity
 */
 `include "spi_defines.svh" // For macros
-import shared_pkg::*; // For enums and parameters
+// import shared_pkg::*; // For enums and parameters
 `timescale `TIME_UNIT / `TIME_PRECISION
 
 module SPI_ram_sva(
@@ -18,6 +18,9 @@ module SPI_ram_sva(
     input logic [MEM_WIDTH-1:0] current_addr_data
     );
     logic [1:0] control_bits;
+    parameter MEM_DEPTH=256;
+    parameter ADDR_SIZE=8;
+    parameter MEM_WIDTH=8;
     assign control_bits = din[9:8];
     
     property check_reset;

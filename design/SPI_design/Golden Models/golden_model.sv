@@ -77,16 +77,16 @@ module spi_sys_golden_model #(
         end
     end
 
-logic MISO_ref_d1; // Delayed version
+    logic MISO_ref_d1; // Delayed version
 
-always_ff @(posedge clk or negedge rst_n) begin
-    if (!rst_n) begin
-        MISO_ref_d1 <= 0;
-    end else begin
-        MISO_ref_d1 <= MISO_ref;
-        spi_if.MISO_ref <= MISO_ref_d1;
+    always_ff @(posedge clk or negedge rst_n) begin
+        if (!rst_n) begin
+            MISO_ref_d1 <= 0;
+        end else begin
+            MISO_ref_d1 <= MISO_ref;
+            spi_if.MISO_ref <= MISO_ref_d1;
+        end
     end
-end
 
 
 endmodule

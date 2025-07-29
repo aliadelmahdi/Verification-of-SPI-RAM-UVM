@@ -20,9 +20,13 @@ module SPI_slave_sva(cs,MOSI,SS_n,clk,rst_n,tx_data,tx_valid,MISO,rx_data,rx_val
     input logic [3:0] rx_counter;
     //** 1: Reset Verification **\\
 
-    // 1.2: Reset Current State
+    // 1.1 & 1.2: Reset Current State
     property check_reset;
-            (!rst_n)|=> (cs == IDLE);
+            (!rst_n)|=> (  cs == IDLE
+                        // && !MISO
+                        // && !rx_valid
+                        // && rx_data ==0
+                        );
                       
     endproperty
     assert_reset: assert property (@(posedge clk) check_reset)

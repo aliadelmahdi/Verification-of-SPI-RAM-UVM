@@ -9,7 +9,7 @@
 # │── SPI_Slave.v
 #
 # design/SPI_Assertions/
-# │── SPI_sva.sv
+# │── SPI_slave_sva.sva
 #
 # objects/
 # │── SPI_config.sv
@@ -58,6 +58,8 @@ interface/SPI_if.sv
 "design/SPI_design/Designer RTL/SPI_slave.v"
 "design/SPI_design/Designer RTL/SPI_ram.v"
 "design/SPI_design/Golden Models/golden_model.sv"
+"design/SPI_design/Golden Models/dpi_golden_model.sv"
+
 
 # Assertions
 design/SPI_Assertions/SPI_slave_sva.sv

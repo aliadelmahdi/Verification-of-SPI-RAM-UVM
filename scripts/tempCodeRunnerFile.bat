@@ -1,0 +1,1 @@
+do "scripts/run.tcl"

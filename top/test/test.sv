@@ -82,6 +82,12 @@ package SPI_test_pkg;
 
             spi_slave_read_data_seq.start(spi_env.spi_slave_agent.spi_slave_seqr);
 
+            `uvm_info("run_phase","stimulus Generation started",UVM_LOW)
+            spi_slave_reset_seq.start(spi_env.spi_slave_agent.spi_slave_seqr);
+            if(spi_ram_cnfg.is_active==UVM_ACTIVE)
+                spi_ram_reset_seq.start(spi_env.spi_ram_agent.spi_ram_seqr);
+            `uvm_info("run_phase","Reset Deasserted",UVM_LOW)
+
             SPI_slave_mix_seq.start(spi_env.spi_slave_agent.spi_slave_seqr);
             `uvm_info("run_phase", "Stimulus Generation Ended",UVM_LOW) 
 

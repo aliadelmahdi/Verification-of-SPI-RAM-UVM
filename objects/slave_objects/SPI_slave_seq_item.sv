@@ -48,12 +48,12 @@ package SPI_slave_seq_item_pkg;
             };
         }
       
-        // constraint ss_n_c{
-        //     SS_n dist{
-        //         SLAVE_NOT_SELECTED:= 50,
-        //         SLAVE_SELECTED:= 50
-        //     };
-        // }
+        constraint ss_n_c{
+            SS_n dist{
+                SLAVE_NOT_SELECTED:= 50,
+                SLAVE_SELECTED:= 50
+            };
+        }
         constraint mosi_c{
             MOSI dist{
                 `HIGH:= 50,

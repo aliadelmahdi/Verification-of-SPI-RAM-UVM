@@ -1,2 +1,0 @@
-var g_data = {"41":{"st":"inst","pa":0,"n":"/SPI_coverage_pkg","l":"SystemVerilog","sn":133,"du":{"n":"work.SPI_coverage_pkg","s":20,"b":1},"bc":[{"n":"SPI_coverage_pkg","s":41,"z":1}],"loc":{"cp":94.09,"data":{"gb":[58,54,1],"cvpc":[11,1],"g":[1,94.09,1]}}},"20":{"st":"du","pa":0,"n":"work.SPI_coverage_pkg","l":"SystemVerilog","sn":133,"one_inst":41,"loc":{"cp":94.09,"data":{"gb":[58,54,1],"cvpc":[11,1],"g":[1,94.09,1]}}}};
-processSummaryData(g_data);

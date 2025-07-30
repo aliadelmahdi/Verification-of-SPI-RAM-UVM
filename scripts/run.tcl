@@ -1,7 +1,9 @@
 exec g++ -shared -fPIC -o "design/SPI_design/Golden Models/golden_model.dll" "design/SPI_design/Golden Models/golden_model.cpp"
 
 vlib work
-vlog +incdir+./interface -f "scripts/list.list" -mfcu +cover -covercells
+# vlog +incdir+./interface -f "scripts/list.list" -mfcu +cover -covercells
+vlog  -f "scripts/list.f" -mfcu +cover -covercells
+
 
 # vsim -sv_seed random -voptargs=+acc work.tb_top -cover -classdebug -uvmcontrol=all -fsmdebug
 vsim -sv_seed 1509469653 -voptargs=+acc -sv_lib "design/SPI_design/Golden Models/golden_model" work.tb_top -cover -classdebug -uvmcontrol=all -fsmdebug

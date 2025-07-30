@@ -1,8 +1,6 @@
 package SPI_ram_seq_item_pkg;
 
 import uvm_pkg::*;
-`include "uvm_macros.svh"
-`include "spi_defines.svh" // For macros
 import shared_pkg::*; // For enums and parameters
  
     class SPI_ram_seq_item extends uvm_sequence_item;

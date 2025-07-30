@@ -2,6 +2,7 @@ package shared_pkg;
 
     // Include macros inside the package
     `include "spi_defines.svh"
+    `include "uvm_macros.svh"
     
     typedef enum logic [2:0] {
         IDLE      = 3'b000,

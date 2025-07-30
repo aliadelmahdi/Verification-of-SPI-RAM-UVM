@@ -5,7 +5,6 @@
     The numbers (e.g., 1, 2.2) match the corresponding test items  
     from the **Verification Plan** for traceability and clarity
 */
-`include "spi_defines.svh" // For macros
 import shared_pkg::*; // For enums and parameters
 `timescale `TIME_UNIT / `TIME_PRECISION
 

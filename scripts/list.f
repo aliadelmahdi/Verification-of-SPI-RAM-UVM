@@ -55,10 +55,8 @@ interface/shared_pkg.sv
 interface/SPI_if.sv
 
 # Design files
-"design/SPI_design/Designer RTL/SPI_slave.v"
-"design/SPI_design/Designer RTL/SPI_ram.v"
-"design/SPI_design/Golden Models/golden_model.sv"
-"design/SPI_design/Golden Models/dpi_golden_model.sv"
+"design/SPI_design/Designer RTL/design.v"
+"design/SPI_design/Golden Models/golden_models.sv"
 
 
 # Assertions
@@ -68,42 +66,45 @@ design/SPI_Assertions/SPI_ram_sva.sv
 # Testbench objects
 objects/SPI_config.sv
 
-# Slave objects
-objects/slave_objects/SPI_slave_seq_item.sv
-objects/slave_objects/SPI_slave_main_sequence.sv
-objects/slave_objects/SPI_slave_reset_sequence.sv
+
+# Sequences package
+objects/slave_objects/SPI_slave_main_sequence_pkg.sv
 
 # Ram objects
 objects/ram_objects/SPI_ram_seq_item.sv
-objects/ram_objects/SPI_ram_main_sequence.sv
-objects/ram_objects/SPI_ram_reset_sequence.sv
-
-# Driver files
-top/test/enviroment/slave_agent/driver/SPI_slave_driver.sv
-top/test/enviroment/ram_agent/driver/SPI_ram_driver.sv
-
-# Monitor files
-top/test/enviroment/slave_agent/monitor/SPI_slave_monitor.sv
-top/test/enviroment/ram_agent/monitor/SPI_ram_monitor.sv
-
-# Sequencer files
-top/test/enviroment/slave_agent/sequencer/SPI_slave_sequencer.sv
-top/test/enviroment/ram_agent/sequencer/SPI_ram_sequencer.sv
-
+objects/ram_objects/SPI_ram_sequences_pkg.sv
 
 # Agents
-top/test/enviroment/slave_agent/SPI_slave_agent.sv
-top/test/enviroment/ram_agent/SPI_ram_agent.sv
+top/test/enviroment/slave_agent/SPI_slave_pkg.sv
+top/test/enviroment/ram_agent/SPI_ram_pkg.sv
 
-# Scoreboard and coverage
-top/test/enviroment/scoreboard/SPI_scoreboard.sv
-top/test/enviroment/coverage_collector/SPI_coverage_collector.sv
+
 
 # Environment file
-top/test/enviroment/SPI_env.sv
+top/test/enviroment/SPI_env_pkg.sv
 
 # Test file
-top/test/test.sv
+top/test/SPI_test_pkg.sv
 
 # Top-level file
 top/top.sv
+
++incdir+./design
++incdir+./design/SPI_Assertions
++incdir+./design/SPI_design
+"+incdir+./design/SPI_design/Designer RTL"
+"+incdir+./design/SPI_design/Golden Models"
++incdir+./interface
++incdir+./top
++incdir+./top/test
++incdir+./top/test/enviroment
++incdir+./top/test/enviroment/coverage_collector
++incdir+./top/test/enviroment/ram_agent
++incdir+./top/test/enviroment/ram_agent/driver
++incdir+./top/test/enviroment/ram_agent/monitor
++incdir+./top/test/enviroment/ram_agent/sequencer
++incdir+./top/test/enviroment/scoreboard
++incdir+./top/test/enviroment/slave_agent
++incdir+./top/test/enviroment/slave_agent/driver
++incdir+./top/test/enviroment/slave_agent/monitor
++incdir+./top/test/enviroment/slave_agent/sequencer

@@ -1,3 +1,6 @@
+`ifndef RAM_SYNC_SINGLE_PORT_SV
+`define RAM_SYNC_SINGLE_PORT_SV
+
 module RAM_Sync_Single_port #(
   /*------------Parameters------------*/
     parameter MEM_DEPTH = 256,         /*  Memory depth */
@@ -58,3 +61,5 @@ module RAM_Sync_Single_port #(
   end 
 
 endmodule
+
+`endif // RAM_SYNC_SINGLE_PORT_SV

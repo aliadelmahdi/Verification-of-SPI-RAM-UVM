@@ -1,2 +1,2 @@
-var g_data = ["","design/SPI_design/Designer RTL/SPI_slave.v","top/top.sv","design/SPI_Assertions/SPI_slave_sva.sv","design/SPI_design/Designer RTL/SPI_ram.v","design/SPI_Assertions/SPI_ram_sva.sv"];
+var g_data = ["","./design/SPI_design/Designer RTL/SPI_slave.v","top/top.sv","design/SPI_Assertions/SPI_slave_sva.sv","./design/SPI_design/Designer RTL/SPI_ram.v","design/SPI_Assertions/SPI_ram_sva.sv"];
 processSrcNamesData(g_data);

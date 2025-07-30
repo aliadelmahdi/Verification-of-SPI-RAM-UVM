@@ -1,7 +1,7 @@
 package SPI_config_pkg;
 
     import uvm_pkg::*;
-    `include "uvm_macros.svh"
+    import shared_pkg::*;
 
     class SPI_config extends uvm_object;
 

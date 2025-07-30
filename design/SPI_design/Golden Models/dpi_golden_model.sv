@@ -1,6 +1,9 @@
-`include "spi_defines.svh" // For macros
-import shared_pkg::*; // For enums and parameters
-`timescale `TIME_UNIT / `TIME_PRECISION
+// `include "spi_defines.svh" // For macros
+// import shared_pkg::*; // For enums and parameters
+// `timescale `TIME_UNIT / `TIME_PRECISION
+
+`ifndef DPI_GOLDEN_MODEL_SV
+`define DPI_GOLDEN_MODEL_SV
 
 module dpi_golden_model #(
     parameter MEM_DEPTH = 256,
@@ -92,3 +95,5 @@ import "DPI-C" function byte dpi_spi_mem_read(input byte addr);
         end
     end
 endmodule
+
+`endif // DPI_GOLDEN_MODEL_SV

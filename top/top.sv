@@ -2,7 +2,6 @@ import uvm_pkg::*;
 import SPI_env_pkg::*;
 import SPI_test_pkg::*;
 import shared_pkg::*; // For enums and parameters
-`include "spi_defines.svh" // For macros
 `timescale `TIME_UNIT / `TIME_PRECISION
 
 module tb_top;
@@ -14,7 +13,7 @@ module tb_top;
     end
 
     SPI_env env_instance; // Instantiate the SPI enviroment
-    SPI_test test; // Instantiate the SPI test
+    SPI_test_base test; // Instantiate the SPI test
      
     // Instantiate the interface
     SPI_if spi_if (clk);
@@ -94,7 +93,7 @@ module tb_top;
         uvm_top.set_report_verbosity_level(UVM_MEDIUM); // Set verbosity level
         uvm_top.finish_on_completion = `DISABLE_FINISH; // Prevent UVM from calling $finish
         uvm_config_db#(virtual SPI_if)::set(null, "*", "spi_if", spi_if); // Set SPI interface globally
-        run_test("SPI_test"); // Start the UVM test
+        run_test("SPI_test_base"); // Start the UVM test
         `uvm_info("SEED", $sformatf("Current seed: %0d", $get_initial_random_seed()), UVM_LOW)
         $stop; // Stop simulation after test execution
     end

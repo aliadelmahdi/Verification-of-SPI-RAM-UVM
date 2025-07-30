@@ -1,4 +1,3 @@
-`include "spi_defines.svh" // For macros
 import shared_pkg::*; // For enums and parameters
 
 interface SPI_if(input bit clk);

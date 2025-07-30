@@ -1,11 +1,7 @@
-package SPI_slave_main_sequence_pkg;
+`ifndef SPI_SLAVE_MAIN_SEQUENCE_SV
+`define SPI_SLAVE_MAIN_SEQUENCE_SV
 
-    import uvm_pkg::*,
-           SPI_slave_seq_item_pkg::*,shared_pkg::*;
-    `include "uvm_macros.svh"
-    `include "spi_defines.svh" // For macros
-    
-    class SPI_slave_main_sequence extends uvm_sequence #(SPI_slave_seq_item);
+class SPI_slave_main_sequence extends uvm_sequence #(SPI_slave_seq_item);
         shared_pkg::control_e var1;
         `uvm_object_utils(SPI_slave_main_sequence)
         SPI_slave_seq_item seq_item;
@@ -142,66 +138,6 @@ package SPI_slave_main_sequence_pkg;
         virtual task body;
         endtask : body
 
-    endclass : SPI_slave_main_sequence
-  
-    class SPI_slave_read_data_sequence extends SPI_slave_main_sequence;
+endclass : SPI_slave_main_sequence
 
-        `uvm_object_utils(SPI_slave_read_data_sequence)
-
-        function new(string name = "SPI_slave_read_data_sequence");
-            super.new(name);
-        endfunction : new
-
-        task body;
-            `uvm_info("run_phase", "SPI constraint mode 'Read Address' started", UVM_LOW);
-            repeat(`TEST_ITER_MEDIUM) begin
-                read_sequence();
-            end
-        endtask : body
-
-    endclass : SPI_slave_read_data_sequence
-
-
-    class SPI_slave_write_data_sequence extends SPI_slave_main_sequence;
-
-        `uvm_object_utils(SPI_slave_write_data_sequence)
-
-        function new(string name = "SPI_slave_write_data_sequence");
-            super.new(name);
-        endfunction : new
-
-        task body;
-            `uvm_info("run_phase", "SPI constraint mode 'Write Address' started", UVM_LOW);
-            repeat(`TEST_ITER_MEDIUM) begin
-                write_sequence();
-            end
-        endtask : body
-
-    endclass : SPI_slave_write_data_sequence
-
-
-    class SPI_slave_mix_sequence extends SPI_slave_main_sequence;
-
-        `uvm_object_utils(SPI_slave_mix_sequence)
-
-        function new(string name = "SPI_slave_mix_sequence");
-            super.new(name);
-        endfunction : new
-
-        task body;
-            `uvm_info("run_phase", "SPI constraint mode 'Random mode' started", UVM_LOW);
-            enable_constraints = `ON;
-            repeat(`TEST_ITER_MEDIUM) begin
-                if ($urandom_range(0, 1) == 0) begin // Write
-                    write_sequence();
-                end else begin // Read
-                    read_sequence();
-                end
-            end
-        endtask : body
-
-        // TBA: randomize the rst state && add delays between each operation
-
-    endclass : SPI_slave_mix_sequence
-
-endpackage : SPI_slave_main_sequence_pkg
+`endif // SPI_SLAVE_MAIN_SEQUENCE_SV

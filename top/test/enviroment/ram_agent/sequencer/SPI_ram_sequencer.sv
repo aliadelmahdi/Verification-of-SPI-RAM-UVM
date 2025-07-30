@@ -1,33 +1,30 @@
-package SPI_ram_sequencer_pkg;
+`ifndef SPI_RAM_SEQUENCER_SV
+`define SPI_RAM_SEQUENCER_SV
 
-    import uvm_pkg::*,
-           SPI_ram_seq_item_pkg::*;
-    `include "uvm_macros.svh"
+class SPI_ram_sequencer extends uvm_sequencer #(SPI_ram_seq_item);
 
-    class SPI_ram_sequencer extends uvm_sequencer #(SPI_ram_seq_item);
+    `uvm_component_utils(SPI_ram_sequencer);
+    
+    // Default Constructor
+    function new(string name = "SPI_ram_sequence", uvm_component parent);
+        super.new(name,parent);
+    endfunction : new
+    
+    // Build Phase
+    function void build_phase(uvm_phase phase);
+        super.build_phase(phase);
+    endfunction : build_phase
 
-        `uvm_component_utils(SPI_ram_sequencer);
-        
-        // Default Constructor
-        function new(string name = "SPI_ram_sequence", uvm_component parent);
-            super.new(name,parent);
-        endfunction : new
-        
-        // Build Phase
-        function void build_phase(uvm_phase phase);
-            super.build_phase(phase);
-        endfunction : build_phase
+    // Connect Phase
+    function void connect_phase(uvm_phase phase);
+        super.connect_phase(phase);
+    endfunction : connect_phase
 
-        // Connect Phase
-        function void connect_phase(uvm_phase phase);
-			super.connect_phase(phase);
-		endfunction : connect_phase
+    // Run Phase
+    task run_phase (uvm_phase phase);
+        super.run_phase(phase);
+    endtask : run_phase
 
-        // Run Phase
-        task run_phase (uvm_phase phase);
-            super.run_phase(phase);
-        endtask : run_phase
+endclass : SPI_ram_sequencer
 
-    endclass : SPI_ram_sequencer
-
-endpackage : SPI_ram_sequencer_pkg
+`endif // SPI_RAM_SEQUENCER_SV

@@ -1,3 +1,6 @@
+`ifndef SPI_SLAVE_SV
+`define SPI_SLAVE_SV
+
 module SPI_slave (
   /*--------------Inputs--------------*/
     input  MOSI,        /* the serial date sent from the master */
@@ -171,3 +174,5 @@ module SPI_slave (
     endcase
   end
 endmodule //SPI_Slave
+
+`endif // SPI_SLAVE_SV

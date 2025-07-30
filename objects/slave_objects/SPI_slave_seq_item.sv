@@ -2,8 +2,6 @@ package SPI_slave_seq_item_pkg;
 
     import uvm_pkg::*,
            shared_pkg::*; // For enums and parameters
-    `include "uvm_macros.svh"
-    `include "spi_defines.svh" // For macros
 
     class SPI_slave_seq_item extends uvm_sequence_item;
         // Input signals

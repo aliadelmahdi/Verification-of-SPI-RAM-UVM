@@ -136,7 +136,7 @@ This project follows the **UVM (Universal Verification Methodology)** and includ
 The UVM Testbench Architecture:
 
 <p align="center">
-  <img width="565" height="644" alt="UVM Testbench Architecture" src="https://github.com/user-attachments/assets/75154daf-e7cd-4d5a-af42-04dc744b140d" />
+  <img width="565" height="644" alt="UVM Testbench Architecture" src="https://github.com/user-attachments/assets/e67ea49f-134c-42aa-9d96-1a2020712847" />
 </p>
 
 -----

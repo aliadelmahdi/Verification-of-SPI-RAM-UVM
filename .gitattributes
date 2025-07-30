@@ -2,4 +2,6 @@
 *.html linguist-detectable=false
 *.css linguist-detectable=false
 *.f linguist-detectable=false
+*.bat linguist-detectable=false
+*.sh linguist-detectable=false
 .cpp linguist-detectable=true

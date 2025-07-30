@@ -78,21 +78,21 @@ Branch Coverage for instance /\tb_top#slave /SPI_slave_inst
     ----         ----                      -----     ------ 
   File design/SPI_Assertions/SPI_slave_sva.sv
 ------------------------------------IF Branch------------------------------------
-    182                                     8636     Count coming in to IF
+    182                                     8551     Count coming in to IF
     182             1                          4                 if (!rst_n) begin
-    185             1                       7432                 end else if (cs inside {WRITE, READ_ADD, READ_DATA}) begin
+    185             1                       7347                 end else if (cs inside {WRITE, READ_ADD, READ_DATA}) begin
                                             1200     All False Count
 Branch totals: 3 hits of 3 branches = 100.00%
 
 ------------------------------------IF Branch------------------------------------
-    186                                     7432     Count coming in to IF
+    186                                     7347     Count coming in to IF
     186             1                       6000                     if (rx_counter < MEM_WIDTH+2)
-                                            1432     All False Count
+                                            1347     All False Count
 Branch totals: 2 hits of 2 branches = 100.00%
 
 ------------------------------------IF Branch------------------------------------
-    188                                     7432     Count coming in to IF
-    188             1                        832                     if (rx_valid && rx_counter == MEM_WIDTH+2)
+    188                                     7347     Count coming in to IF
+    188             1                        747                     if (rx_valid && rx_counter == MEM_WIDTH+2)
                                             6600     All False Count
 Branch totals: 2 hits of 2 branches = 100.00%
 
@@ -319,7 +319,7 @@ Statement Coverage for instance /\tb_top#slave /SPI_slave_inst --
     178                                              
     179                                                      logic [MEM_WIDTH+1:0] mosi_shift, mosi_shift_latched;
     180                                              
-    181             1                       8636             always @(posedge clk or negedge rst_n) begin
+    181             1                       8551             always @(posedge clk or negedge rst_n) begin
     182                                                          if (!rst_n) begin
     183             1                          4                     mosi_shift <= '0;
     184             1                          4                     mosi_shift_latched <= '0;
@@ -327,7 +327,7 @@ Statement Coverage for instance /\tb_top#slave /SPI_slave_inst --
     186                                                              if (rx_counter < MEM_WIDTH+2)
     187             1                       6000                         mosi_shift <= {mosi_shift[MEM_WIDTH:0], MOSI}; // Shift left
     188                                                              if (rx_valid && rx_counter == MEM_WIDTH+2)
-    189             1                        832                         mosi_shift_latched <= mosi_shift;
+    189             1                        747                         mosi_shift_latched <= mosi_shift;
 
 Toggle Coverage:
     Enabled Coverage              Bins      Hits    Misses  Coverage
@@ -383,12 +383,12 @@ Branch Coverage for instance /\tb_top#slave
 Branch totals: 2 hits of 2 branches = 100.00%
 
 ------------------------------------CASE Branch------------------------------------
-    40                                      6736     Count coming in to CASE
+    40                                      6576     Count coming in to CASE
     41              1                       1200             IDLE :begin
-    47              1                        902             CHK_CMD : begin
-    67              1                       1978             WRITE : begin
-    76              1                       1052             READ_ADD : begin
-    85              1                       1603             READ_DATA : begin
+    47              1                        880             CHK_CMD : begin
+    67              1                       2106             WRITE : begin
+    76              1                        958             READ_ADD : begin
+    85              1                       1431             READ_DATA : begin
     93              1                          1             default:  NS = IDLE;
 Branch totals: 6 hits of 6 branches = 100.00%
 
@@ -399,97 +399,97 @@ Branch totals: 6 hits of 6 branches = 100.00%
 Branch totals: 2 hits of 2 branches = 100.00%
 
 ------------------------------------IF Branch------------------------------------
-    49                                       902     Count coming in to IF
-    49              1                        902                 if(~SS_n) begin
+    49                                       880     Count coming in to IF
+    49              1                        880                 if(~SS_n) begin
     64              1                    ***0***                 else  
 Branch totals: 1 hit of 2 branches = 50.00%
 
 ------------------------------------IF Branch------------------------------------
-    51                                       902     Count coming in to IF
+    51                                       880     Count coming in to IF
     51              1                        600                     if(~MOSI)
-    54              1                        302                     else begin
+    54              1                        280                     else begin
 Branch totals: 2 hits of 2 branches = 100.00%
 
 ------------------------------------IF Branch------------------------------------
-    56                                       302     Count coming in to IF
-    56              1                        151                         if(rd_addr_hold)
-    59              1                        151                         else
+    56                                       280     Count coming in to IF
+    56              1                        140                         if(rd_addr_hold)
+    59              1                        140                         else
 Branch totals: 2 hits of 2 branches = 100.00%
 
 ------------------------------------IF Branch------------------------------------
-    69                                      1978     Count coming in to IF
-    69              1                       1680                 if(~SS_n) begin
-    73              1                        298                 else  
+    69                                      2106     Count coming in to IF
+    69              1                       1786                 if(~SS_n) begin
+    73              1                        320                 else  
 Branch totals: 2 hits of 2 branches = 100.00%
 
 ------------------------------------IF Branch------------------------------------
-    78                                      1052     Count coming in to IF
-    78              1                        901                 if(~SS_n) begin
-    82              1                        151                 else  
+    78                                       958     Count coming in to IF
+    78              1                        818                 if(~SS_n) begin
+    82              1                        140                 else  
 Branch totals: 2 hits of 2 branches = 100.00%
 
 ------------------------------------IF Branch------------------------------------
-    87                                      1603     Count coming in to IF
-    87              1                       1452                 if(~SS_n) 
-    90              1                        151                 else  
+    87                                      1431     Count coming in to IF
+    87              1                       1291                 if(~SS_n) 
+    90              1                        140                 else  
 Branch totals: 2 hits of 2 branches = 100.00%
 
 ------------------------------------IF Branch------------------------------------
-    98                                      9161     Count coming in to IF
+    98                                      9062     Count coming in to IF
     98              1                          2         if(~arst_n)begin
-                                            9159     All False Count
+                                            9060     All False Count
 Branch totals: 2 hits of 2 branches = 100.00%
 
 ------------------------------------CASE Branch------------------------------------
-    106                                     9161     Count coming in to CASE
+    106                                     9062     Count coming in to CASE
     107             1                        601             IDLE :begin
     117             1                        600             CHK_CMD:begin
-    124             1                       3278             WRITE:begin
-    134             1                       1661             READ_ADD:begin
-    144             1                       3020             READ_DATA:begin
+    124             1                       3520             WRITE:begin
+    134             1                       1540             READ_ADD:begin
+    144             1                       2800             READ_DATA:begin
     167             1                          1             default:begin
 Branch totals: 6 hits of 6 branches = 100.00%
 
 ------------------------------------IF Branch------------------------------------
     112                                      601     Count coming in to IF
-    112             1                        150                 if(tx_valid)
-    114             1                        451                 else
+    112             1                        139                 if(tx_valid)
+    114             1                        462                 else
 Branch totals: 2 hits of 2 branches = 100.00%
 
 ------------------------------------IF Branch------------------------------------
-    125                                     3278     Count coming in to IF
-    125             1                       2980                 if(rx_counter<10)begin
-    129             1                        298                 end else begin
+    125                                     3520     Count coming in to IF
+    125             1                       3200                 if(rx_counter<10)begin
+    129             1                        320                 end else begin
 Branch totals: 2 hits of 2 branches = 100.00%
 
 ------------------------------------IF Branch------------------------------------
-    135                                     1661     Count coming in to IF
-    135             1                       1510                 if(rx_counter<10)begin
-    138             1                        151                 end else begin
+    135                                     1540     Count coming in to IF
+    135             1                       1400                 if(rx_counter<10)begin
+    138             1                        140                 end else begin
 Branch totals: 2 hits of 2 branches = 100.00%
 
 ------------------------------------IF Branch------------------------------------
-    145                                     3020     Count coming in to IF
-    145             1                       1510                 if(rx_counter<10)begin
-    148             1                       1510                 end else begin
+    145                                     2800     Count coming in to IF
+    145             1                       1400                 if(rx_counter<10)begin
+    148             1                       1400                 end else begin
 Branch totals: 2 hits of 2 branches = 100.00%
 
 ------------------------------------IF Branch------------------------------------
-    151                                     1510     Count coming in to IF
-    151             1                       1208                     if(tx_valid)begin
-                                             302     All False Count
+    151                                     1400     Count coming in to IF
+    151             1                       1120                     if(tx_valid)begin
+                                             280     All False Count
 Branch totals: 2 hits of 2 branches = 100.00%
 
 ------------------------------------IF Branch------------------------------------
-    152                                     1208     Count coming in to IF
-    152             1                       1208                         if(tx_counter<8)begin
+    152                                     1120     Count coming in to IF
+    152             1                       1120                         if(tx_counter<8)begin
     157             1                    ***0***                         end else begin
 Branch totals: 1 hit of 2 branches = 50.00%
 
 ------------------------------------IF Branch------------------------------------
-    155                                     1208     Count coming in to IF
-    155             1                        151                             if (tx_counter == 7)
-                                            1057     All False Count
+    155                                     1120     Count coming in to IF
+    155             1                        140                             if (tx_counter == 7)
+                                             980     All False Count
 Branch totals: 2 hits of 2 branches = 100.00%
 
 
@@ -597,20 +597,20 @@ Line          State Name               Value
                    -----           ---------
                     IDLE                 602          
                  CHK_CMD                 600          
-                READ_ADD                 302          
-               READ_DATA                 302          
-                   WRITE                 596          
+                READ_ADD                 280          
+               READ_DATA                 280          
+                   WRITE                 640          
     Covered Transitions :
     ---------------------
 Line            Trans_ID           Hit_count          Transition          
 ----            --------           ---------          ----------          
   45                   0                 600          IDLE -> CHK_CMD               
-  60                   2                 151          CHK_CMD -> READ_ADD           
-  57                   3                 151          CHK_CMD -> READ_DATA          
-  52                   4                 298          CHK_CMD -> WRITE              
-  83                   5                 151          READ_ADD -> IDLE              
-  91                   6                 151          READ_DATA -> IDLE             
-  74                   7                 298          WRITE -> IDLE                 
+  60                   2                 140          CHK_CMD -> READ_ADD           
+  57                   3                 140          CHK_CMD -> READ_DATA          
+  52                   4                 320          CHK_CMD -> WRITE              
+  83                   5                 140          READ_ADD -> IDLE              
+  91                   6                 140          READ_DATA -> IDLE             
+  74                   7                 320          WRITE -> IDLE                 
     Uncovered Transitions :
     -----------------------
 Line            Trans_ID          Transition          
@@ -669,7 +669,7 @@ Statement Coverage for instance /\tb_top#slave  --
     36              1                       2400             CS <= NS;
     37                                                 end
     38                                                 /*----------Next State Logic--------*/
-    39              1                       6736       always @(*) begin
+    39              1                       6576       always @(*) begin
     40                                                   case (CS)
     41                                                       IDLE :begin
     42                                                           if(SS_n)
@@ -687,10 +687,10 @@ Statement Coverage for instance /\tb_top#slave  --
     54                                                               else begin
     55                                                                   /* if the read addr is held, the next is read the data */
     56                                                                   if(rd_addr_hold)
-    57              1                        151                             NS = READ_DATA;
+    57              1                        140                             NS = READ_DATA;
     58                                                                   /* if the read addr isn't held, the next is read address */
     59                                                                   else
-    60              1                        151                             NS = READ_ADD;
+    60              1                        140                             NS = READ_ADD;
     61                                                               end 
     62                                                           end
     63                                                           /* the master ends the communication to the slave */
@@ -700,34 +700,34 @@ Statement Coverage for instance /\tb_top#slave  --
     67                                                       WRITE : begin
     68                                                           /* the master opens the communication to the slave */
     69                                                           if(~SS_n) begin
-    70              1                       1680                     NS = WRITE;
+    70              1                       1786                     NS = WRITE;
     71                                                           end
     72                                                           /* the master ends the communication to the slave */
     73                                                           else  
-    74              1                        298                     NS = IDLE;
+    74              1                        320                     NS = IDLE;
     75                                                       end
     76                                                       READ_ADD : begin
     77                                                           /* the master opens the communication to the slave */
     78                                                           if(~SS_n) begin
-    79              1                        901                     NS = READ_ADD;
+    79              1                        818                     NS = READ_ADD;
     80                                                           end
     81                                                           /* the master ends the communication to the slave */
     82                                                           else  
-    83              1                        151                     NS = IDLE;
+    83              1                        140                     NS = IDLE;
     84                                                       end
     85                                                       READ_DATA : begin
     86                                                           /* the master opens the communication to the slave */
     87                                                           if(~SS_n) 
-    88              1                       1452                     NS = READ_DATA;
+    88              1                       1291                     NS = READ_DATA;
     89                                                           /* the master ends the communication to the slave */
     90                                                           else  
-    91              1                        151                     NS = IDLE;
+    91              1                        140                     NS = IDLE;
     92                                                       end
     93              1                          1             default:  NS = IDLE;
     94                                                   endcase
     95                                                 end
     96                                                 /*----------Output logic----------*/ 
-    97              1                       9161       always @(posedge clk ) begin
+    97              1                       9062       always @(posedge clk ) begin
     98                                                   if(~arst_n)begin
     99              1                          2             MISO             <= 0;
     100             1                          2             rx_data          <= 0;
@@ -743,9 +743,9 @@ Statement Coverage for instance /\tb_top#slave  --
     110             1                        601                 rx_counter  <= 0;
     111             1                        601                 tx_counter  <= 0;
     112                                                          if(tx_valid)
-    113             1                        150                     MISO <= tx_data[0]; // Fixed
+    113             1                        139                     MISO <= tx_data[0]; // Fixed
     114                                                          else
-    115             1                        451                     MISO <= 0;
+    115             1                        462                     MISO <= 0;
     116                                                      end 
     117                                                      CHK_CMD:begin
     118             1                        600                 MISO     <= 0;
@@ -756,37 +756,37 @@ Statement Coverage for instance /\tb_top#slave  --
     123                                                      end
     124                                                      WRITE:begin
     125                                                          if(rx_counter<10)begin
-    126             1                       2980                     rx_data[9-rx_counter] <= MOSI;
-    127             1                       2980                     rx_counter <= rx_counter + 1;
-    128             1                       2980                     rx_valid <= 0;
+    126             1                       3200                     rx_data[9-rx_counter] <= MOSI;
+    127             1                       3200                     rx_counter <= rx_counter + 1;
+    128             1                       3200                     rx_valid <= 0;
     129                                                          end else begin
-    130             1                        298                     rx_valid <= 1;
-    131             1                        298                     rx_counter <= 0;
+    130             1                        320                     rx_valid <= 1;
+    131             1                        320                     rx_counter <= 0;
     132                                                          end
     133                                                      end
     134                                                      READ_ADD:begin
     135                                                          if(rx_counter<10)begin
-    136             1                       1510                     rx_data[9-rx_counter] <= MOSI;
-    137             1                       1510                     rx_counter <= rx_counter + 1;
+    136             1                       1400                     rx_data[9-rx_counter] <= MOSI;
+    137             1                       1400                     rx_counter <= rx_counter + 1;
     138                                                          end else begin
-    139             1                        151                     rx_valid <= 1;
-    140             1                        151                     rd_addr_hold <=1;
-    141             1                        151                     rx_counter <= 0;
+    139             1                        140                     rx_valid <= 1;
+    140             1                        140                     rd_addr_hold <=1;
+    141             1                        140                     rx_counter <= 0;
     142                                                          end
     143                                                      end
     144                                                      READ_DATA:begin
     145                                                          if(rx_counter<10)begin
-    146             1                       1510                     rx_data[9-rx_counter] <= MOSI;
-    147             1                       1510                     rx_counter <= rx_counter + 1;
+    146             1                       1400                     rx_data[9-rx_counter] <= MOSI;
+    147             1                       1400                     rx_counter <= rx_counter + 1;
     148                                                          end else begin
-    149             1                       1510                     rx_valid <= 1;
+    149             1                       1400                     rx_valid <= 1;
     150                                                              /* Convert the read data from parallel to serial */ 
     151                                                              if(tx_valid)begin
     152                                                                  if(tx_counter<8)begin
-    153             1                       1208                             MISO <= tx_data[7-tx_counter]; // Fixed
-    154             1                       1208                             tx_counter <= tx_counter + 1;
+    153             1                       1120                             MISO <= tx_data[7-tx_counter]; // Fixed
+    154             1                       1120                             tx_counter <= tx_counter + 1;
     155                                                                      if (tx_counter == 7)
-    156             1                        151                                 rd_addr_hold <= 0;
+    156             1                        140                                 rd_addr_hold <= 0;
     157                                                                  end else begin
     158             1                    ***0***                             MISO <= 0;
     159             1                    ***0***                             rx_counter   <= 0;
@@ -889,7 +889,7 @@ Statement Coverage for instance /\tb_top#RAM /RAM_sva_inst --
     20                                                   parameter MEM_DEPTH=256;
     21                                                   parameter ADDR_SIZE=8;
     22                                                   parameter MEM_WIDTH=8;
-    23              1                       1054         assign control_bits = din[9:8];
+    23              1                       1021         assign control_bits = din[9:8];
 
 Toggle Coverage:
     Enabled Coverage              Bins      Hits    Misses  Coverage
@@ -935,18 +935,18 @@ Branch Coverage for instance /\tb_top#RAM
     ----         ----                      -----     ------ 
   File ./design/SPI_design/Designer RTL/SPI_ram.v
 ------------------------------------IF Branch------------------------------------
-    31                                      5670     Count coming in to IF
+    31                                      5579     Count coming in to IF
     31              1                          2         if(~arst_n)begin
-    34              1                       1957         end else if(rx_valid) begin
-    57              1                       3711         end else begin
+    34              1                       1858         end else if(rx_valid) begin
+    57              1                       3719         end else begin
 Branch totals: 3 hits of 3 branches = 100.00%
 
 ------------------------------------CASE Branch------------------------------------
-    36                                      1957     Count coming in to CASE
-    37              1                        149               2'b00 :
-    40              1                        149               2'b01 : 
-    43              1                        151               2'b10 : 
-    46              1                       1508               2'b11 : begin
+    36                                      1858     Count coming in to CASE
+    37              1                        160               2'b00 :
+    40              1                        160               2'b01 : 
+    43              1                        140               2'b10 : 
+    46              1                       1398               2'b11 : begin
     51              1                    ***0***               default: begin
 Branch totals: 4 hits of 5 branches = 80.00%
 
@@ -989,26 +989,26 @@ Statement Coverage for instance /\tb_top#RAM  --
     27                                                 (* ram_style = "block" *)reg [7:0]mem[MEM_DEPTH-1:0];
     28                                               
     29                                               
-    30              1                       5670       always @(posedge clk) begin
+    30              1                       5579       always @(posedge clk) begin
     31                                                   if(~arst_n)begin
     32              1                          2           dout <= 0;
     33              1                          2           tx_valid <= 0;
     34                                                   end else if(rx_valid) begin
-    35              1                       1957           tx_valid<=0; // Fixed
+    35              1                       1858           tx_valid<=0; // Fixed
     36                                                     case (din[9:8])
     37                                                         2'b00 :
     38                                                           /* Write operation - hold the write address */ 
-    39              1                        149                 addr_internal <= din[7:0];
+    39              1                        160                 addr_internal <= din[7:0];
     40                                                         2'b01 : 
     41                                                           /* Write operation - write data to memory in the internal address held previously  */ 
-    42              1                        149                 mem[addr_internal] <= din[7:0];
+    42              1                        160                 mem[addr_internal] <= din[7:0];
     43                                                         2'b10 : 
     44                                                           /* Read operation - hold the read address */ 
-    45              1                        151                 addr_internal <= din[7:0];
+    45              1                        140                 addr_internal <= din[7:0];
     46                                                         2'b11 : begin
     47                                                           /* Read operation - read data from memory mem[addr_internal]  */ 
-    48              1                       1508                 dout <= mem[addr_internal];
-    49              1                       1508                 tx_valid <= 1;
+    48              1                       1398                 dout <= mem[addr_internal];
+    49              1                       1398                 tx_valid <= 1;
     50                                                         end
     51                                                         default: begin
     52                                                           /* deafult case  */ 
@@ -1018,7 +1018,7 @@ Statement Coverage for instance /\tb_top#RAM  --
     56                                                     endcase
     57                                                   end else begin
     58                                                     /* reset tx_valid when the rx_valid is low */
-    59              1                       3711           tx_valid <= 0;
+    59              1                       3719           tx_valid <= 0;
 
 Toggle Coverage:
     Enabled Coverage              Bins      Hits    Misses  Coverage

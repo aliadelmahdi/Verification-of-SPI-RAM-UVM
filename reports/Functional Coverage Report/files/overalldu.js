@@ -1,2 +1,2 @@
-var g_data = {"ds_list":{}};
+var g_data = {"ds_list":{"31":[-1,"SPI_env_pkg",90.45,1]},"ds":{"g":[1,-1,90.45],"cvpc":[11,-1,-1.00],"gb":[58,51,-1.00],"tc":90.45},"du":{"g":[1,-1,90.45],"cvpc":[11,-1,-1.00],"gb":[58,51,-1.00],"tc":90.45}};
 processOverallduData(g_data);

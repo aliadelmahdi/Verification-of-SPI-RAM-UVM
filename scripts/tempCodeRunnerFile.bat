@@ -1,1 +1,1 @@
-do "scripts/run.tcl"
+-c

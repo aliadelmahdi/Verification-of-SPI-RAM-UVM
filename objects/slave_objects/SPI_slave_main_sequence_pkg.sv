@@ -3,8 +3,9 @@
 
 package SPI_slave_main_sequence_pkg;
 
-    import uvm_pkg::*,
-           SPI_slave_seq_item_pkg::*,shared_pkg::*;
+    import uvm_pkg::*;
+    import SPI_slave_seq_item_pkg::*;
+    import shared_pkg::*;
     
     `include "SPI_slave_reset_sequence.sv"
     `include "SPI_slave_main_sequence.sv"

@@ -6,17 +6,17 @@ Coverage Report by instance with details
 =================================================================================
 
 Covergroup Coverage:
-    Covergroups                      1        na        na    90.45%
+    Covergroups                      1        na        na    82.27%
         Coverpoints/Crosses         11        na        na        na
-            Covergroup Bins         58        51         7    87.93%
+            Covergroup Bins         58        44        14    75.86%
 ----------------------------------------------------------------------------------------------------------
 Covergroup                                             Metric       Goal       Bins    Status               
                                                                                                          
 ----------------------------------------------------------------------------------------------------------
- TYPE /SPI_env_pkg/SPI_coverage/spi_cov_grp            90.45%        100          -    Uncovered            
-    covered/total bins:                                    51         58          -                      
-    missing/total bins:                                     7         58          -                      
-    % Hit:                                             87.93%        100          -                      
+ TYPE /SPI_env_pkg/SPI_coverage/spi_cov_grp            82.27%        100          -    Uncovered            
+    covered/total bins:                                    44         58          -                      
+    missing/total bins:                                    14         58          -                      
+    % Hit:                                             75.86%        100          -                      
     Coverpoint rst_n_cp                               100.00%        100          -    Covered              
         covered/total bins:                                 4          4          -                      
         missing/total bins:                                 0          4          -                      
@@ -33,10 +33,10 @@ Covergroup                                             Metric       Goal       B
         covered/total bins:                                 4          4          -                      
         missing/total bins:                                 0          4          -                      
         % Hit:                                        100.00%        100          -                      
-    Coverpoint rx_data_cp                             100.00%        100          -    Covered              
-        covered/total bins:                                 5          5          -                      
-        missing/total bins:                                 0          5          -                      
-        % Hit:                                        100.00%        100          -                      
+    Coverpoint rx_data_cp                              60.00%        100          -    Uncovered            
+        covered/total bins:                                 3          5          -                      
+        missing/total bins:                                 2          5          -                      
+        % Hit:                                         60.00%        100          -                      
     Coverpoint SS_n_cp                                100.00%        100          -    Covered              
         covered/total bins:                                 4          4          -                      
         missing/total bins:                                 0          4          -                      
@@ -57,61 +57,61 @@ Covergroup                                             Metric       Goal       B
         covered/total bins:                                 3          4          -                      
         missing/total bins:                                 1          4          -                      
         % Hit:                                         75.00%        100          -                      
-    Cross rx_valid_data_cr                            100.00%        100          -    Covered              
-        covered/total bins:                                10         10          -                      
-        missing/total bins:                                 0         10          -                      
-        % Hit:                                        100.00%        100          -                      
+    Cross rx_valid_data_cr                             50.00%        100          -    Uncovered            
+        covered/total bins:                                 5         10          -                      
+        missing/total bins:                                 5         10          -                      
+        % Hit:                                         50.00%        100          -                      
  Covergroup instance \/SPI_env_pkg::SPI_coverage::spi_cov_grp  
-                                                       90.45%        100          -    Uncovered            
-    covered/total bins:                                    51         58          -                      
-    missing/total bins:                                     7         58          -                      
-    % Hit:                                             87.93%        100          -                      
+                                                       82.27%        100          -    Uncovered            
+    covered/total bins:                                    44         58          -                      
+    missing/total bins:                                    14         58          -                      
+    % Hit:                                             75.86%        100          -                      
     Coverpoint rst_n_cp                               100.00%        100          -    Covered              
         covered/total bins:                                 4          4          -                      
         missing/total bins:                                 0          4          -                      
         % Hit:                                        100.00%        100          -                      
         bin active                                          2          1          -    Covered              
-        bin inactive                                     9060          1          -    Covered              
+        bin inactive                                     9150          1          -    Covered              
         bin inactive_to_active                              1          1          -    Covered              
         bin active_to_inactive                              2          1          -    Covered              
     Coverpoint MISO_cp                                100.00%        100          -    Covered              
         covered/total bins:                                 4          4          -                      
         missing/total bins:                                 0          4          -                      
         % Hit:                                        100.00%        100          -                      
-        bin active                                        233          1          -    Covered              
-        bin inactive                                     8056          1          -    Covered              
-        bin active_to_inactive                            122          1          -    Covered              
-        bin inactive_to_active                            122          1          -    Covered              
+        bin active                                        265          1          -    Covered              
+        bin inactive                                     8050          1          -    Covered              
+        bin active_to_inactive                            133          1          -    Covered              
+        bin inactive_to_active                            133          1          -    Covered              
     Coverpoint MOSI_cp                                100.00%        100          -    Covered              
         covered/total bins:                                 4          4          -                      
         missing/total bins:                                 0          4          -                      
         % Hit:                                        100.00%        100          -                      
-        bin active                                       3867          1          -    Covered              
-        bin inactive                                     5195          1          -    Covered              
-        bin active_to_inactive                           1933          1          -    Covered              
-        bin inactive_to_active                           1933          1          -    Covered              
+        bin active                                       4066          1          -    Covered              
+        bin inactive                                     5086          1          -    Covered              
+        bin active_to_inactive                           2017          1          -    Covered              
+        bin inactive_to_active                           2017          1          -    Covered              
     Coverpoint rx_valid_cp                            100.00%        100          -    Covered              
         covered/total bins:                                 4          4          -                      
         missing/total bins:                                 0          4          -                      
         % Hit:                                        100.00%        100          -                      
-        bin valid                                        1860          1          -    Covered              
+        bin valid                                        1950          1          -    Covered              
         bin not_vaild                                    7202          1          -    Covered              
         bin valid_to_not_vaild                            599          1          -    Covered              
         bin not_valid_to_vaild                            600          1          -    Covered              
-    Coverpoint rx_data_cp                             100.00%        100          -    Covered              
-        covered/total bins:                                 5          5          -                      
-        missing/total bins:                                 0          5          -                      
-        % Hit:                                        100.00%        100          -                      
-        bin zero                                         1853          1          -    Covered              
-        bin alt_10                                          4          1          -    Covered              
-        bin alt_01                                          6          1          -    Covered              
-        bin maximum                                        22          1          -    Covered              
-        bin others                                       7177          1          -    Covered              
+    Coverpoint rx_data_cp                              60.00%        100          -    Uncovered            
+        covered/total bins:                                 3          5          -                      
+        missing/total bins:                                 2          5          -                      
+        % Hit:                                         60.00%        100          -                      
+        bin zero                                         1789          1          -    Covered              
+        bin alt_10                                          3          1          -    Covered              
+        bin alt_01                                          0          1          -    ZERO                 
+        bin maximum                                         0          1          -    ZERO                 
+        bin others                                       7360          1          -    Covered              
     Coverpoint SS_n_cp                                100.00%        100          -    Covered              
         covered/total bins:                                 4          4          -                      
         missing/total bins:                                 0          4          -                      
         % Hit:                                        100.00%        100          -                      
-        bin slave_selected                               8462          1          -    Covered              
+        bin slave_selected                               8552          1          -    Covered              
         bin slave_not_selected                            600          1          -    Covered              
         bin selected_to_not_selected                      600          1          -    Covered              
         bin not_selected_to_selected                      599          1          -    Covered              
@@ -119,68 +119,68 @@ Covergroup                                             Metric       Goal       B
         covered/total bins:                                 4          4          -                      
         missing/total bins:                                 0          4          -                      
         % Hit:                                        100.00%        100          -                      
-        bin valid                                         140          1          -    Covered              
-        bin not_vaild                                    8922          1          -    Covered              
-        bin valid_to_not_vaild                            140          1          -    Covered              
-        bin not_valid_to_vaild                            140          1          -    Covered              
+        bin valid                                         150          1          -    Covered              
+        bin not_vaild                                    9002          1          -    Covered              
+        bin valid_to_not_vaild                            150          1          -    Covered              
+        bin not_valid_to_vaild                            150          1          -    Covered              
     Coverpoint dout_cp                                 60.00%        100          -    Uncovered            
         covered/total bins:                                 3          5          -                      
         missing/total bins:                                 2          5          -                      
         % Hit:                                         60.00%        100          -                      
-        bin zero                                         8972          1          -    Covered              
-        bin alt_10                                          0          1          -    ZERO                 
-        bin alt_01                                          1          1          -    Covered              
+        bin zero                                         9060          1          -    Covered              
+        bin alt_10                                          2          1          -    Covered              
+        bin alt_01                                          0          1          -    ZERO                 
         bin maximum                                         0          1          -    ZERO                 
-        bin others                                         53          1          -    Covered              
+        bin others                                         55          1          -    Covered              
     Cross tx_valid_dout_cr                             60.00%        100          -    Uncovered            
         covered/total bins:                                 6         10          -                      
         missing/total bins:                                 4         10          -                      
         % Hit:                                         60.00%        100          -                      
         Auto, Default and User Defined Bins:
-            bin valid_dout_zero                            50          1          -    Covered              
-            bin valid_dout_alt_10                           0          1          -    ZERO                 
-            bin valid_dout_alt_01                           1          1          -    Covered              
+            bin valid_dout_zero                            58          1          -    Covered              
+            bin valid_dout_alt_10                           2          1          -    Covered              
+            bin valid_dout_alt_01                           0          1          -    ZERO                 
             bin valid_dout_maximum                          0          1          -    ZERO                 
-            bin valid_dout_others                          53          1          -    Covered              
-            bin valid_dout_zero_trans                      50          1          -    Covered              
-            bin valid_dout_alt_10_trans                     0          1          -    ZERO                 
-            bin valid_dout_alt_01_trans                     1          1          -    Covered              
+            bin valid_dout_others                          55          1          -    Covered              
+            bin valid_dout_zero_trans                      58          1          -    Covered              
+            bin valid_dout_alt_10_trans                     2          1          -    Covered              
+            bin valid_dout_alt_01_trans                     0          1          -    ZERO                 
             bin valid_dout_maximum_trans                    0          1          -    ZERO                 
-            bin valid_dout_others_trans                    53          1          -    Covered              
+            bin valid_dout_others_trans                    55          1          -    Covered              
     Cross SS_n_MOSI_cr                                 75.00%        100          -    Uncovered            
         covered/total bins:                                 3          4          -                      
         missing/total bins:                                 1          4          -                      
         % Hit:                                         75.00%        100          -                      
         Auto, Default and User Defined Bins:
-            bin selected_with_data                       3867          1          -    Covered              
+            bin selected_with_data                       4066          1          -    Covered              
             bin not_selected_with_data                      0          1          -    ZERO                 
-            bin selected_with_no_data                    4595          1          -    Covered              
+            bin selected_with_no_data                    4486          1          -    Covered              
             bin not_selected_with_no_data                 600          1          -    Covered              
-    Cross rx_valid_data_cr                            100.00%        100          -    Covered              
-        covered/total bins:                                10         10          -                      
-        missing/total bins:                                 0         10          -                      
-        % Hit:                                        100.00%        100          -                      
+    Cross rx_valid_data_cr                             50.00%        100          -    Uncovered            
+        covered/total bins:                                 5         10          -                      
+        missing/total bins:                                 5         10          -                      
+        % Hit:                                         50.00%        100          -                      
         Auto, Default and User Defined Bins:
-            bin valid_zero                                  1          1          -    Covered              
+            bin valid_zero                                  0          1          -    ZERO                 
             bin valid_alt_10                                1          1          -    Covered              
-            bin valid_alt_01                                3          1          -    Covered              
-            bin valid_maximum                              20          1          -    Covered              
-            bin valid_others                             1835          1          -    Covered              
-            bin not_valid_zero                           1852          1          -    Covered              
-            bin not_valid_alt_10                            3          1          -    Covered              
-            bin not_valid_alt_01                            3          1          -    Covered              
-            bin not_valid_maximum                           2          1          -    Covered              
-            bin not_valid_others                         5342          1          -    Covered              
+            bin valid_alt_01                                0          1          -    ZERO                 
+            bin valid_maximum                               0          1          -    ZERO                 
+            bin valid_others                             1949          1          -    Covered              
+            bin not_valid_zero                           1789          1          -    Covered              
+            bin not_valid_alt_10                            2          1          -    Covered              
+            bin not_valid_alt_01                            0          1          -    ZERO                 
+            bin not_valid_maximum                           0          1          -    ZERO                 
+            bin not_valid_others                         5411          1          -    Covered              
 
 COVERGROUP COVERAGE:
 ----------------------------------------------------------------------------------------------------------
 Covergroup                                             Metric       Goal       Bins    Status               
                                                                                                          
 ----------------------------------------------------------------------------------------------------------
- TYPE /SPI_env_pkg/SPI_coverage/spi_cov_grp            90.45%        100          -    Uncovered            
-    covered/total bins:                                    51         58          -                      
-    missing/total bins:                                     7         58          -                      
-    % Hit:                                             87.93%        100          -                      
+ TYPE /SPI_env_pkg/SPI_coverage/spi_cov_grp            82.27%        100          -    Uncovered            
+    covered/total bins:                                    44         58          -                      
+    missing/total bins:                                    14         58          -                      
+    % Hit:                                             75.86%        100          -                      
     Coverpoint rst_n_cp                               100.00%        100          -    Covered              
         covered/total bins:                                 4          4          -                      
         missing/total bins:                                 0          4          -                      
@@ -197,10 +197,10 @@ Covergroup                                             Metric       Goal       B
         covered/total bins:                                 4          4          -                      
         missing/total bins:                                 0          4          -                      
         % Hit:                                        100.00%        100          -                      
-    Coverpoint rx_data_cp                             100.00%        100          -    Covered              
-        covered/total bins:                                 5          5          -                      
-        missing/total bins:                                 0          5          -                      
-        % Hit:                                        100.00%        100          -                      
+    Coverpoint rx_data_cp                              60.00%        100          -    Uncovered            
+        covered/total bins:                                 3          5          -                      
+        missing/total bins:                                 2          5          -                      
+        % Hit:                                         60.00%        100          -                      
     Coverpoint SS_n_cp                                100.00%        100          -    Covered              
         covered/total bins:                                 4          4          -                      
         missing/total bins:                                 0          4          -                      
@@ -221,61 +221,61 @@ Covergroup                                             Metric       Goal       B
         covered/total bins:                                 3          4          -                      
         missing/total bins:                                 1          4          -                      
         % Hit:                                         75.00%        100          -                      
-    Cross rx_valid_data_cr                            100.00%        100          -    Covered              
-        covered/total bins:                                10         10          -                      
-        missing/total bins:                                 0         10          -                      
-        % Hit:                                        100.00%        100          -                      
+    Cross rx_valid_data_cr                             50.00%        100          -    Uncovered            
+        covered/total bins:                                 5         10          -                      
+        missing/total bins:                                 5         10          -                      
+        % Hit:                                         50.00%        100          -                      
  Covergroup instance \/SPI_env_pkg::SPI_coverage::spi_cov_grp  
-                                                       90.45%        100          -    Uncovered            
-    covered/total bins:                                    51         58          -                      
-    missing/total bins:                                     7         58          -                      
-    % Hit:                                             87.93%        100          -                      
+                                                       82.27%        100          -    Uncovered            
+    covered/total bins:                                    44         58          -                      
+    missing/total bins:                                    14         58          -                      
+    % Hit:                                             75.86%        100          -                      
     Coverpoint rst_n_cp                               100.00%        100          -    Covered              
         covered/total bins:                                 4          4          -                      
         missing/total bins:                                 0          4          -                      
         % Hit:                                        100.00%        100          -                      
         bin active                                          2          1          -    Covered              
-        bin inactive                                     9060          1          -    Covered              
+        bin inactive                                     9150          1          -    Covered              
         bin inactive_to_active                              1          1          -    Covered              
         bin active_to_inactive                              2          1          -    Covered              
     Coverpoint MISO_cp                                100.00%        100          -    Covered              
         covered/total bins:                                 4          4          -                      
         missing/total bins:                                 0          4          -                      
         % Hit:                                        100.00%        100          -                      
-        bin active                                        233          1          -    Covered              
-        bin inactive                                     8056          1          -    Covered              
-        bin active_to_inactive                            122          1          -    Covered              
-        bin inactive_to_active                            122          1          -    Covered              
+        bin active                                        265          1          -    Covered              
+        bin inactive                                     8050          1          -    Covered              
+        bin active_to_inactive                            133          1          -    Covered              
+        bin inactive_to_active                            133          1          -    Covered              
     Coverpoint MOSI_cp                                100.00%        100          -    Covered              
         covered/total bins:                                 4          4          -                      
         missing/total bins:                                 0          4          -                      
         % Hit:                                        100.00%        100          -                      
-        bin active                                       3867          1          -    Covered              
-        bin inactive                                     5195          1          -    Covered              
-        bin active_to_inactive                           1933          1          -    Covered              
-        bin inactive_to_active                           1933          1          -    Covered              
+        bin active                                       4066          1          -    Covered              
+        bin inactive                                     5086          1          -    Covered              
+        bin active_to_inactive                           2017          1          -    Covered              
+        bin inactive_to_active                           2017          1          -    Covered              
     Coverpoint rx_valid_cp                            100.00%        100          -    Covered              
         covered/total bins:                                 4          4          -                      
         missing/total bins:                                 0          4          -                      
         % Hit:                                        100.00%        100          -                      
-        bin valid                                        1860          1          -    Covered              
+        bin valid                                        1950          1          -    Covered              
         bin not_vaild                                    7202          1          -    Covered              
         bin valid_to_not_vaild                            599          1          -    Covered              
         bin not_valid_to_vaild                            600          1          -    Covered              
-    Coverpoint rx_data_cp                             100.00%        100          -    Covered              
-        covered/total bins:                                 5          5          -                      
-        missing/total bins:                                 0          5          -                      
-        % Hit:                                        100.00%        100          -                      
-        bin zero                                         1853          1          -    Covered              
-        bin alt_10                                          4          1          -    Covered              
-        bin alt_01                                          6          1          -    Covered              
-        bin maximum                                        22          1          -    Covered              
-        bin others                                       7177          1          -    Covered              
+    Coverpoint rx_data_cp                              60.00%        100          -    Uncovered            
+        covered/total bins:                                 3          5          -                      
+        missing/total bins:                                 2          5          -                      
+        % Hit:                                         60.00%        100          -                      
+        bin zero                                         1789          1          -    Covered              
+        bin alt_10                                          3          1          -    Covered              
+        bin alt_01                                          0          1          -    ZERO                 
+        bin maximum                                         0          1          -    ZERO                 
+        bin others                                       7360          1          -    Covered              
     Coverpoint SS_n_cp                                100.00%        100          -    Covered              
         covered/total bins:                                 4          4          -                      
         missing/total bins:                                 0          4          -                      
         % Hit:                                        100.00%        100          -                      
-        bin slave_selected                               8462          1          -    Covered              
+        bin slave_selected                               8552          1          -    Covered              
         bin slave_not_selected                            600          1          -    Covered              
         bin selected_to_not_selected                      600          1          -    Covered              
         bin not_selected_to_selected                      599          1          -    Covered              
@@ -283,60 +283,60 @@ Covergroup                                             Metric       Goal       B
         covered/total bins:                                 4          4          -                      
         missing/total bins:                                 0          4          -                      
         % Hit:                                        100.00%        100          -                      
-        bin valid                                         140          1          -    Covered              
-        bin not_vaild                                    8922          1          -    Covered              
-        bin valid_to_not_vaild                            140          1          -    Covered              
-        bin not_valid_to_vaild                            140          1          -    Covered              
+        bin valid                                         150          1          -    Covered              
+        bin not_vaild                                    9002          1          -    Covered              
+        bin valid_to_not_vaild                            150          1          -    Covered              
+        bin not_valid_to_vaild                            150          1          -    Covered              
     Coverpoint dout_cp                                 60.00%        100          -    Uncovered            
         covered/total bins:                                 3          5          -                      
         missing/total bins:                                 2          5          -                      
         % Hit:                                         60.00%        100          -                      
-        bin zero                                         8972          1          -    Covered              
-        bin alt_10                                          0          1          -    ZERO                 
-        bin alt_01                                          1          1          -    Covered              
+        bin zero                                         9060          1          -    Covered              
+        bin alt_10                                          2          1          -    Covered              
+        bin alt_01                                          0          1          -    ZERO                 
         bin maximum                                         0          1          -    ZERO                 
-        bin others                                         53          1          -    Covered              
+        bin others                                         55          1          -    Covered              
     Cross tx_valid_dout_cr                             60.00%        100          -    Uncovered            
         covered/total bins:                                 6         10          -                      
         missing/total bins:                                 4         10          -                      
         % Hit:                                         60.00%        100          -                      
         Auto, Default and User Defined Bins:
-            bin valid_dout_zero                            50          1          -    Covered              
-            bin valid_dout_alt_10                           0          1          -    ZERO                 
-            bin valid_dout_alt_01                           1          1          -    Covered              
+            bin valid_dout_zero                            58          1          -    Covered              
+            bin valid_dout_alt_10                           2          1          -    Covered              
+            bin valid_dout_alt_01                           0          1          -    ZERO                 
             bin valid_dout_maximum                          0          1          -    ZERO                 
-            bin valid_dout_others                          53          1          -    Covered              
-            bin valid_dout_zero_trans                      50          1          -    Covered              
-            bin valid_dout_alt_10_trans                     0          1          -    ZERO                 
-            bin valid_dout_alt_01_trans                     1          1          -    Covered              
+            bin valid_dout_others                          55          1          -    Covered              
+            bin valid_dout_zero_trans                      58          1          -    Covered              
+            bin valid_dout_alt_10_trans                     2          1          -    Covered              
+            bin valid_dout_alt_01_trans                     0          1          -    ZERO                 
             bin valid_dout_maximum_trans                    0          1          -    ZERO                 
-            bin valid_dout_others_trans                    53          1          -    Covered              
+            bin valid_dout_others_trans                    55          1          -    Covered              
     Cross SS_n_MOSI_cr                                 75.00%        100          -    Uncovered            
         covered/total bins:                                 3          4          -                      
         missing/total bins:                                 1          4          -                      
         % Hit:                                         75.00%        100          -                      
         Auto, Default and User Defined Bins:
-            bin selected_with_data                       3867          1          -    Covered              
+            bin selected_with_data                       4066          1          -    Covered              
             bin not_selected_with_data                      0          1          -    ZERO                 
-            bin selected_with_no_data                    4595          1          -    Covered              
+            bin selected_with_no_data                    4486          1          -    Covered              
             bin not_selected_with_no_data                 600          1          -    Covered              
-    Cross rx_valid_data_cr                            100.00%        100          -    Covered              
-        covered/total bins:                                10         10          -                      
-        missing/total bins:                                 0         10          -                      
-        % Hit:                                        100.00%        100          -                      
+    Cross rx_valid_data_cr                             50.00%        100          -    Uncovered            
+        covered/total bins:                                 5         10          -                      
+        missing/total bins:                                 5         10          -                      
+        % Hit:                                         50.00%        100          -                      
         Auto, Default and User Defined Bins:
-            bin valid_zero                                  1          1          -    Covered              
+            bin valid_zero                                  0          1          -    ZERO                 
             bin valid_alt_10                                1          1          -    Covered              
-            bin valid_alt_01                                3          1          -    Covered              
-            bin valid_maximum                              20          1          -    Covered              
-            bin valid_others                             1835          1          -    Covered              
-            bin not_valid_zero                           1852          1          -    Covered              
-            bin not_valid_alt_10                            3          1          -    Covered              
-            bin not_valid_alt_01                            3          1          -    Covered              
-            bin not_valid_maximum                           2          1          -    Covered              
-            bin not_valid_others                         5342          1          -    Covered              
+            bin valid_alt_01                                0          1          -    ZERO                 
+            bin valid_maximum                               0          1          -    ZERO                 
+            bin valid_others                             1949          1          -    Covered              
+            bin not_valid_zero                           1789          1          -    Covered              
+            bin not_valid_alt_10                            2          1          -    Covered              
+            bin not_valid_alt_01                            0          1          -    ZERO                 
+            bin not_valid_maximum                           0          1          -    ZERO                 
+            bin not_valid_others                         5411          1          -    Covered              
 
-TOTAL COVERGROUP COVERAGE: 90.45%  COVERGROUP TYPES: 1
+TOTAL COVERGROUP COVERAGE: 82.27%  COVERGROUP TYPES: 1
 
-Total Coverage By Instance (filtered view): 90.45%
+Total Coverage By Instance (filtered view): 82.27%
 

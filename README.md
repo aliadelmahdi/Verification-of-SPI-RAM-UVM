@@ -18,53 +18,54 @@ The original RTL design was developed by [Youssif-Amed Youssif](https://github.c
 Here's an overview of the file structure for design and verification components:
 
 ```
-interface/
-│── spi_defines.svh
-│── shared_pkg.sv
-│── SPI_if.sv
-
-design/SPI_design/
-│── golden_model.sv
-│── SPI_Ram.v
-│── SPI_Slave.v
-
-design/SPI_Assertions/
-│── SPI_slave_sva.sv
-│── SPI_ram_sva.sv
-
-objects/
-│── SPI_config.sv
-├── slave_objects/
-│   ├── SPI_slave_seq_item.sv
-│   ├── SPI_slave_main_sequence.sv
-│   ├── SPI_slave_reset_sequence.sv
-├── ram_objects/
-│   ├── SPI_ram_seq_item.sv
-│   ├── SPI_ram_main_sequence.sv
-│   ├── SPI_ram_reset_sequence.sv
-
-top/test/enviroment/
-│── SPI_env.sv
-├── scoreboard/
-│   ├── SPI_scoreboard.sv
-├── coverage_collector/
-│   ├── SPI_coverage_collector.sv
-├── slave_agent/
-│   ├── SPI_slave_agent.sv
-│   ├── sequencer/SPI_slave_sequencer.sv
-│   ├── driver/SPI_slave_driver.sv
-│   ├── monitor/SPI_slave_monitor.sv
-├── ram_agent/
-│   ├── SPI_ram_agent.sv
-│   ├── sequencer/SPI_ram_sequencer.sv
-│   ├── driver/SPI_ram_driver.sv
-│   ├── monitor/SPI_ram_monitor.sv
-
-top/test/
-│── test.sv
-
-top/
-│── top.sv
+├── design/
+│   ├── SPI_Assertions/
+│   │   ├── SPI_ram_sva.sv
+│   │   └── SPI_slave_sva.sv
+│   └── SPI_design/
+│       ├── Designer RTL/
+│       │   ├── SPI_ram.v
+│       │   ├── SPI_slave.v
+│       │   └── design.v
+│       └── Golden Models/
+│           ├── dpi_golden_model.sv
+│           ├── golden_models.sv
+│           ├── ram_golden_model.sv
+│           └── spi_sys_golden_model.sv
+├── interface/
+│   ├── SPI_if.sv
+│   ├── shared_pkg.sv
+│   └── spi_defines.svh
+├── top/
+│   ├── test/
+│   │   ├── SPI_test_base.sv
+│   │   ├── SPI_test_pkg.sv
+│   │   └── enviroment/
+│   │       ├── SPI_env.sv
+│   │       ├── SPI_env_pkg.sv
+│   │       ├── coverage_collector/
+│   │       │   └── SPI_coverage_collector.sv
+│   │       ├── ram_agent/
+│   │       │   ├── SPI_ram_agent.sv
+│   │       │   ├── SPI_ram_pkg.sv
+│   │       │   ├── driver/
+│   │       │   │   └── SPI_ram_driver.sv
+│   │       │   ├── monitor/
+│   │       │   │   └── SPI_ram_monitor.sv
+│   │       │   └── sequencer/
+│   │       │       └── SPI_ram_sequencer.sv
+│   │       ├── scoreboard/
+│   │       │   └── SPI_scoreboard.sv
+│   │       └── slave_agent/
+│   │           ├── SPI_slave_agent.sv
+│   │           ├── SPI_slave_pkg.sv
+│   │           ├── driver/
+│   │           │   └── SPI_slave_driver.sv
+│   │           ├── monitor/
+│   │           │   └── SPI_slave_monitor.sv
+│   │           └── sequencer/
+│   │               └── SPI_slave_sequencer.sv
+│   └── top.sv
 ```
 
 -----
@@ -131,6 +132,12 @@ This project follows the **UVM (Universal Verification Methodology)** and includ
   * **Scoreboard** and **coverage collectors**
   * **Golden Model** comparison using **DPI-C + C++**
   * **Assertion-Based Verification (ABV)** for protocol checks
+
+The UVM Testbench Architecture:
+
+<p align="center">
+  <img width="565" height="644" alt="UVM Testbench Architecture" src="https://github.com/user-attachments/assets/75154daf-e7cd-4d5a-af42-04dc744b140d" />
+</p>
 
 -----
 

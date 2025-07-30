@@ -173,6 +173,6 @@ module SPI_slave (
         end 
     endcase
   end
-endmodule //SPI_Slave
+endmodule
 
 `endif // SPI_SLAVE_SV

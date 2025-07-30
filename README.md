@@ -13,6 +13,53 @@ The original RTL design was developed by [Youssif-Amed Youssif](https://github.c
 
 -----
 
+## Verification Methodology
+
+This project follows the **UVM (Universal Verification Methodology)** and includes:
+
+  * **Agents** for both SPI slave and RAM
+  * **UVM sequences** and configuration objects
+  * **Scoreboard** and **coverage collectors**
+  * **Golden Model** comparison using **DPI-C + C++**
+  * **Assertion-Based Verification (ABV)** for protocol checks
+
+The UVM Testbench Architecture:
+
+<p align="center">
+  <img width="565" height="644" alt="UVM Testbench Architecture" src="https://github.com/user-attachments/assets/75154daf-e7cd-4d5a-af42-04dc744b140d" />
+</p>
+
+-----
+
+## Assertions
+
+Assertions follow a **structured and traceable format**, each mapped to the corresponding item in the **Verification Plan**.
+
+Assertions cover:
+
+  * **FSM transitions**
+  * **Signal values in each state**
+  * **Serial-to-parallel & parallel-to-serial conversions**
+  * **Slave behavior during read/write**
+  * **SPI protocol compliance**
+
+-----
+
+## Verification Plan
+
+A complete **Verification Plan** is included. Each item in the plan is covered through directed sequences, assertions, and functional coverage.
+
+-----
+
+## Coverage Reports
+
+  * **Functional Coverage** is monitored through custom coverage collectors.
+  * **Code Coverage** is automatically captured by QuestaSim.
+
+Reports are automatically generated in HTML format for easy navigation and visualization. After simulation, open the `coverage_report/index.html` in your browser to view results.
+
+-----
+
 ## Repository Structure
 
 Here's an overview of the file structure for design and verification components:
@@ -120,53 +167,6 @@ vsim -c -do "scripts/run.tcl"
 # To this:
 vsim -do "scripts/run.tcl"
 ```
-
------
-
-## Verification Methodology
-
-This project follows the **UVM (Universal Verification Methodology)** and includes:
-
-  * **Agents** for both SPI slave and RAM
-  * **UVM sequences** and configuration objects
-  * **Scoreboard** and **coverage collectors**
-  * **Golden Model** comparison using **DPI-C + C++**
-  * **Assertion-Based Verification (ABV)** for protocol checks
-
-The UVM Testbench Architecture:
-
-<p align="center">
-  <img width="565" height="644" alt="UVM Testbench Architecture" src="https://github.com/user-attachments/assets/75154daf-e7cd-4d5a-af42-04dc744b140d" />
-</p>
-
------
-
-## Assertions
-
-Assertions follow a **structured and traceable format**, each mapped to the corresponding item in the **Verification Plan**.
-
-Assertions cover:
-
-  * **FSM transitions**
-  * **Signal values in each state**
-  * **Serial-to-parallel & parallel-to-serial conversions**
-  * **Slave behavior during read/write**
-  * **SPI protocol compliance**
-
------
-
-## Verification Plan
-
-A complete **Verification Plan** is included. Each item in the plan is covered through directed sequences, assertions, and functional coverage.
-
------
-
-## Coverage Reports
-
-  * **Functional Coverage** is monitored through custom coverage collectors.
-  * **Code Coverage** is automatically captured by QuestaSim.
-
-Reports are automatically generated in HTML format for easy navigation and visualization. After simulation, open the `coverage_report/index.html` in your browser to view results.
 
 -----
 

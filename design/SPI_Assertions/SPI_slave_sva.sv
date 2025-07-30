@@ -1,3 +1,6 @@
+`ifndef SPI_SLAVE_SVA_SV
+`define SPI_SLAVE_SVA_SV
+
 /*  
     This assertion file follows the **Verification Plan** numbering  
     Each section corresponds to a specific verification requirement
@@ -5,8 +8,6 @@
     The numbers (e.g., 1, 2.2) match the corresponding test items  
     from the **Verification Plan** for traceability and clarity
 */
-import shared_pkg::*; // For enums and parameters
-`timescale `TIME_UNIT / `TIME_PRECISION
 
 module SPI_slave_sva(cs,MOSI,SS_n,clk,rst_n,tx_data,tx_valid,MISO,rx_data,rx_valid,rx_counter);
     
@@ -231,4 +232,6 @@ module SPI_slave_sva(cs,MOSI,SS_n,clk,rst_n,tx_data,tx_valid,MISO,rx_data,rx_val
                 $error("The slave failed to convert the 10 bits parallel data coming from the tx_data to serial");
                 $display("DEBUG -> tx_data = %b,cs = %b, tx_valid = %0d, MISO = %0b", tx_data,cs,tx_valid,MISO);
             end   
-endmodule
+endmodule : SPI_slave_sva
+
+`endif // SPI_SLAVE_SVA_SV

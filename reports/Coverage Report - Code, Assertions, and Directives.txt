@@ -12,58 +12,58 @@ Name                 File(Line)                   Failure      Pass
                                                   Count        Count
 --------------------------------------------------------------------
 /\tb_top#slave /SPI_slave_inst/assert_reset
-                     design/SPI_Assertions/SPI_slave_sva.sv(31)
+                     ./design/SPI_Assertions/SPI_slave_sva.sv(34)
                                                         0          1
 /\tb_top#slave /SPI_slave_inst/assert_idle_to_chk_cmd
-                     design/SPI_Assertions/SPI_slave_sva.sv(44)
+                     ./design/SPI_Assertions/SPI_slave_sva.sv(47)
                                                         0          1
 /\tb_top#slave /SPI_slave_inst/assert_idle_to_idle
-                     design/SPI_Assertions/SPI_slave_sva.sv(53)
+                     ./design/SPI_Assertions/SPI_slave_sva.sv(56)
                                                         0          0
 /\tb_top#slave /SPI_slave_inst/assert_chk_cmd_to_idle
-                     design/SPI_Assertions/SPI_slave_sva.sv(62)
+                     ./design/SPI_Assertions/SPI_slave_sva.sv(65)
                                                         0          0
 /\tb_top#slave /SPI_slave_inst/assert_chk_cmd_to_write
-                     design/SPI_Assertions/SPI_slave_sva.sv(71)
+                     ./design/SPI_Assertions/SPI_slave_sva.sv(74)
                                                         0          1
 /\tb_top#slave /SPI_slave_inst/assert_chk_cmd_to_read_data
-                     design/SPI_Assertions/SPI_slave_sva.sv(80)
+                     ./design/SPI_Assertions/SPI_slave_sva.sv(83)
                                                         0          0
 /\tb_top#slave /SPI_slave_inst/assert_chk_cmd_to_read_add
-                     design/SPI_Assertions/SPI_slave_sva.sv(89)
+                     ./design/SPI_Assertions/SPI_slave_sva.sv(92)
                                                         0          0
 /\tb_top#slave /SPI_slave_inst/assert_read_add_to_idle
-                     design/SPI_Assertions/SPI_slave_sva.sv(98)
+                     ./design/SPI_Assertions/SPI_slave_sva.sv(101)
                                                         0          1
 /\tb_top#slave /SPI_slave_inst/assert_read_add_to_read_add
-                     design/SPI_Assertions/SPI_slave_sva.sv(107)
+                     ./design/SPI_Assertions/SPI_slave_sva.sv(110)
                                                         0          1
 /\tb_top#slave /SPI_slave_inst/assert_read_data_to_idle
-                     design/SPI_Assertions/SPI_slave_sva.sv(116)
+                     ./design/SPI_Assertions/SPI_slave_sva.sv(119)
                                                         0          1
 /\tb_top#slave /SPI_slave_inst/assert_read_data_to_read_data
-                     design/SPI_Assertions/SPI_slave_sva.sv(125)
+                     ./design/SPI_Assertions/SPI_slave_sva.sv(128)
                                                         0          1
 /\tb_top#slave /SPI_slave_inst/assert_write_to_idle
-                     design/SPI_Assertions/SPI_slave_sva.sv(134)
+                     ./design/SPI_Assertions/SPI_slave_sva.sv(137)
                                                         0          1
 /\tb_top#slave /SPI_slave_inst/assert_write_to_write
-                     design/SPI_Assertions/SPI_slave_sva.sv(143)
+                     ./design/SPI_Assertions/SPI_slave_sva.sv(146)
                                                         0          1
 /\tb_top#slave /SPI_slave_inst/assert_idle
-                     design/SPI_Assertions/SPI_slave_sva.sv(158)
+                     ./design/SPI_Assertions/SPI_slave_sva.sv(161)
                                                         0          1
 /\tb_top#slave /SPI_slave_inst/assert_chk_cmd
-                     design/SPI_Assertions/SPI_slave_sva.sv(170)
+                     ./design/SPI_Assertions/SPI_slave_sva.sv(173)
                                                         0          1
 /\tb_top#slave /SPI_slave_inst/assert_serial_to_parallel
-                     design/SPI_Assertions/SPI_slave_sva.sv(198)
+                     ./design/SPI_Assertions/SPI_slave_sva.sv(201)
                                                         0          1
 /\tb_top#slave /SPI_slave_inst/assert_rx_valid
-                     design/SPI_Assertions/SPI_slave_sva.sv(210)
+                     ./design/SPI_Assertions/SPI_slave_sva.sv(213)
                                                         0          1
 /\tb_top#slave /SPI_slave_inst/assert_miso
-                     design/SPI_Assertions/SPI_slave_sva.sv(229)
+                     ./design/SPI_Assertions/SPI_slave_sva.sv(232)
                                                         0          1
 Branch Coverage:
     Enabled Coverage              Bins      Hits    Misses  Coverage
@@ -76,23 +76,23 @@ Branch Coverage for instance /\tb_top#slave /SPI_slave_inst
 
     Line         Item                      Count     Source 
     ----         ----                      -----     ------ 
-  File design/SPI_Assertions/SPI_slave_sva.sv
+  File ./design/SPI_Assertions/SPI_slave_sva.sv
 ------------------------------------IF Branch------------------------------------
-    182                                     8622     Count coming in to IF
-    182             1                          4                 if (!rst_n) begin
-    185             1                       7418                 end else if (cs inside {WRITE, READ_ADD, READ_DATA}) begin
+    185                                     8658     Count coming in to IF
+    185             1                          4                 if (!rst_n) begin
+    188             1                       7454                 end else if (cs inside {WRITE, READ_ADD, READ_DATA}) begin
                                             1200     All False Count
 Branch totals: 3 hits of 3 branches = 100.00%
 
 ------------------------------------IF Branch------------------------------------
-    186                                     7418     Count coming in to IF
-    186             1                       6000                     if (rx_counter < MEM_WIDTH+2)
-                                            1418     All False Count
+    189                                     7454     Count coming in to IF
+    189             1                       6000                     if (rx_counter < MEM_WIDTH+2)
+                                            1454     All False Count
 Branch totals: 2 hits of 2 branches = 100.00%
 
 ------------------------------------IF Branch------------------------------------
-    188                                     7418     Count coming in to IF
-    188             1                        818                     if (rx_valid && rx_counter == MEM_WIDTH+2)
+    191                                     7454     Count coming in to IF
+    191             1                        854                     if (rx_valid && rx_counter == MEM_WIDTH+2)
                                             6600     All False Count
 Branch totals: 2 hits of 2 branches = 100.00%
 
@@ -106,9 +106,9 @@ Condition Coverage:
 
 Condition Coverage for instance /\tb_top#slave /SPI_slave_inst --
 
-  File design/SPI_Assertions/SPI_slave_sva.sv
+  File ./design/SPI_Assertions/SPI_slave_sva.sv
 ----------------Focused Condition View-------------------
-Line       186 Item    1  (rx_counter < (8 + 2))
+Line       189 Item    1  (rx_counter < (8 + 2))
 Condition totals: 1 of 1 input term covered = 100.00%
 
               Input Term   Covered  Reason for no coverage   Hint
@@ -121,7 +121,7 @@ Condition totals: 1 of 1 input term covered = 100.00%
   Row   2:          1  (rx_counter < (8 + 2))_1  -                             
 
 ----------------Focused Condition View-------------------
-Line       188 Item    1  (rx_valid && (rx_counter == (8 + 2)))
+Line       191 Item    1  (rx_valid && (rx_counter == (8 + 2)))
 Condition totals: 1 of 2 input terms covered = 50.00%
 
                Input Term   Covered  Reason for no coverage   Hint
@@ -148,186 +148,186 @@ Statement Coverage for instance /\tb_top#slave /SPI_slave_inst --
 
     Line         Item                      Count     Source 
     ----         ----                      -----     ------ 
-  File design/SPI_Assertions/SPI_slave_sva.sv
-    11                                               module SPI_slave_sva(cs,MOSI,SS_n,clk,rst_n,tx_data,tx_valid,MISO,rx_data,rx_valid,rx_counter);
-    12                                                   
-    13                                                   input MOSI,clk,rst_n,SS_n,tx_valid;
-    14                                                   input [MEM_WIDTH-1:0] tx_data;
-    15                                               
-    16                                               	input logic MISO,rx_valid;
-    17                                               	input logic [MEM_WIDTH+1:0] rx_data;
-    18                                                   input logic [2:0] cs;
-    19                                                   input logic [3:0] rx_counter;
-    20                                                   //** 1: Reset Verification **\\
-    21                                               
-    22                                                   // 1.1 & 1.2: Reset Current State
-    23                                                   property check_reset;
-    24                                                           (!rst_n)|=> (  cs == IDLE
-    25                                                                       // && !MISO
-    26                                                                       // && !rx_valid
-    27                                                                       // && rx_data ==0
-    28                                                                       );
-    29                                                                     
-    30                                                   endproperty
-    31                                                   assert_reset: assert property (@(posedge clk) check_reset)
-    32                                                       else $error("Failed to assert reset, the current state at reset is not IDLE");
-    33                                               
-    34                                                   //** 3: FSM transitions **\\
-    35                                               
-    36                                                   //aserted => slave not selected
-    37                                               
-    38                                                   // 3.1: Transition from IDLE to CHK_CMD
-    39                                                   property check_idle_to_chk_cmd;
-    40                                                       @(posedge clk) disable iff(!rst_n)
-    41                                                               (cs==IDLE && SS_n==SLAVE_SELECTED) |=> (cs == CHK_CMD);
-    42                                                   endproperty
-    43                                               
-    44                                                   assert_idle_to_chk_cmd: assert property (check_idle_to_chk_cmd)
-    45                                                       else $error("Failed to move to CHK_CMD state when slave is selected at IDLE state");
+  File ./design/SPI_Assertions/SPI_slave_sva.sv
+    14                                               module SPI_slave_sva(cs,MOSI,SS_n,clk,rst_n,tx_data,tx_valid,MISO,rx_data,rx_valid,rx_counter);
+    15                                                   
+    16                                                   input MOSI,clk,rst_n,SS_n,tx_valid;
+    17                                                   input [MEM_WIDTH-1:0] tx_data;
+    18                                               
+    19                                               	input logic MISO,rx_valid;
+    20                                               	input logic [MEM_WIDTH+1:0] rx_data;
+    21                                                   input logic [2:0] cs;
+    22                                                   input logic [3:0] rx_counter;
+    23                                                   //** 1: Reset Verification **\\
+    24                                               
+    25                                                   // 1.1 & 1.2: Reset Current State
+    26                                                   property check_reset;
+    27                                                           (!rst_n)|=> (  cs == IDLE
+    28                                                                       // && !MISO
+    29                                                                       // && !rx_valid
+    30                                                                       // && rx_data ==0
+    31                                                                       );
+    32                                                                     
+    33                                                   endproperty
+    34                                                   assert_reset: assert property (@(posedge clk) check_reset)
+    35                                                       else $error("Failed to assert reset, the current state at reset is not IDLE");
+    36                                               
+    37                                                   //** 3: FSM transitions **\\
+    38                                               
+    39                                                   //aserted => slave not selected
+    40                                               
+    41                                                   // 3.1: Transition from IDLE to CHK_CMD
+    42                                                   property check_idle_to_chk_cmd;
+    43                                                       @(posedge clk) disable iff(!rst_n)
+    44                                                               (cs==IDLE && SS_n==SLAVE_SELECTED) |=> (cs == CHK_CMD);
+    45                                                   endproperty
     46                                               
-    47                                                   // 3.1.1: Transition from IDLE to IDLE
-    48                                                   property check_idle_to_idle;
-    49                                                       @(posedge clk) disable iff(!rst_n)
-    50                                                               (cs==IDLE && SS_n==SLAVE_NOT_SELECTED) |=> (cs == IDLE);
-    51                                                   endproperty
-    52                                               
-    53                                                   assert_idle_to_idle: assert property (check_idle_to_idle)
-    54                                                       else $error("Failed to stay at IDLE state when the slave isn't selected");
+    47                                                   assert_idle_to_chk_cmd: assert property (check_idle_to_chk_cmd)
+    48                                                       else $error("Failed to move to CHK_CMD state when slave is selected at IDLE state");
+    49                                               
+    50                                                   // 3.1.1: Transition from IDLE to IDLE
+    51                                                   property check_idle_to_idle;
+    52                                                       @(posedge clk) disable iff(!rst_n)
+    53                                                               (cs==IDLE && SS_n==SLAVE_NOT_SELECTED) |=> (cs == IDLE);
+    54                                                   endproperty
     55                                               
-    56                                                   // 3.2: Transition from CHK_CMD to IDLE
-    57                                                   property check_chk_cmd_to_idle;
-    58                                                       @(posedge clk) disable iff(!rst_n)
-    59                                                               (cs==CHK_CMD && SS_n==SLAVE_NOT_SELECTED) |=> (cs == IDLE);
-    60                                                   endproperty
-    61                                               
-    62                                                   assert_chk_cmd_to_idle: assert property (check_chk_cmd_to_idle)
-    63                                                       else $error("Failed to move to IDLE state when slave isn't selected at CHK_CMD state");
+    56                                                   assert_idle_to_idle: assert property (check_idle_to_idle)
+    57                                                       else $error("Failed to stay at IDLE state when the slave isn't selected");
+    58                                               
+    59                                                   // 3.2: Transition from CHK_CMD to IDLE
+    60                                                   property check_chk_cmd_to_idle;
+    61                                                       @(posedge clk) disable iff(!rst_n)
+    62                                                               (cs==CHK_CMD && SS_n==SLAVE_NOT_SELECTED) |=> (cs == IDLE);
+    63                                                   endproperty
     64                                               
-    65                                                   // 3.2.1: Transition from CHK_CMD to WRITE
-    66                                                   property check_chk_cmd_to_write;
-    67                                                       @(posedge clk) disable iff(!rst_n)
-    68                                                               (cs==CHK_CMD && SS_n==SLAVE_SELECTED && !MOSI) |=> (cs == WRITE);
-    69                                                   endproperty
-    70                                               
-    71                                                   assert_chk_cmd_to_write: assert property (check_chk_cmd_to_write)
-    72                                                       else $error("Failed to move to WRITE state when slave is selected and MOSI is deasserted at CHK_CMD state");
+    65                                                   assert_chk_cmd_to_idle: assert property (check_chk_cmd_to_idle)
+    66                                                       else $error("Failed to move to IDLE state when slave isn't selected at CHK_CMD state");
+    67                                               
+    68                                                   // 3.2.1: Transition from CHK_CMD to WRITE
+    69                                                   property check_chk_cmd_to_write;
+    70                                                       @(posedge clk) disable iff(!rst_n)
+    71                                                               (cs==CHK_CMD && SS_n==SLAVE_SELECTED && !MOSI) |=> (cs == WRITE);
+    72                                                   endproperty
     73                                               
-    74                                                   // 3.2.2: Transition from CHK_CMD to READ_DATA
-    75                                                   property check_chk_cmd_to_read_data;
-    76                                                       @(posedge clk) disable iff(!rst_n)
-    77                                                               (cs==CHK_CMD && SS_n==SLAVE_NOT_SELECTED) |=> (cs == READ_DATA);
-    78                                                   endproperty
-    79                                               
-    80                                                   assert_chk_cmd_to_read_data: assert property (check_chk_cmd_to_read_data)
-    81                                                       else $error("Failed to move to READ_DATA state when slave is not selected at CHK_CMD state");
+    74                                                   assert_chk_cmd_to_write: assert property (check_chk_cmd_to_write)
+    75                                                       else $error("Failed to move to WRITE state when slave is selected and MOSI is deasserted at CHK_CMD state");
+    76                                               
+    77                                                   // 3.2.2: Transition from CHK_CMD to READ_DATA
+    78                                                   property check_chk_cmd_to_read_data;
+    79                                                       @(posedge clk) disable iff(!rst_n)
+    80                                                               (cs==CHK_CMD && SS_n==SLAVE_NOT_SELECTED) |=> (cs == READ_DATA);
+    81                                                   endproperty
     82                                               
-    83                                                   // 3.2.3: Transition from CHK_CMD to READ_ADD
-    84                                                   property check_chk_cmd_to_read_add;
-    85                                                       @(posedge clk) disable iff(!rst_n)
-    86                                                               (cs==CHK_CMD && SS_n==SLAVE_NOT_SELECTED) |=> (cs == READ_ADD);
-    87                                                   endproperty
-    88                                               
-    89                                                   assert_chk_cmd_to_read_add: assert property (check_chk_cmd_to_read_add)
-    90                                                       else $error("Failed to move to READ_ADD state when slave is not selected at CHK_CMD state");
+    83                                                   assert_chk_cmd_to_read_data: assert property (check_chk_cmd_to_read_data)
+    84                                                       else $error("Failed to move to READ_DATA state when slave is not selected at CHK_CMD state");
+    85                                               
+    86                                                   // 3.2.3: Transition from CHK_CMD to READ_ADD
+    87                                                   property check_chk_cmd_to_read_add;
+    88                                                       @(posedge clk) disable iff(!rst_n)
+    89                                                               (cs==CHK_CMD && SS_n==SLAVE_NOT_SELECTED) |=> (cs == READ_ADD);
+    90                                                   endproperty
     91                                               
-    92                                                   // 3.3: Transition from READ_ADD to IDLE
-    93                                                   property check_read_add_to_idle;
-    94                                                       @(posedge clk) disable iff(!rst_n)
-    95                                                               (cs==READ_ADD && SS_n==SLAVE_NOT_SELECTED) |=> (cs == IDLE);
-    96                                                   endproperty
-    97                                               
-    98                                                   assert_read_add_to_idle: assert property (check_read_add_to_idle)
-    99                                                       else $error("Failed to move to IDLE state when slave isn't selected at READ_ADD state");
+    92                                                   assert_chk_cmd_to_read_add: assert property (check_chk_cmd_to_read_add)
+    93                                                       else $error("Failed to move to READ_ADD state when slave is not selected at CHK_CMD state");
+    94                                               
+    95                                                   // 3.3: Transition from READ_ADD to IDLE
+    96                                                   property check_read_add_to_idle;
+    97                                                       @(posedge clk) disable iff(!rst_n)
+    98                                                               (cs==READ_ADD && SS_n==SLAVE_NOT_SELECTED) |=> (cs == IDLE);
+    99                                                   endproperty
     100                                              
-    101                                                  // 3.3.1: Transition from READ_ADD to READ_ADD
-    102                                                  property check_read_add_to_read_add;
-    103                                                      @(posedge clk) disable iff(!rst_n)
-    104                                                              (cs==READ_ADD && SS_n==SLAVE_SELECTED) |=> (cs == READ_ADD);
-    105                                                  endproperty
-    106                                              
-    107                                                  assert_read_add_to_read_add: assert property (check_read_add_to_read_add)
-    108                                                      else $error("Failed to stay at READ_ADD state when slave is selected at READ_ADD state");
+    101                                                  assert_read_add_to_idle: assert property (check_read_add_to_idle)
+    102                                                      else $error("Failed to move to IDLE state when slave isn't selected at READ_ADD state");
+    103                                              
+    104                                                  // 3.3.1: Transition from READ_ADD to READ_ADD
+    105                                                  property check_read_add_to_read_add;
+    106                                                      @(posedge clk) disable iff(!rst_n)
+    107                                                              (cs==READ_ADD && SS_n==SLAVE_SELECTED) |=> (cs == READ_ADD);
+    108                                                  endproperty
     109                                              
-    110                                                   // 3.4: Transition from READ_DATA to IDLE
-    111                                                  property check_read_data_to_idle;
-    112                                                      @(posedge clk) disable iff(!rst_n)
-    113                                                              (cs==READ_DATA && SS_n==SLAVE_NOT_SELECTED) |=> (cs == IDLE);
-    114                                                  endproperty
-    115                                              
-    116                                                  assert_read_data_to_idle: assert property (check_read_data_to_idle)
-    117                                                      else $error("Failed to move to IDLE state from READ_DATA state when the slave is not selected");
-    118                                                     
-    119                                                    // 3.4.1: Transition from READ_DATA to READ_DATA
-    120                                                  property check_read_data_to_read_data;
-    121                                                      @(posedge clk) disable iff(!rst_n)
-    122                                                              (cs==READ_DATA && SS_n==SLAVE_SELECTED) |=> (cs == READ_DATA);
-    123                                                  endproperty
-    124                                              
-    125                                                  assert_read_data_to_read_data: assert property (check_read_data_to_read_data)
-    126                                                      else $error("Failed to stay at READ_DATA state when slave is selected at READ_DATA state");
+    110                                                  assert_read_add_to_read_add: assert property (check_read_add_to_read_add)
+    111                                                      else $error("Failed to stay at READ_ADD state when slave is selected at READ_ADD state");
+    112                                              
+    113                                                   // 3.4: Transition from READ_DATA to IDLE
+    114                                                  property check_read_data_to_idle;
+    115                                                      @(posedge clk) disable iff(!rst_n)
+    116                                                              (cs==READ_DATA && SS_n==SLAVE_NOT_SELECTED) |=> (cs == IDLE);
+    117                                                  endproperty
+    118                                              
+    119                                                  assert_read_data_to_idle: assert property (check_read_data_to_idle)
+    120                                                      else $error("Failed to move to IDLE state from READ_DATA state when the slave is not selected");
+    121                                                     
+    122                                                    // 3.4.1: Transition from READ_DATA to READ_DATA
+    123                                                  property check_read_data_to_read_data;
+    124                                                      @(posedge clk) disable iff(!rst_n)
+    125                                                              (cs==READ_DATA && SS_n==SLAVE_SELECTED) |=> (cs == READ_DATA);
+    126                                                  endproperty
     127                                              
-    128                                                  // 3.5: Transition from WRITE to IDLE
-    129                                                  property check_write_to_idle;
-    130                                                      @(posedge clk) disable iff(!rst_n)
-    131                                                              (cs==WRITE && SS_n==SLAVE_NOT_SELECTED) |=> (cs == IDLE);
-    132                                                  endproperty
-    133                                              
-    134                                                  assert_write_to_idle: assert property (check_write_to_idle)
-    135                                                      else $error("Failed to move to IDLE state from WRITE state when the slave is not selected");
+    128                                                  assert_read_data_to_read_data: assert property (check_read_data_to_read_data)
+    129                                                      else $error("Failed to stay at READ_DATA state when slave is selected at READ_DATA state");
+    130                                              
+    131                                                  // 3.5: Transition from WRITE to IDLE
+    132                                                  property check_write_to_idle;
+    133                                                      @(posedge clk) disable iff(!rst_n)
+    134                                                              (cs==WRITE && SS_n==SLAVE_NOT_SELECTED) |=> (cs == IDLE);
+    135                                                  endproperty
     136                                              
-    137                                                  // 3.5.1: Transition from WRITE to WRITE
-    138                                                  property check_write_to_write;
-    139                                                      @(posedge clk) disable iff(!rst_n)
-    140                                                              (cs==WRITE && SS_n==SLAVE_SELECTED) |=> (cs == WRITE);
-    141                                                  endproperty
-    142                                              
-    143                                                  assert_write_to_write: assert property (check_write_to_write)
-    144                                                      else $error("Failed to stay at WRITE state when slave isn't selected at WRITE state");
+    137                                                  assert_write_to_idle: assert property (check_write_to_idle)
+    138                                                      else $error("Failed to move to IDLE state from WRITE state when the slave is not selected");
+    139                                              
+    140                                                  // 3.5.1: Transition from WRITE to WRITE
+    141                                                  property check_write_to_write;
+    142                                                      @(posedge clk) disable iff(!rst_n)
+    143                                                              (cs==WRITE && SS_n==SLAVE_SELECTED) |=> (cs == WRITE);
+    144                                                  endproperty
     145                                              
-    146                                                  //** 4: Signals at the FSM states **\\
-    147                                              
-    148                                                      //asserted => slave not selected
-    149                                              
-    150                                                      // 4.1: Signals at IDLE state
-    151                                                      property check_idle;
-    152                                                          @(posedge clk) disable iff(!rst_n)
-    153                                                                  (cs==IDLE) |=> (rx_data == 0 &&
-    154                                                                                  !rx_valid
-    155                                                                                  );
-    156                                                      endproperty
-    157                                              
-    158                                                      assert_idle: assert property (check_idle)
-    159                                                          else $error("Mismatch in signals at IDLE state");
+    146                                                  assert_write_to_write: assert property (check_write_to_write)
+    147                                                      else $error("Failed to stay at WRITE state when slave isn't selected at WRITE state");
+    148                                              
+    149                                                  //** 4: Signals at the FSM states **\\
+    150                                              
+    151                                                      //asserted => slave not selected
+    152                                              
+    153                                                      // 4.1: Signals at IDLE state
+    154                                                      property check_idle;
+    155                                                          @(posedge clk) disable iff(!rst_n)
+    156                                                                  (cs==IDLE) |=> (rx_data == 0 &&
+    157                                                                                  !rx_valid
+    158                                                                                  );
+    159                                                      endproperty
     160                                              
-    161                                                      // 4.2: Signals at CHK_CMD state
-    162                                                      property check_chk_cmd;
-    163                                                          @(posedge clk) disable iff(!rst_n)
-    164                                                                  (cs==CHK_CMD) |=> (!MISO &&
-    165                                                                                     !rx_valid &&
-    166                                                                                     rx_data == 0
-    167                                                                                    );
-    168                                                      endproperty
-    169                                              
-    170                                                      assert_chk_cmd: assert property (check_chk_cmd)
-    171                                                          else $error("Mismatch in signals at CHK_CMD state");
+    161                                                      assert_idle: assert property (check_idle)
+    162                                                          else $error("Mismatch in signals at IDLE state");
+    163                                              
+    164                                                      // 4.2: Signals at CHK_CMD state
+    165                                                      property check_chk_cmd;
+    166                                                          @(posedge clk) disable iff(!rst_n)
+    167                                                                  (cs==CHK_CMD) |=> (!MISO &&
+    168                                                                                     !rx_valid &&
+    169                                                                                     rx_data == 0
+    170                                                                                    );
+    171                                                      endproperty
     172                                              
-    173                                                      //** 5: SPI Slave **\\
-    174                                              
-    175                                                      //aserted => slave not selected
-    176                                              
-    177                                                      // 5.1: Serial to Parallel
-    178                                              
-    179                                                      logic [MEM_WIDTH+1:0] mosi_shift, mosi_shift_latched;
-    180                                              
-    181             1                       8622             always @(posedge clk or negedge rst_n) begin
-    182                                                          if (!rst_n) begin
-    183             1                          4                     mosi_shift <= '0;
-    184             1                          4                     mosi_shift_latched <= '0;
-    185                                                          end else if (cs inside {WRITE, READ_ADD, READ_DATA}) begin
-    186                                                              if (rx_counter < MEM_WIDTH+2)
-    187             1                       6000                         mosi_shift <= {mosi_shift[MEM_WIDTH:0], MOSI}; // Shift left
-    188                                                              if (rx_valid && rx_counter == MEM_WIDTH+2)
-    189             1                        818                         mosi_shift_latched <= mosi_shift;
+    173                                                      assert_chk_cmd: assert property (check_chk_cmd)
+    174                                                          else $error("Mismatch in signals at CHK_CMD state");
+    175                                              
+    176                                                      //** 5: SPI Slave **\\
+    177                                              
+    178                                                      //aserted => slave not selected
+    179                                              
+    180                                                      // 5.1: Serial to Parallel
+    181                                              
+    182                                                      logic [MEM_WIDTH+1:0] mosi_shift, mosi_shift_latched;
+    183                                              
+    184             1                       8658             always @(posedge clk or negedge rst_n) begin
+    185                                                          if (!rst_n) begin
+    186             1                          4                     mosi_shift <= '0;
+    187             1                          4                     mosi_shift_latched <= '0;
+    188                                                          end else if (cs inside {WRITE, READ_ADD, READ_DATA}) begin
+    189                                                              if (rx_counter < MEM_WIDTH+2)
+    190             1                       6000                         mosi_shift <= {mosi_shift[MEM_WIDTH:0], MOSI}; // Shift left
+    191                                                              if (rx_valid && rx_counter == MEM_WIDTH+2)
+    192             1                        854                         mosi_shift_latched <= mosi_shift;
 
 Toggle Coverage:
     Enabled Coverage              Bins      Hits    Misses  Coverage
@@ -383,12 +383,12 @@ Branch Coverage for instance /\tb_top#slave
 Branch totals: 2 hits of 2 branches = 100.00%
 
 ------------------------------------CASE Branch------------------------------------
-    40                                      6717     Count coming in to CASE
+    40                                      6664     Count coming in to CASE
     41              1                       1200             IDLE :begin
-    47              1                        900             CHK_CMD : begin
-    67              1                       1944             WRITE : begin
-    76              1                       1094             READ_ADD : begin
-    85              1                       1578             READ_DATA : begin
+    47              1                        906             CHK_CMD : begin
+    67              1                       1909             WRITE : begin
+    76              1                       1058             READ_ADD : begin
+    85              1                       1590             READ_DATA : begin
     93              1                          1             default:  NS = IDLE;
 Branch totals: 6 hits of 6 branches = 100.00%
 
@@ -399,97 +399,97 @@ Branch totals: 6 hits of 6 branches = 100.00%
 Branch totals: 2 hits of 2 branches = 100.00%
 
 ------------------------------------IF Branch------------------------------------
-    49                                       900     Count coming in to IF
-    49              1                        900                 if(~SS_n) begin
+    49                                       906     Count coming in to IF
+    49              1                        906                 if(~SS_n) begin
     64              1                    ***0***                 else  
 Branch totals: 1 hit of 2 branches = 50.00%
 
 ------------------------------------IF Branch------------------------------------
-    51                                       900     Count coming in to IF
+    51                                       906     Count coming in to IF
     51              1                        600                     if(~MOSI)
-    54              1                        300                     else begin
+    54              1                        306                     else begin
 Branch totals: 2 hits of 2 branches = 100.00%
 
 ------------------------------------IF Branch------------------------------------
-    56                                       300     Count coming in to IF
-    56              1                        150                         if(rd_addr_hold)
-    59              1                        150                         else
+    56                                       306     Count coming in to IF
+    56              1                        153                         if(rd_addr_hold)
+    59              1                        153                         else
 Branch totals: 2 hits of 2 branches = 100.00%
 
 ------------------------------------IF Branch------------------------------------
-    69                                      1944     Count coming in to IF
-    69              1                       1644                 if(~SS_n) begin
-    73              1                        300                 else  
+    69                                      1909     Count coming in to IF
+    69              1                       1615                 if(~SS_n) begin
+    73              1                        294                 else  
 Branch totals: 2 hits of 2 branches = 100.00%
 
 ------------------------------------IF Branch------------------------------------
-    78                                      1094     Count coming in to IF
-    78              1                        944                 if(~SS_n) begin
-    82              1                        150                 else  
+    78                                      1058     Count coming in to IF
+    78              1                        905                 if(~SS_n) begin
+    82              1                        153                 else  
 Branch totals: 2 hits of 2 branches = 100.00%
 
 ------------------------------------IF Branch------------------------------------
-    87                                      1578     Count coming in to IF
-    87              1                       1428                 if(~SS_n) 
-    90              1                        150                 else  
+    87                                      1590     Count coming in to IF
+    87              1                       1437                 if(~SS_n) 
+    90              1                        153                 else  
 Branch totals: 2 hits of 2 branches = 100.00%
 
 ------------------------------------IF Branch------------------------------------
-    98                                      9152     Count coming in to IF
+    98                                      9179     Count coming in to IF
     98              1                          2         if(~arst_n)begin
-                                            9150     All False Count
+                                            9177     All False Count
 Branch totals: 2 hits of 2 branches = 100.00%
 
 ------------------------------------CASE Branch------------------------------------
-    106                                     9152     Count coming in to CASE
+    106                                     9179     Count coming in to CASE
     107             1                        601             IDLE :begin
     117             1                        600             CHK_CMD:begin
-    124             1                       3300             WRITE:begin
-    134             1                       1650             READ_ADD:begin
-    144             1                       3000             READ_DATA:begin
+    124             1                       3234             WRITE:begin
+    134             1                       1683             READ_ADD:begin
+    144             1                       3060             READ_DATA:begin
     167             1                          1             default:begin
 Branch totals: 6 hits of 6 branches = 100.00%
 
 ------------------------------------IF Branch------------------------------------
     112                                      601     Count coming in to IF
-    112             1                        149                 if(tx_valid)
-    114             1                        452                 else
+    112             1                        152                 if(tx_valid)
+    114             1                        449                 else
 Branch totals: 2 hits of 2 branches = 100.00%
 
 ------------------------------------IF Branch------------------------------------
-    125                                     3300     Count coming in to IF
-    125             1                       3000                 if(rx_counter<10)begin
-    129             1                        300                 end else begin
+    125                                     3234     Count coming in to IF
+    125             1                       2940                 if(rx_counter<10)begin
+    129             1                        294                 end else begin
 Branch totals: 2 hits of 2 branches = 100.00%
 
 ------------------------------------IF Branch------------------------------------
-    135                                     1650     Count coming in to IF
-    135             1                       1500                 if(rx_counter<10)begin
-    138             1                        150                 end else begin
+    135                                     1683     Count coming in to IF
+    135             1                       1530                 if(rx_counter<10)begin
+    138             1                        153                 end else begin
 Branch totals: 2 hits of 2 branches = 100.00%
 
 ------------------------------------IF Branch------------------------------------
-    145                                     3000     Count coming in to IF
-    145             1                       1500                 if(rx_counter<10)begin
-    148             1                       1500                 end else begin
+    145                                     3060     Count coming in to IF
+    145             1                       1530                 if(rx_counter<10)begin
+    148             1                       1530                 end else begin
 Branch totals: 2 hits of 2 branches = 100.00%
 
 ------------------------------------IF Branch------------------------------------
-    151                                     1500     Count coming in to IF
-    151             1                       1200                     if(tx_valid)begin
-                                             300     All False Count
+    151                                     1530     Count coming in to IF
+    151             1                       1224                     if(tx_valid)begin
+                                             306     All False Count
 Branch totals: 2 hits of 2 branches = 100.00%
 
 ------------------------------------IF Branch------------------------------------
-    152                                     1200     Count coming in to IF
-    152             1                       1200                         if(tx_counter<8)begin
+    152                                     1224     Count coming in to IF
+    152             1                       1224                         if(tx_counter<8)begin
     157             1                    ***0***                         end else begin
 Branch totals: 1 hit of 2 branches = 50.00%
 
 ------------------------------------IF Branch------------------------------------
-    155                                     1200     Count coming in to IF
-    155             1                        150                             if (tx_counter == 7)
-                                            1050     All False Count
+    155                                     1224     Count coming in to IF
+    155             1                        153                             if (tx_counter == 7)
+                                            1071     All False Count
 Branch totals: 2 hits of 2 branches = 100.00%
 
 
@@ -597,20 +597,20 @@ Line          State Name               Value
                    -----           ---------
                     IDLE                 602          
                  CHK_CMD                 600          
-                READ_ADD                 300          
-               READ_DATA                 300          
-                   WRITE                 600          
+                READ_ADD                 306          
+               READ_DATA                 306          
+                   WRITE                 588          
     Covered Transitions :
     ---------------------
 Line            Trans_ID           Hit_count          Transition          
 ----            --------           ---------          ----------          
   45                   0                 600          IDLE -> CHK_CMD               
-  60                   2                 150          CHK_CMD -> READ_ADD           
-  57                   3                 150          CHK_CMD -> READ_DATA          
-  52                   4                 300          CHK_CMD -> WRITE              
-  83                   5                 150          READ_ADD -> IDLE              
-  91                   6                 150          READ_DATA -> IDLE             
-  74                   7                 300          WRITE -> IDLE                 
+  60                   2                 153          CHK_CMD -> READ_ADD           
+  57                   3                 153          CHK_CMD -> READ_DATA          
+  52                   4                 294          CHK_CMD -> WRITE              
+  83                   5                 153          READ_ADD -> IDLE              
+  91                   6                 153          READ_DATA -> IDLE             
+  74                   7                 294          WRITE -> IDLE                 
     Uncovered Transitions :
     -----------------------
 Line            Trans_ID          Transition          
@@ -669,7 +669,7 @@ Statement Coverage for instance /\tb_top#slave  --
     36              1                       2400             CS <= NS;
     37                                                 end
     38                                                 /*----------Next State Logic--------*/
-    39              1                       6717       always @(*) begin
+    39              1                       6664       always @(*) begin
     40                                                   case (CS)
     41                                                       IDLE :begin
     42                                                           if(SS_n)
@@ -687,10 +687,10 @@ Statement Coverage for instance /\tb_top#slave  --
     54                                                               else begin
     55                                                                   /* if the read addr is held, the next is read the data */
     56                                                                   if(rd_addr_hold)
-    57              1                        150                             NS = READ_DATA;
+    57              1                        153                             NS = READ_DATA;
     58                                                                   /* if the read addr isn't held, the next is read address */
     59                                                                   else
-    60              1                        150                             NS = READ_ADD;
+    60              1                        153                             NS = READ_ADD;
     61                                                               end 
     62                                                           end
     63                                                           /* the master ends the communication to the slave */
@@ -700,34 +700,34 @@ Statement Coverage for instance /\tb_top#slave  --
     67                                                       WRITE : begin
     68                                                           /* the master opens the communication to the slave */
     69                                                           if(~SS_n) begin
-    70              1                       1644                     NS = WRITE;
+    70              1                       1615                     NS = WRITE;
     71                                                           end
     72                                                           /* the master ends the communication to the slave */
     73                                                           else  
-    74              1                        300                     NS = IDLE;
+    74              1                        294                     NS = IDLE;
     75                                                       end
     76                                                       READ_ADD : begin
     77                                                           /* the master opens the communication to the slave */
     78                                                           if(~SS_n) begin
-    79              1                        944                     NS = READ_ADD;
+    79              1                        905                     NS = READ_ADD;
     80                                                           end
     81                                                           /* the master ends the communication to the slave */
     82                                                           else  
-    83              1                        150                     NS = IDLE;
+    83              1                        153                     NS = IDLE;
     84                                                       end
     85                                                       READ_DATA : begin
     86                                                           /* the master opens the communication to the slave */
     87                                                           if(~SS_n) 
-    88              1                       1428                     NS = READ_DATA;
+    88              1                       1437                     NS = READ_DATA;
     89                                                           /* the master ends the communication to the slave */
     90                                                           else  
-    91              1                        150                     NS = IDLE;
+    91              1                        153                     NS = IDLE;
     92                                                       end
     93              1                          1             default:  NS = IDLE;
     94                                                   endcase
     95                                                 end
     96                                                 /*----------Output logic----------*/ 
-    97              1                       9152       always @(posedge clk ) begin
+    97              1                       9179       always @(posedge clk ) begin
     98                                                   if(~arst_n)begin
     99              1                          2             MISO             <= 0;
     100             1                          2             rx_data          <= 0;
@@ -743,9 +743,9 @@ Statement Coverage for instance /\tb_top#slave  --
     110             1                        601                 rx_counter  <= 0;
     111             1                        601                 tx_counter  <= 0;
     112                                                          if(tx_valid)
-    113             1                        149                     MISO <= tx_data[0]; // Fixed
+    113             1                        152                     MISO <= tx_data[0]; // Fixed
     114                                                          else
-    115             1                        452                     MISO <= 0;
+    115             1                        449                     MISO <= 0;
     116                                                      end 
     117                                                      CHK_CMD:begin
     118             1                        600                 MISO     <= 0;
@@ -756,37 +756,37 @@ Statement Coverage for instance /\tb_top#slave  --
     123                                                      end
     124                                                      WRITE:begin
     125                                                          if(rx_counter<10)begin
-    126             1                       3000                     rx_data[9-rx_counter] <= MOSI;
-    127             1                       3000                     rx_counter <= rx_counter + 1;
-    128             1                       3000                     rx_valid <= 0;
+    126             1                       2940                     rx_data[9-rx_counter] <= MOSI;
+    127             1                       2940                     rx_counter <= rx_counter + 1;
+    128             1                       2940                     rx_valid <= 0;
     129                                                          end else begin
-    130             1                        300                     rx_valid <= 1;
-    131             1                        300                     rx_counter <= 0;
+    130             1                        294                     rx_valid <= 1;
+    131             1                        294                     rx_counter <= 0;
     132                                                          end
     133                                                      end
     134                                                      READ_ADD:begin
     135                                                          if(rx_counter<10)begin
-    136             1                       1500                     rx_data[9-rx_counter] <= MOSI;
-    137             1                       1500                     rx_counter <= rx_counter + 1;
+    136             1                       1530                     rx_data[9-rx_counter] <= MOSI;
+    137             1                       1530                     rx_counter <= rx_counter + 1;
     138                                                          end else begin
-    139             1                        150                     rx_valid <= 1;
-    140             1                        150                     rd_addr_hold <=1;
-    141             1                        150                     rx_counter <= 0;
+    139             1                        153                     rx_valid <= 1;
+    140             1                        153                     rd_addr_hold <=1;
+    141             1                        153                     rx_counter <= 0;
     142                                                          end
     143                                                      end
     144                                                      READ_DATA:begin
     145                                                          if(rx_counter<10)begin
-    146             1                       1500                     rx_data[9-rx_counter] <= MOSI;
-    147             1                       1500                     rx_counter <= rx_counter + 1;
+    146             1                       1530                     rx_data[9-rx_counter] <= MOSI;
+    147             1                       1530                     rx_counter <= rx_counter + 1;
     148                                                          end else begin
-    149             1                       1500                     rx_valid <= 1;
+    149             1                       1530                     rx_valid <= 1;
     150                                                              /* Convert the read data from parallel to serial */ 
     151                                                              if(tx_valid)begin
     152                                                                  if(tx_counter<8)begin
-    153             1                       1200                             MISO <= tx_data[7-tx_counter]; // Fixed
-    154             1                       1200                             tx_counter <= tx_counter + 1;
+    153             1                       1224                             MISO <= tx_data[7-tx_counter]; // Fixed
+    154             1                       1224                             tx_counter <= tx_counter + 1;
     155                                                                      if (tx_counter == 7)
-    156             1                        150                                 rd_addr_hold <= 0;
+    156             1                        153                                 rd_addr_hold <= 0;
     157                                                                  end else begin
     158             1                    ***0***                             MISO <= 0;
     159             1                    ***0***                             rx_counter   <= 0;
@@ -848,22 +848,22 @@ Name                 File(Line)                   Failure      Pass
                                                   Count        Count
 --------------------------------------------------------------------
 /\tb_top#RAM /RAM_sva_inst/assert_check_reset
-                     design/SPI_Assertions/SPI_ram_sva.sv(30)
+                     ./design/SPI_Assertions/SPI_ram_sva.sv(33)
                                                         0          1
 /\tb_top#RAM /RAM_sva_inst/assert_wr_addr_ram
-                     design/SPI_Assertions/SPI_ram_sva.sv(41)
+                     ./design/SPI_Assertions/SPI_ram_sva.sv(44)
                                                         0          1
 /\tb_top#RAM /RAM_sva_inst/assert_wr_data_ram
-                     design/SPI_Assertions/SPI_ram_sva.sv(52)
+                     ./design/SPI_Assertions/SPI_ram_sva.sv(55)
                                                         0          1
 /\tb_top#RAM /RAM_sva_inst/assert_rd_addr_ram
-                     design/SPI_Assertions/SPI_ram_sva.sv(63)
+                     ./design/SPI_Assertions/SPI_ram_sva.sv(66)
                                                         0          1
 /\tb_top#RAM /RAM_sva_inst/assert_rd_data_ram
-                     design/SPI_Assertions/SPI_ram_sva.sv(72)
+                     ./design/SPI_Assertions/SPI_ram_sva.sv(75)
                                                         0          1
 /\tb_top#RAM /RAM_sva_inst/assert_tx_valid
-                     design/SPI_Assertions/SPI_ram_sva.sv(83)
+                     ./design/SPI_Assertions/SPI_ram_sva.sv(86)
                                                         0          1
 Statement Coverage:
     Enabled Coverage              Bins      Hits    Misses  Coverage
@@ -876,20 +876,20 @@ Statement Coverage for instance /\tb_top#RAM /RAM_sva_inst --
 
     Line         Item                      Count     Source 
     ----         ----                      -----     ------ 
-  File design/SPI_Assertions/SPI_ram_sva.sv
-    11                                               module SPI_ram_sva(
-    12                                                   input clk,rst_n,rx_valid,
-    13                                                   input[MEM_WIDTH+1:0]din,
-    14                                                   input logic [MEM_WIDTH-1:0]dout,
-    15                                                   input logic tx_valid,
-    16                                                   input logic [ADDR_SIZE-1:0] addr_internal,
-    17                                                   input logic [MEM_WIDTH-1:0] current_addr_data
-    18                                                   );
-    19                                                   logic [1:0] control_bits;
-    20                                                   parameter MEM_DEPTH=256;
-    21                                                   parameter ADDR_SIZE=8;
-    22                                                   parameter MEM_WIDTH=8;
-    23              1                       1051         assign control_bits = din[9:8];
+  File ./design/SPI_Assertions/SPI_ram_sva.sv
+    14                                               module SPI_ram_sva(
+    15                                                   input clk,rst_n,rx_valid,
+    16                                                   input[MEM_WIDTH+1:0]din,
+    17                                                   input logic [MEM_WIDTH-1:0]dout,
+    18                                                   input logic tx_valid,
+    19                                                   input logic [ADDR_SIZE-1:0] addr_internal,
+    20                                                   input logic [MEM_WIDTH-1:0] current_addr_data
+    21                                                   );
+    22                                                   logic [1:0] control_bits;
+    23                                                   parameter MEM_DEPTH=256;
+    24                                                   parameter ADDR_SIZE=8;
+    25                                                   parameter MEM_WIDTH=8;
+    26              1                       1060         assign control_bits = din[9:8];
 
 Toggle Coverage:
     Enabled Coverage              Bins      Hits    Misses  Coverage
@@ -935,18 +935,18 @@ Branch Coverage for instance /\tb_top#RAM
     ----         ----                      -----     ------ 
   File ./design/SPI_design/Designer RTL/SPI_ram.v
 ------------------------------------IF Branch------------------------------------
-    31                                      5772     Count coming in to IF
+    31                                      5700     Count coming in to IF
     31              1                          2         if(~arst_n)begin
-    34              1                       1948         end else if(rx_valid) begin
-    57              1                       3822         end else begin
+    34              1                       1975         end else if(rx_valid) begin
+    57              1                       3723         end else begin
 Branch totals: 3 hits of 3 branches = 100.00%
 
 ------------------------------------CASE Branch------------------------------------
-    36                                      1948     Count coming in to CASE
-    37              1                        150               2'b00 :
-    40              1                        150               2'b01 : 
-    43              1                        150               2'b10 : 
-    46              1                       1498               2'b11 : begin
+    36                                      1975     Count coming in to CASE
+    37              1                        147               2'b00 :
+    40              1                        147               2'b01 : 
+    43              1                        153               2'b10 : 
+    46              1                       1528               2'b11 : begin
     51              1                    ***0***               default: begin
 Branch totals: 4 hits of 5 branches = 80.00%
 
@@ -989,26 +989,26 @@ Statement Coverage for instance /\tb_top#RAM  --
     27                                                 (* ram_style = "block" *)reg [7:0]mem[MEM_DEPTH-1:0];
     28                                               
     29                                               
-    30              1                       5772       always @(posedge clk) begin
+    30              1                       5700       always @(posedge clk) begin
     31                                                   if(~arst_n)begin
     32              1                          2           dout <= 0;
     33              1                          2           tx_valid <= 0;
     34                                                   end else if(rx_valid) begin
-    35              1                       1948           tx_valid<=0; // Fixed
+    35              1                       1975           tx_valid<=0; // Fixed
     36                                                     case (din[9:8])
     37                                                         2'b00 :
     38                                                           /* Write operation - hold the write address */ 
-    39              1                        150                 addr_internal <= din[7:0];
+    39              1                        147                 addr_internal <= din[7:0];
     40                                                         2'b01 : 
     41                                                           /* Write operation - write data to memory in the internal address held previously  */ 
-    42              1                        150                 mem[addr_internal] <= din[7:0];
+    42              1                        147                 mem[addr_internal] <= din[7:0];
     43                                                         2'b10 : 
     44                                                           /* Read operation - hold the read address */ 
-    45              1                        150                 addr_internal <= din[7:0];
+    45              1                        153                 addr_internal <= din[7:0];
     46                                                         2'b11 : begin
     47                                                           /* Read operation - read data from memory mem[addr_internal]  */ 
-    48              1                       1498                 dout <= mem[addr_internal];
-    49              1                       1498                 tx_valid <= 1;
+    48              1                       1528                 dout <= mem[addr_internal];
+    49              1                       1528                 tx_valid <= 1;
     50                                                         end
     51                                                         default: begin
     52                                                           /* deafult case  */ 
@@ -1018,7 +1018,7 @@ Statement Coverage for instance /\tb_top#RAM  --
     56                                                     endcase
     57                                                   end else begin
     58                                                     /* reset tx_valid when the rx_valid is low */
-    59              1                       3822           tx_valid <= 0;
+    59              1                       3723           tx_valid <= 0;
 
 Toggle Coverage:
     Enabled Coverage              Bins      Hits    Misses  Coverage
@@ -1052,76 +1052,76 @@ Name                 File(Line)                   Failure      Pass
                                                   Count        Count
 --------------------------------------------------------------------
 /\tb_top#slave /SPI_slave_inst/assert_reset
-                     design/SPI_Assertions/SPI_slave_sva.sv(31)
+                     ./design/SPI_Assertions/SPI_slave_sva.sv(34)
                                                         0          1
 /\tb_top#slave /SPI_slave_inst/assert_idle_to_chk_cmd
-                     design/SPI_Assertions/SPI_slave_sva.sv(44)
+                     ./design/SPI_Assertions/SPI_slave_sva.sv(47)
                                                         0          1
 /\tb_top#slave /SPI_slave_inst/assert_idle_to_idle
-                     design/SPI_Assertions/SPI_slave_sva.sv(53)
+                     ./design/SPI_Assertions/SPI_slave_sva.sv(56)
                                                         0          0
 /\tb_top#slave /SPI_slave_inst/assert_chk_cmd_to_idle
-                     design/SPI_Assertions/SPI_slave_sva.sv(62)
+                     ./design/SPI_Assertions/SPI_slave_sva.sv(65)
                                                         0          0
 /\tb_top#slave /SPI_slave_inst/assert_chk_cmd_to_write
-                     design/SPI_Assertions/SPI_slave_sva.sv(71)
+                     ./design/SPI_Assertions/SPI_slave_sva.sv(74)
                                                         0          1
 /\tb_top#slave /SPI_slave_inst/assert_chk_cmd_to_read_data
-                     design/SPI_Assertions/SPI_slave_sva.sv(80)
+                     ./design/SPI_Assertions/SPI_slave_sva.sv(83)
                                                         0          0
 /\tb_top#slave /SPI_slave_inst/assert_chk_cmd_to_read_add
-                     design/SPI_Assertions/SPI_slave_sva.sv(89)
+                     ./design/SPI_Assertions/SPI_slave_sva.sv(92)
                                                         0          0
 /\tb_top#slave /SPI_slave_inst/assert_read_add_to_idle
-                     design/SPI_Assertions/SPI_slave_sva.sv(98)
+                     ./design/SPI_Assertions/SPI_slave_sva.sv(101)
                                                         0          1
 /\tb_top#slave /SPI_slave_inst/assert_read_add_to_read_add
-                     design/SPI_Assertions/SPI_slave_sva.sv(107)
+                     ./design/SPI_Assertions/SPI_slave_sva.sv(110)
                                                         0          1
 /\tb_top#slave /SPI_slave_inst/assert_read_data_to_idle
-                     design/SPI_Assertions/SPI_slave_sva.sv(116)
+                     ./design/SPI_Assertions/SPI_slave_sva.sv(119)
                                                         0          1
 /\tb_top#slave /SPI_slave_inst/assert_read_data_to_read_data
-                     design/SPI_Assertions/SPI_slave_sva.sv(125)
+                     ./design/SPI_Assertions/SPI_slave_sva.sv(128)
                                                         0          1
 /\tb_top#slave /SPI_slave_inst/assert_write_to_idle
-                     design/SPI_Assertions/SPI_slave_sva.sv(134)
+                     ./design/SPI_Assertions/SPI_slave_sva.sv(137)
                                                         0          1
 /\tb_top#slave /SPI_slave_inst/assert_write_to_write
-                     design/SPI_Assertions/SPI_slave_sva.sv(143)
+                     ./design/SPI_Assertions/SPI_slave_sva.sv(146)
                                                         0          1
 /\tb_top#slave /SPI_slave_inst/assert_idle
-                     design/SPI_Assertions/SPI_slave_sva.sv(158)
+                     ./design/SPI_Assertions/SPI_slave_sva.sv(161)
                                                         0          1
 /\tb_top#slave /SPI_slave_inst/assert_chk_cmd
-                     design/SPI_Assertions/SPI_slave_sva.sv(170)
+                     ./design/SPI_Assertions/SPI_slave_sva.sv(173)
                                                         0          1
 /\tb_top#slave /SPI_slave_inst/assert_serial_to_parallel
-                     design/SPI_Assertions/SPI_slave_sva.sv(198)
+                     ./design/SPI_Assertions/SPI_slave_sva.sv(201)
                                                         0          1
 /\tb_top#slave /SPI_slave_inst/assert_rx_valid
-                     design/SPI_Assertions/SPI_slave_sva.sv(210)
+                     ./design/SPI_Assertions/SPI_slave_sva.sv(213)
                                                         0          1
 /\tb_top#slave /SPI_slave_inst/assert_miso
-                     design/SPI_Assertions/SPI_slave_sva.sv(229)
+                     ./design/SPI_Assertions/SPI_slave_sva.sv(232)
                                                         0          1
 /\tb_top#RAM /RAM_sva_inst/assert_check_reset
-                     design/SPI_Assertions/SPI_ram_sva.sv(30)
+                     ./design/SPI_Assertions/SPI_ram_sva.sv(33)
                                                         0          1
 /\tb_top#RAM /RAM_sva_inst/assert_wr_addr_ram
-                     design/SPI_Assertions/SPI_ram_sva.sv(41)
+                     ./design/SPI_Assertions/SPI_ram_sva.sv(44)
                                                         0          1
 /\tb_top#RAM /RAM_sva_inst/assert_wr_data_ram
-                     design/SPI_Assertions/SPI_ram_sva.sv(52)
+                     ./design/SPI_Assertions/SPI_ram_sva.sv(55)
                                                         0          1
 /\tb_top#RAM /RAM_sva_inst/assert_rd_addr_ram
-                     design/SPI_Assertions/SPI_ram_sva.sv(63)
+                     ./design/SPI_Assertions/SPI_ram_sva.sv(66)
                                                         0          1
 /\tb_top#RAM /RAM_sva_inst/assert_rd_data_ram
-                     design/SPI_Assertions/SPI_ram_sva.sv(72)
+                     ./design/SPI_Assertions/SPI_ram_sva.sv(75)
                                                         0          1
 /\tb_top#RAM /RAM_sva_inst/assert_tx_valid
-                     design/SPI_Assertions/SPI_ram_sva.sv(83)
+                     ./design/SPI_Assertions/SPI_ram_sva.sv(86)
                                                         0          1
 
 Total Coverage By Instance (filtered view): 90.08%

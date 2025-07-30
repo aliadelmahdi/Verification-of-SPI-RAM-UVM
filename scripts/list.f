@@ -4,6 +4,9 @@
 "+incdir+./design/SPI_design/Designer RTL"
 "+incdir+./design/SPI_design/Golden Models"
 +incdir+./interface
++incdir+./objects
++incdir+./objects/ram_objects
++incdir+./objects/slave_objects
 +incdir+./top
 +incdir+./top/test
 +incdir+./top/test/enviroment
@@ -30,22 +33,7 @@ interface/SPI_if.sv
 "design/SPI_design/Golden Models/golden_models.sv"
 
 # Assertions
-design/SPI_Assertions/SPI_slave_sva.sv
-design/SPI_Assertions/SPI_ram_sva.sv
-
-# Testbench objects
-objects/SPI_config.sv
-
-# Objects
-objects/slave_objects/SPI_slave_main_sequence_pkg.sv
-objects/slave_objects/SPI_slave_seq_item.sv
-
-objects/ram_objects/SPI_ram_seq_item.sv
-objects/ram_objects/SPI_ram_sequences_pkg.sv
-
-# Agents
-top/test/enviroment/slave_agent/SPI_slave_pkg.sv
-top/test/enviroment/ram_agent/SPI_ram_pkg.sv
+design/SPI_Assertions/SPI_assertions.sv
 
 # Environment file
 top/test/enviroment/SPI_env_pkg.sv

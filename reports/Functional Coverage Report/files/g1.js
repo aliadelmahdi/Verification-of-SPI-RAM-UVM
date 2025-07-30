@@ -1,2 +1,2 @@
-var g_data = {"31":{"pr":"/SPI_env_pkg","ty":2,"dui":11,"dun":"work.SPI_env_pkg","cvgs":[{"h":["\\/SPI_env_pkg::SPI_coverage::spi_cov_grp ",2,1,44,32],"cov":[58,44,82.27],"opts":{"goal":"100"}},{"h":["/SPI_env_pkg/SPI_coverage/spi_cov_grp",1,1,32],"cov":[58,44,82.27],"opts":{"goal":"100"}}]}};
+var g_data = {"22":{"pr":"/SPI_env_pkg","ty":2,"dui":4,"dun":"work.SPI_env_pkg","cvgs":[{"h":["\\/SPI_env_pkg::SPI_coverage::spi_cov_grp ",2,1,35,23],"cov":[58,41,78.63],"opts":{"goal":"100"}},{"h":["/SPI_env_pkg/SPI_coverage/spi_cov_grp",1,1,23],"cov":[58,41,78.63],"opts":{"goal":"100"}}]}};
 processCovergroupsData(g_data);

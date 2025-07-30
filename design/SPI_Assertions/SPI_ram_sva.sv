@@ -1,3 +1,6 @@
+`ifndef SPI_RAM_SVA_SV
+`define SPI_RAM_SVA_SV
+
 /*  
     This assertion file follows the **Verification Plan** numbering  
     Each section corresponds to a specific verification requirement
@@ -5,8 +8,6 @@
     The numbers (e.g., 1, 2.2) match the corresponding test items  
     from the **Verification Plan** for traceability and clarity
 */
-// import shared_pkg::*; // For enums and parameters
-`timescale `TIME_UNIT / `TIME_PRECISION
 
 module SPI_ram_sva(
     input clk,rst_n,rx_valid,
@@ -83,4 +84,6 @@ module SPI_ram_sva(
     assert_tx_valid: assert property (check_tx_valid)
         else $error("Failed to ensure that the RAM deasserts tx valid");
 
-endmodule
+endmodule : SPI_ram_sva 
+
+`endif // SPI_RAM_SVA_SV

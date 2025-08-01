@@ -1,4 +1,3 @@
-
 package SPI_test_pkg;
 
     import uvm_pkg::*;

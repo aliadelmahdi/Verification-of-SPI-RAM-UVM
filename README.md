@@ -21,7 +21,6 @@ This project follows the **UVM (Universal Verification Methodology)** and includ
   * **UVM sequences** and configuration objects
   * **Scoreboard** and **coverage collectors**
   * **Golden Model** comparison using **DPI-C + C++**
-  * **Assertion-Based Verification (ABV)** for protocol checks
 
 The UVM Testbench Architecture:
 
@@ -42,12 +41,6 @@ Assertions cover:
   * **Serial-to-parallel & parallel-to-serial conversions**
   * **Slave behavior during read/write**
   * **SPI protocol compliance**
-
------
-
-## Verification Plan
-
-A complete **Verification Plan** is included. Each item in the plan is covered through directed sequences, assertions, and functional coverage.
 
 -----
 
@@ -179,7 +172,7 @@ Key contributions include:
   * Designing the entire **UVM-based environment**
   * Creating the **assertion suite**
   * Building the **Golden Reference Model**
-  * Integrating **DPI-C with C++ backend**
+  * Integrating **DPI-C with C++**
   * Generating coverage reports
 
 -----

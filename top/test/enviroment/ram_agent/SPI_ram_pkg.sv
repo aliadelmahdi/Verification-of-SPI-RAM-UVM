@@ -1,7 +1,6 @@
 `ifndef SPI_RAM_PKG_SV
 `define SPI_RAM_PKG_SV
 
-    import shared_pkg::*;
     `include "SPI_ram_seq_item.sv"
     `include "SPI_ram_sequences.sv"
     `include "SPI_ram_driver.sv"
